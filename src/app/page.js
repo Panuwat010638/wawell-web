@@ -41,6 +41,7 @@ export default function Home() {
       <HomeCollection/>
       <HomeFloor/>
       <HomeWall/>
+      <HomeProject/>
     </main>
   );
 }

@@ -77,7 +77,7 @@ export default function HomeWall() {
               </div>
 
               {/* Right */}
-              <div className='flex flex-col w-full md:w-[50%] md:h-full'>
+              <div className='hidden md:flex flex-col w-full md:w-[50%] md:h-full'>
                 {/* Right-Top */}
                 <div className='group flex justify-center items-center w-full h-[50%] relative'>
                     <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={img003} alt="Floor 001" quality={100} width={608} height={303}/>

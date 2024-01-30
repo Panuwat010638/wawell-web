@@ -22,7 +22,7 @@ export default function () {
 
             <div className='flex flex-col md:flex-row justify-between items-center w-full h-full md:h-[380px] lg:h-[500px] xl:h-[606px]'>
               {/* Right */}
-              <div className='flex flex-col w-full md:w-[50%] md:h-full'>
+              <div className='hidden md:flex flex-col w-full md:w-[50%] md:h-full'>
                 {/* Right-Top */}
                 <div className='group flex justify-center items-center w-full h-[50%] relative'>
                     <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={img001} alt="Floor 001" quality={100} width={608} height={303}/>
