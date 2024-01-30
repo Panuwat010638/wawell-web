@@ -1,0 +1,13 @@
+import React from 'react'
+
+export default function HomeMap() {
+  return (
+    <div className='bg-[#fcfcfc]'>
+        <div className='max-w-full'>
+          <div className='flex justify-center items-center w-full h-[250px] sm:h-[300px] md:h-[350px] lg:h-[400px]'>
+            <iframe className='flex w-full h-full' src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15506.046108070797!2d100.5239203!3d13.6874401!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a3007fa3d221%3A0x7e74257d04e7bed4!2sWawell%20Decor!5e0!3m2!1sen!2sth!4v1706609045037!5m2!1sen!2sth" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+    </div>
+  )
+}

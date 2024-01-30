@@ -8,6 +8,7 @@ import HomeWall from "@/components/Home/HomeWall";
 import HomeProject from "@/components/Home/HomeProject";
 import HomeBlog from "@/components/Home/HomeBlog";
 import HomeContact from "@/components/Home/HomeContact";
+import HomeMap from "@/components/Home/HomeMap";
 
 //Image
 import banner01 from "../../public/assets/Images/Home/Banner/banner01.png"
@@ -43,6 +44,8 @@ export default function Home() {
       <HomeWall/>
       <HomeProject/>
       <HomeBlog/>
+      <HomeContact/>
+      <HomeMap/>
     </main>
   );
 }
