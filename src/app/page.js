@@ -42,6 +42,7 @@ export default function Home() {
       <HomeFloor/>
       <HomeWall/>
       <HomeProject/>
+      <HomeBlog/>
     </main>
   );
 }

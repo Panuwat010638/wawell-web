@@ -35,7 +35,7 @@ export default function () {
 
           {/* Image */}
           <div className="hidden md:flex justify-center items-center w-[36%] h-full">
-            <Image className="object-scale-down object-center w-full" src={img001} quality={100} width={img001.width} height={img001.height}/>
+            <Image className="object-scale-down object-center w-full" src={img001} alt="Image Home About" quality={100} width={img001.width} height={img001.height}/>
           </div>
         </div>
       </div>

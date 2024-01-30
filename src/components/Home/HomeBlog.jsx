@@ -1,7 +1,17 @@
 'use client'
 import Image from "next/image"
 import Link from "next/link"
-import { useState,useEffect } from "react"
+import CardBlog from "../Card/CardBlog"
+import img001 from "../../../public/assets/Images/Home/Blog/img001.png"
+
+const data = [
+  {image:img001,alt:'001',href:'#',title:'Lorem Ipsum is simply',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
+  {image:img001,alt:'001',href:'#',title:'Lorem Ipsum is simply',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
+  {image:img001,alt:'001',href:'#',title:'Lorem Ipsum is simply',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
+  {image:img001,alt:'001',href:'#',title:'Lorem Ipsum is simply',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
+  {image:img001,alt:'001',href:'#',title:'Lorem Ipsum is simply',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
+  {image:img001,alt:'001',href:'#',title:'Lorem Ipsum is simply',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
+]
 
 export default function HomeBlog() {
   return (
@@ -24,8 +34,10 @@ export default function HomeBlog() {
           </div>
 
           {/* Content */}
-          <div>
-
+          <div className="flex flex-wrap gap-x-[2%] gap-y-[24px] lg:gap-y-[36px] xl:gap-y-[48px]">
+            {data.slice(0,6).map((item,index)=>(
+              <CardBlog key={index} item={item} index={index}/>
+            ))}
           </div>
         </div>
       </div>
