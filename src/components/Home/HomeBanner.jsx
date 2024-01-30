@@ -29,7 +29,7 @@ export default function HomeBanner({data}) {
       console.log(data?.images[0].image)
   return (
     <div className="bg-[#ffffff]">
-      <div className="max-w-full">
+      <div className="max-w-full pt-[80px] md:pt-0">
         <div className="flex flex-col justify-center items-center w-full h-full relative">
 
           {/* Image */}
@@ -39,13 +39,13 @@ export default function HomeBanner({data}) {
                   <Image className="object-cover object-center w-full h-full" src={item?.image} alt={item?.alt} quality={100} priority width={1440} height={720}/>
                 </div>
               ))}
-              <div className="hidden md:flex w-[35%] h-full bg-[#14142A4D] z-[10] absolute top-0">
+              <div className="hidden md:flex w-[40%] h-full bg-[#14142A4D] z-[10] absolute top-0">
 
               </div>
           </div>
 
           {/* ImageM */}
-          <div className="flex md:hidden flex-col w-full h-full relative">
+          <div className="flex md:hidden flex-col w-full h-[763px] relative">
               {data?.images.map((item,index)=>(
                 <div key={index} className={`flex justify-center items-center w-full h-full absolute top-0 transition-all duration-500 ${activeIndex==index ? "opacity-100":"opacity-0"}`}>
                   <Image className="object-cover object-center w-full h-full" src={item?.imageM} alt={item?.alt} quality={100} priority width={1440} height={720}/>
@@ -54,22 +54,18 @@ export default function HomeBanner({data}) {
           </div>
 
           {/* Text */}
-          <div className="flex flex-col justify-center md:w-[768px] lg:w-[1024px] xl:w-[1152px] h-full z-[11] absolute top-0">
+          <div className="flex flex-col justify-start md:justify-center w-full md:w-[768px] lg:w-[1024px] xl:w-[1152px] h-full px-6 xl:px-0 z-[11] absolute top-0">
               {/* Title */}
-              <div className="flex flex-col w-full gap-y-[16px]">
-                  <h2 className="md:text-[36px] lg:text-[42px] xl:text-[48px] text-[#FCFCFC] font-[700] leading-[125%]">
+              <div className="flex flex-col items-center md:items-start w-full gap-y-[16px]">
+                  <h2 className="text-[36px] sm:text-[42px] md:text-[36px] lg:text-[42px] xl:text-[48px] text-[#FCFCFC] font-[700] leading-[125%] pt-[80px] md:pt-0">
                     {data?.title}
                   </h2>
-                  <p className="md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#FCFCFC] font-[400] leading-[125%] whitespace-pre-line">
+                  <p className="text-[16px] lg:text-[20px] xl:text-[24px] text-[#FCFCFC] font-[400] leading-[125%] whitespace-pre-line">
                     {data?.detail}
                   </p>
               </div>
           </div>
 
-          {/* TextM */}
-          <div>
-
-          </div>
 
           {/* Dot */}
           <div className="flex justify-center items-end w-full h-full z-[12] absolute top-0">
