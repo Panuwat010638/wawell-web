@@ -26,7 +26,7 @@ export default function HomeBanner({data}) {
           clearInterval(interval);
         };
       });
-      console.log(data?.images[0].image)
+
   return (
     <div className="bg-[#ffffff]">
       <div className="max-w-full pt-[80px] md:pt-0">
