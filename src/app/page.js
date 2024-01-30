@@ -40,6 +40,7 @@ export default function Home() {
       <HomeProduct/>
       <HomeCollection/>
       <HomeFloor/>
+      <HomeWall/>
     </main>
   );
 }
