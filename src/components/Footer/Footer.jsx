@@ -30,7 +30,7 @@ export default function Footer() {
                   บริษัท วาเวล เดคอร์ จำกัด
                 </p>
                 <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#14142A] font-[400] leading-[125%] whitespace-normal lg:whitespace-pre-line'>
-                  {`ผู้เชี่ยวชาญในการนำเข้ากระเบื้องพื้นและผนัง\nLuxury รายใหญ่`}
+                  {`ผู้เชี่ยวชาญในการนำเข้ากระเบื้องพื้นและผนัง Luxury รายใหญ่`}
                 </p>
             </div>
 
