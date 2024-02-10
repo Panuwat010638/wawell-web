@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import img001 from "../../../public/assets/Images/Home/About/img001.png"
 export default function () {
+  console.log(img001.width)
+  console.log(img001.height)
   return (
     <div className='bg-[#FCFCFC]'>
       <div className='max-w-6xl mx-auto px-6 xl:px-0 py-[40px] sm:py-[48px] md:py-[56px] lg:py-[60px] xl:py-[64px]'>
