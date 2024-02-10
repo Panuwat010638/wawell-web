@@ -30,7 +30,7 @@ async function getPosts() {
     }
   }
 
-export default async function page() {
+export default async function Contactpage() {
     const posts = await getPosts();
     const data = posts.props.posts;
   return (

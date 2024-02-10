@@ -74,19 +74,14 @@ export async function generateMetadata({ params, searchParams }, parent) {
 
 
 
-const navbar =[
-  {title:'Home',href:'/',status:'on'},
-  {title:'Products',href:'#',status:'on'},
-  {title:'projects',href:'#',status:'on'},
-  {title:'About us',href:'#',status:'on'},
-  {title:'Blog',href:'#',status:'on'},
-  {title:'Contact',href:'/contact',status:'on'},
-]
+
 
 export default async function RootLayout({ children }) {
   const posts = await getPosts();
   const gtag = posts.props.gtag;
   const facebook = posts.props.facebook;
+  const navbar = posts.props.posts;
+  const footer = posts.props.footer;
   return (
     <html className={iBM_Plex_Sans_Thai.className}>
       <Head>
@@ -102,7 +97,7 @@ export default async function RootLayout({ children }) {
             src={`https://www.facebook.com/tr?id=${facebook?.title}&ev=PageView&noscript=1`}
           />
         </noscript>
-        <Navbar data={navbar}/>
+        <Navbar data={navbar[0].menu}/>
         {children}
         <Footer/>
       </body>

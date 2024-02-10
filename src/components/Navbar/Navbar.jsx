@@ -5,6 +5,13 @@ import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { useState,useEffect } from "react"
 import logo from "../../../public/assets/Images/Navbar/logo.png"
+import client from "../../../client"
+import imageUrlBuilder from '@sanity/image-url'
+
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 export default function Navbar({data}) {
     const pathname = usePathname();
@@ -28,6 +35,8 @@ export default function Navbar({data}) {
 
   // ปรับแต่งสี BG ตาม scrollPosition ตามที่คุณต้องการ
   const bgColor = scrollPosition > 80 ? 'bg-[#1C2532]' : 'bg-transparent';
+
+  console.log(data)
   return (
     <div className="z-[100] fixed top-0 w-screen">
         {/* Desktop */}
@@ -41,13 +50,13 @@ export default function Navbar({data}) {
                            
                         </Link>
                         <ul className="flex items-center h-full gap-x-[24px] lg:gap-x-[42px]">
-                          <li className={`justify-center items-center cursor-pointer ${data[0]?.status== 'on' ? "flex":"hidden"}`}>
+                          <li className={`justify-center items-center cursor-pointer ${data[0]?.status== true ? "flex":"hidden"}`}>
                                 <Link href={`${data[0]?.href}`} className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `/` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                   {data[0]?.title}
                                 </Link>
                           </li>
                           {data?.slice(1,data?.length).map((item,index)=>(
-                            <li key={index} className={`justify-center items-center cursor-pointer ${item?.status== 'on' ? "flex":"hidden"}`}>
+                            <li key={index} className={`justify-center items-center cursor-pointer ${item?.status== true ? "flex":"hidden"}`}>
                                 <Link href={`${item?.href}`} className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `/${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                   {item?.title}
                                 </Link>
@@ -93,13 +102,13 @@ export default function Navbar({data}) {
                       {/* Menu */}
                       <div className={`flex flex-col w-full h-screen bg-[#e7e5df] px-6 pb-[42px] fixed top-[78px] z-[101] transition-all duration-500 transform ${mobileMenuOpen==true ? 'translate-x-0':'-translate-x-full'}`}>
                         <ul className="flex flex-col h-full pt-[36px]">
-                          <li onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${data[0]?.status== 'on' ? "flex":"hidden"} items-center py-[16px] border-b-[1.25px] border-solid border-[#ABB1C1]`}>
+                          <li onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${data[0]?.status== true ? "flex":"hidden"} items-center py-[16px] border-b-[1.25px] border-solid border-[#ABB1C1]`}>
                             <Link href={data[0]?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `/` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                               {data[0]?.title}
                             </Link>
                           </li>
-                          {data.map((item,index)=>(
-                            <li key={index} onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${item?.status== 'on' ? "flex":"hidden"} items-center py-[16px] border-b-[1.25px] border-solid border-[#ABB1C1]`}>
+                          {data?.slice(1,data?.length).map((item,index)=>(
+                            <li key={index} onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${item?.status== true ? "flex":"hidden"} items-center py-[16px] border-b-[1.25px] border-solid border-[#ABB1C1]`}>
                                 <Link href={item?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `/${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                                   {item?.title}
                                 </Link>
