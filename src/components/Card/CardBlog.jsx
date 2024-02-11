@@ -1,11 +1,18 @@
-import Image from "next/image"
+import { Image } from "@nextui-org/react"
 import Link from "next/link"
+import client from "../../../client"
+import imageUrlBuilder from '@sanity/image-url'
+
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 export default function CardBlog({item,index}) {
   return (
     <div key={index} className="group flex flex-col gap-y-[16px] md:gap-y-[24px] w-full ss:w-[49%] sm:w-[49%] md:w-[32%] relative">
-      <div className="flex justify-center items-center w-full h-auto ss:h-[155px] sm:h-[212px] md:h-[170px] lg:h-[230px] xl:h-[292px] overflow-hidden">
-        <Image className=" object-cover object-center w-full h-full transition-all duration-500 group-hover:scale-110" src={item?.image} alt={item?.alt} quality={100} width={398} height={292}/>
+      <div className="flex justify-center items-center w-full h-full ss:h-[140px] sm:h-[180px] md:h-[170px] lg:h-[230px] xl:h-[292px] overflow-hidden">
+        <Image className="object-scale-down sm:object-cover object-center w-full h-full transition-all duration-500 group-hover:scale-110" radius='none' isZoomed src={urlFor(item?.mainImage?.image).url()} alt={item?.mainImage?.alt} quality={100} width={398} height={292}/>
       </div>
       <div className="flex flex-col gap-y-[4px]">
         <h3 className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] line-clamp-1'>
@@ -15,7 +22,7 @@ export default function CardBlog({item,index}) {
           {item?.detail}
         </p>
       </div>
-      <Link href={item?.href} className="flex w-full h-full z-[10] absolute top-0">
+      <Link href={`/blog/${item?.slug?.slug?.current}`} className="flex w-full h-full z-[10] absolute top-0">
 
       </Link>
     </div>

@@ -39,7 +39,7 @@ export default function AboutSec03({data}) {
             {/* Image */}
             <div className="flex justify-center w-full md:w-[52%] lg:w-[50%] h-full">
                 <div className="flex justify-center items-center w-full h-full md:h-[420px] lg:h-full">
-                    <Image as={Image} className="object-contain md:object-cover lg:object-contain object-center w-full h-full" src={urlFor(data?.images?.image).url()} alt={data?.images?.alt} width={608} height={442}/>
+                    <Image className="object-contain md:object-cover lg:object-contain object-center w-full h-full" src={urlFor(data?.images?.image).url()} alt={data?.images?.alt} width={608} height={442}/>
                 </div>
             </div>
         </div>

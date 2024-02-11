@@ -1,4 +1,4 @@
-import React from 'react'
+
 
 export default function AboutSec04({data}) {
   return (
