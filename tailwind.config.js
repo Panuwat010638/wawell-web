@@ -1,3 +1,4 @@
+import {nextui} from '@nextui-org/theme'
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -16,5 +17,6 @@ module.exports = {
       '2xl':'1536px'
   },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui(),]
 };

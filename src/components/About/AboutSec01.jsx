@@ -1,5 +1,4 @@
 "use client"
-import Link from "next/link"
 import Image from "next/image"
 import client from "../../../client"
 import imageUrlBuilder from '@sanity/image-url'
@@ -17,16 +16,16 @@ export default function AboutSec01({data}) {
             {/* Image */}
             <div className="hidden md:flex justify-center w-full md:w-[50%] h-full gap-x-[2%]">
                 <div className="flex justify-center items-center w-full md:w-[49%] h-full">
-                    <Image as={Image} className="object-cover object-center w-full h-full" src={urlFor(data?.images[0]?.image).url()} alt={data?.images[0]?.alt} width={300} height={420}/>
+                    <Image className="object-contain md:object-cover lg:object-contain object-center w-full h-full md:h-[318px] lg:h-full" src={urlFor(data?.images[0]?.image).url()} alt={data?.images[0]?.alt} width={300} height={420}/>
                 </div>
                 <div className="flex justify-center items-center w-full md:w-[49%] h-full">
-                  <Image className="object-cover object-center w-full h-full" src={urlFor(data?.images[1]?.image).url()} alt={data?.images[1]?.alt} width={300} height={420}/>
+                  <Image className="object-contain md:object-cover lg:object-contain object-center w-full h-full md:h-[318px] lg:h-full" src={urlFor(data?.images[1]?.image).url()} alt={data?.images[1]?.alt} width={300} height={420}/>
                 </div>
             </div>
             {/* text */}
-            <div className='flex flex-col justify-center items-center md:items-start w-full md:w-[44%] h-full gap-y-[24px] sm:gap-y-[32px] md:gap-y-[40px]'>
+            <div className='flex flex-col justify-center items-center md:items-start w-full md:w-[44%] h-full gap-y-[24px] md:gap-y-[28px] lg:gap-y-[32px] xl:gap-y-[40px]'>
               {/* Header */}
-              <div className='flex flex-col md:w-[300px] items-center md:items-start gap-y-[8px] pb-[24px] sm:pb-[32px] md:pb-[40px] border-b-[1px] border-solid border-[#6F7489]'>
+              <div className='flex flex-col md:w-[300px] items-center md:items-start gap-y-[8px] pb-[24px] md:pb-[28px] lg:pb-[32px] xl:pb-[40px] border-b-[1px] border-solid border-[#6F7489]'>
                 <h3 className='text-[16px] md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#223B61] font-[400] leading-[125%] uppercase text-center md:text-start'>
                   {data?.subheader}
                 </h3>
