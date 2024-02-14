@@ -4,6 +4,7 @@ import groq from "groq"
 import BlogSlugBanner from "@/components/Blog/Slug/BlogSlugBanner"
 import BlogSlugHeader from "@/components/Blog/Slug/BlogSlugHeader"
 import BlogSlugContent from "@/components/Blog/Slug/BlogSlugContent"
+import BlogSlugMoreBlog from "@/components/Blog/Slug/BlogSlugMoreBlog"
 
 export async function getStaticParams() {
     const paths = [] = await client.fetch(
@@ -66,13 +67,14 @@ export default async function blogSlugpage({params}) {
     const posts = await getPosts(params);
     const data = posts.props.posts;
     const blog = posts.props.blog;
-    console.log(data)
+
   return (
     <main>
-        <div className="flex w-full h-[80px]"/>
-       <BlogSlugBanner data={data}/>
-       <BlogSlugHeader data={data}/>
-       <BlogSlugContent data={data}/>
+      <div className="flex w-full h-[80px]"/>
+        <BlogSlugBanner data={data}/>
+        <BlogSlugHeader data={data}/>
+        <BlogSlugContent data={data}/>
+        <BlogSlugMoreBlog blog={blog}/>
     </main>
   )
 }
