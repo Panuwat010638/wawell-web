@@ -2,7 +2,13 @@
 import Image from "next/image"
 import Link from "next/link"
 import { useState,useEffect } from "react"
+import client from "../../../client"
+import imageUrlBuilder from '@sanity/image-url'
 
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 export default function HomeBanner({data}) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -36,7 +42,7 @@ export default function HomeBanner({data}) {
           <div className="hidden md:flex flex-col w-full md:h-[600px] lg:h-[660px] xl:h-[720px] relative">
               {data?.images.map((item,index)=>(
                 <div key={index} className={`flex justify-center items-center w-full h-full absolute top-0 transition-all duration-500 ${activeIndex==index ? "opacity-100":"opacity-0"}`}>
-                  <Image className="object-cover object-center w-full h-full" src={item?.image} alt={item?.alt} quality={100} priority width={1440} height={720}/>
+                  <Image className="object-cover object-center w-full h-full" src={urlFor(item?.image).format('png').url()} alt={item?.alt} quality={100} priority width={1440} height={720}/>
                 </div>
               ))}
               <div className="hidden md:flex w-[40%] h-full bg-[#14142A4D] z-[10] absolute top-0">
@@ -48,7 +54,7 @@ export default function HomeBanner({data}) {
           <div className="flex md:hidden flex-col w-full h-[763px] relative">
               {data?.images.map((item,index)=>(
                 <div key={index} className={`flex justify-center items-center w-full h-full absolute top-0 transition-all duration-500 ${activeIndex==index ? "opacity-100":"opacity-0"}`}>
-                  <Image className="object-cover object-center w-full h-full" src={item?.imageM} alt={item?.alt} quality={100} priority width={1440} height={720}/>
+                  <Image radius="none" className="object-cover object-center w-full h-full" src={urlFor(item?.imageM).format('png').url()} alt={item?.alt} quality={100} priority width={1440} height={720}/>
                 </div>
               ))}
           </div>
