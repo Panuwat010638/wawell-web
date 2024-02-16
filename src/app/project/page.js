@@ -3,6 +3,8 @@ import ProjectContent from "@/components/Project/ProjectContent";
 import groq from "groq";
 import client from "../../../client";
 
+export const dynamic = "force-dynamic"
+
 async function getPosts() {
 
     const query = groq`*[_type == "CaseProjectPage"] | order(_createdAt desc)`

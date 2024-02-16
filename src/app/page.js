@@ -12,26 +12,8 @@ import HomeMap from "@/components/Home/HomeMap";
 
 import client from "../../client";
 import groq from "groq";
-//Image
-import banner01 from "../../public/assets/Images/Home/Banner/banner01.png"
-import banner02 from "../../public/assets/Images/Home/Banner/banner02.png"
-import banner03 from "../../public/assets/Images/Home/Banner/banner03.png"
-import banner04 from "../../public/assets/Images/Home/Banner/banner04.png"
-import bannerM01 from "../../public/assets/Images/Home/Banner/bannerM01.png"
-import bannerM02 from "../../public/assets/Images/Home/Banner/bannerM02.png"
-import bannerM03 from "../../public/assets/Images/Home/Banner/bannerM03.png"
-import bannerM04 from "../../public/assets/Images/Home/Banner/bannerM04.png"
 
-const banner = {
-  title:'Wawell decor',
-  detail:'"Elevate your space\nwith elegant design"',
-  images:[
-    {image:banner01,imageM:bannerM01,alt:'Home Banner Image 01'},
-    {image:banner02,imageM:bannerM02,alt:'Home Banner Image 02'},
-    {image:banner03,imageM:bannerM03,alt:'Home Banner Image 03'},
-    {image:banner04,imageM:bannerM04,alt:'Home Banner Image 04'},
-  ]
-}
+export const dynamic = "force-dynamic"
 
 async function getPosts() {
 

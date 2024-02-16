@@ -3,6 +3,8 @@ import BlogContent from "@/components/Blog/BlogContent"
 import client from "../../../client"
 import groq from "groq"
 
+export const dynamic = "force-dynamic"
+
 async function getPosts() {
 
     const query = groq`*[_type == "BlogPage"] | order(_createdAt desc)`
