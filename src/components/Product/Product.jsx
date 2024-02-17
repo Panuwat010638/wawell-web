@@ -5,7 +5,7 @@ import CardProduct from "../Card/CardProduct"
 import {Pagination,CheckboxGroup, Checkbox,Tabs, Tab,Button,Input,Modal, ModalContent, ModalHeader, ModalBody, useDisclosure,} from "@nextui-org/react";
 import { IoIosSearch } from "react-icons/io";
 
-
+import ProductFilterMobile from "./ProductFilterMobile";
   
 export default function Product({data,product,collection,category}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -126,7 +126,7 @@ export default function Product({data,product,collection,category}) {
   return (
     <div className="bg-[#fcfcfc]">
         <div className="max-w-6xl mx-auto px-6 xl:px-0 pt-[40px] sm:pt-[48px] md:pt-[56px] lg:pt-[64px] xl:pt-[72px] pb-[56px] md:pb-[64px] lg:pb-[72px] xl:pb-[80px]">
-            <div className="flex flex-col w-full h-full gap-y-[54px]">
+            <div className="flex flex-col w-full h-full gap-y-[24px] sm:gap-y-[32px] md:gap-y-[54px]">
 
                 {/* Header & Search */}
                 <div className="flex justify-between items-center w-full gap-x-[5%]">
@@ -164,7 +164,7 @@ export default function Product({data,product,collection,category}) {
                                 } />
                             <div className="flex justify-end w-full">
                                <div className="flex w-[49%]">
-                                    <Button  size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                                    <Button onPress={onClose} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                                         text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
                                         Search
                                     </Button>
@@ -180,7 +180,7 @@ export default function Product({data,product,collection,category}) {
                 </div>
 
                 {/* Filter Category */}
-                <div className="flex w-full flex-col px-6 xl:px-0">
+                <div className="flex w-full flex-col">
                     <Tabs 
                       aria-label="Options" 
                       color="primary" 
@@ -190,7 +190,7 @@ export default function Product({data,product,collection,category}) {
                       classNames={{
                         tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider",
                         cursor: "w-full bg-[#1C2532]",
-                        tab: "max-w-fit md:max-w-full px-0 h-12",
+                        tab: "max-w-full px-0 h-12",
                         tabContent: "text-[16px] md:text-[18px] text-[#ABB1C1] font-[400] uppercase leading-[125%] group-data-[selected=true]:text-[#1A1A1A]"
                       }}
                     >
@@ -199,7 +199,7 @@ export default function Product({data,product,collection,category}) {
                         key={item?.title}
                         
                         title={
-                          <div className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
+                          <div className="flex justify-center items-center space-x-2 ss:min-w-[160px] md:w-auto">
                             <span onClick={()=>setCat(`${item?.title}`)}>{item?.title}</span>
                           </div>
                         }
@@ -211,8 +211,8 @@ export default function Product({data,product,collection,category}) {
                 </div>
 
                 {/* Filter $ Card Product */}
-                <div className="flex justify-between w-full gap-x-[2%]">
-                    <div className="hidden md:flex flex-col bg-[#F1EFE9] w-[25%] p-[24px] gap-y-[16px]">
+                <div className="flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-x-[2%]">
+                    <div className="hidden md:flex flex-col bg-[#F1EFE9] w-[30%] lg:w-[25%] p-[24px] gap-y-[16px]">
                         <h3 className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px] border-b-[1px] border-solid border-[#223B61]">
                             {data?.categorydetail?.collection}
                         </h3>
@@ -261,7 +261,13 @@ export default function Product({data,product,collection,category}) {
                           </div>
                         </div>
                     </div>
-                    <div className="flex flex-wrap w-[73%] gap-x-[2%] gap-y-[24px] md:gap-y-[36px] h-full">
+                    <ProductFilterMobile data={data} filterCollection={filterCollection} size={size} selected={selected} selectedsize={selectedsize} setSelectedsize={setSelectedsize} setSelected={setSelected} handleClickClear={handleClickClear} handleClickFilter={handleClickFilter}/>
+                    <div className="hidden md:flex flex-wrap w-[68%] lg:w-[73%] gap-x-[2%] md:gap-y-[36px] h-full">
+                        {filterProduct?.map((item,index)=>(
+                            <CardProduct key={index} item={item} index={index}/>
+                        ))}
+                    </div>
+                    <div className="flex md:hidden flex-wrap w-full ss:w-[80%] gap-x-[2%] gap-y-[16px] ss:gap-y-[24px] h-full">
                         {filterProduct?.map((item,index)=>(
                             <CardProduct key={index} item={item} index={index}/>
                         ))}

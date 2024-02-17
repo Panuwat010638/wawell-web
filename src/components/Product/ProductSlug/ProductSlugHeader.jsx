@@ -76,7 +76,7 @@ export default function ProductSlugHeader({data}) {
                                 } />
                             <div className="flex justify-end w-full">
                                <div className="flex w-[49%]">
-                                    <Link href={`/product?product=${value}`} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                                    <Link onPress={onClose} href={`/product?product=${value}`} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                                         text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
                                         Search
                                     </Link>

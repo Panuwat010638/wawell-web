@@ -8,9 +8,9 @@ function urlFor(source) {
   return builder.image(source)
 }
 
-export default function CardProduct({item,index}) {
+export default function CardMoreProduct({item,index}) {
   return (
-    <div className="flex flex-col w-[49%] md:w-[23.5%] gap-y-[16px]">
+    <div className="flex flex-col w-[49%] ss:w-[49%] md:w-[23.5%] gap-y-[16px]">
       {/* Image */}
       <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="flex w-full">
         <Image src={urlFor(item?.mainImage?.image).url()} alt={item?.mainImage?.alt}
