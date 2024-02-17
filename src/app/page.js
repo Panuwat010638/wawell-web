@@ -81,8 +81,9 @@ export default async function Home() {
       <HomeFloor data={data[0]?.HomeCollection}/>
       <HomeWall data={data[0]?.HomeCollection}/>
       <HomeProject project ={project} data={data[0].ourprojects}/>
-      <HomeContact/>
-      <HomeMap/>
+      <HomeBlog data={data[0]?.HomeBlog} blog={blog}/>
+      <HomeContact data={data[0]?.HomeContact}/>
+      <HomeMap />
     </main>
   );
 }

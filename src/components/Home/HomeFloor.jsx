@@ -13,11 +13,11 @@ function urlFor(source) {
 export default function ({data}) {
   return (
     <div className='bg-[#fcfcfc]'>
-      <div className='max-w-6xl mx-auto px-6 xl:px-0 pb-[32px] sm:pb-[48px] md:pb-[64px] lg:pb-[72px]'>
+      <div className='max-w-6xl mx-auto px-6 xl:px-0 pb-[64px] sm:pb-[56px] md:pb-[64px] lg:pb-[72px]'>
         <div className='flex flex-col justify-center items-center w-full h-full gap-y-[24px]'>
             {/* Header */}
             <div className='flex justify-center items-center w-full'>
-              <h3 className='text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#223B61] font-[500] leading-[125%] text-center uppercase'>
+              <h3 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase text-center'>
                 PORCELAIN tiles
               </h3>
             </div>

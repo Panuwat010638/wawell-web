@@ -17,7 +17,7 @@ export default function HomeWall({data}) {
         <div className='flex flex-col justify-center items-center w-full h-full gap-y-[24px]'>
             {/* Header */}
             <div className='flex justify-center items-center w-full'>
-              <h3 className='text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#223B61] font-[500] leading-[125%] text-center uppercase'>
+              <h3 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase text-center'>
                 TEXTURE tiles
               </h3>
             </div>

@@ -19,11 +19,11 @@ export default function ({data}) {
           {/* text */}
           <div className='flex flex-col justify-center items-center md:items-start w-full md:w-[60%] h-full gap-y-[32px] md:gap-y-[40px]'>
             {/* Header */}
-            <div className='flex flex-col md:w-[300px] gap-y-[8px] pb-[32px] md:pb-[40px] border-b-[1px] border-solid border-[#6F7489]'>
-              <h3 className='text-[16px] md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#223B61] font-[400] leading-[125%] uppercase text-center md:text-start'>
+            <div className='flex flex-col md:w-[300px] gap-y-[8px] pb-[24px] md:pb-[40px] border-b-[1px] border-solid border-[#6F7489]'>
+              <h3 className='text-[20px] xl:text-[24px] text-[#223B61] font-[400] leading-[125%] uppercase text-center md:text-start'>
                 {data?.subheader}
               </h3>
-              <h2 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
+              <h2 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
                 {data?.header}
               </h2>
             </div>

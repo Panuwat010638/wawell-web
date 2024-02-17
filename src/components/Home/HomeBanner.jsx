@@ -66,7 +66,7 @@ export default function HomeBanner({data}) {
                   <h2 className="text-[36px] sm:text-[42px] md:text-[36px] lg:text-[42px] xl:text-[48px] text-[#FCFCFC] font-[700] leading-[125%] pt-[80px] md:pt-0">
                     {data?.title}
                   </h2>
-                  <p className="text-[16px] lg:text-[20px] xl:text-[24px] text-[#FCFCFC] font-[400] leading-[125%] whitespace-pre-line">
+                  <p className="text-[18px] lg:text-[20px] xl:text-[24px] text-[#FCFCFC] font-[400] leading-[125%] whitespace-pre-line">
                     {data?.detail}
                   </p>
               </div>

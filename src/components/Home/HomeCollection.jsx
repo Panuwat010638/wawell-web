@@ -7,7 +7,7 @@ export default function HomeCollection({data}) {
         <div className='flex flex-col justify-center items-center w-full h-full gap-y-[24px]'>
             {/* Header */}
             <div className='flex flex-col items-center w-full ss:w-[80%] sm:w-[70%] md:w-full gap-y-[24px]'>
-              <h2 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
+              <h2 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase text-center'>
                 {data?.header}
               </h2>
               <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#545867] font-[400] leading-[160%] whitespace-normal lg:whitespace-pre-line text-center'>
