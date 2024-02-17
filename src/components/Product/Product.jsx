@@ -2,10 +2,19 @@
 import { useState,useEffect } from "react"
 import { useSearchParams,usePathname } from "next/navigation"
 import CardProduct from "../Card/CardProduct"
-import {Pagination,CheckboxGroup, Checkbox,Tabs, Tab} from "@nextui-org/react";
+import {Pagination,CheckboxGroup, Checkbox,Tabs, Tab,Button,Input,Modal, ModalContent, ModalHeader, ModalBody, useDisclosure,} from "@nextui-org/react";
+import { IoIosSearch } from "react-icons/io";
+
+
   
 export default function Product({data,product,collection,category}) {
-
+    const {isOpen, onOpen, onOpenChange} = useDisclosure();
+    const [value, setValue] = useState("");
+    const [selected, setSelected] = useState([]);
+    const [selectedsize, setSelectedsize] = useState([]);
+    /////////////////////////////////////////////////
+    const [modalFilter,setModalFilter]=useState(false)
+    const [filterActive,setFilterActive]=useState(false)
     //Sellect Category////////////////////////////////////////////////////////
     const [cat,setCat]=useState('porcelain TILES')
     const [filterCollection,setCollection]=useState()
@@ -16,6 +25,8 @@ export default function Product({data,product,collection,category}) {
     
         const filteredProduct = product.filter(item => item.category === `${cat}`);
         setProduct(filteredProduct);
+        setSelected([])
+        setSelectedsize([])
     }, [cat, collection, product]);
     //////////////////////////////////////////////////////////////////////////
     //Filter Size/////////////////////////////////////////////////////////////
@@ -27,14 +38,69 @@ export default function Product({data,product,collection,category}) {
 
       }, []);  
     //Sellect Collection/////////////////////////////////////////////////////
-    const [selected, setSelected] = useState([]);
-    const [selectedsize, setSelectedsize] = useState([]);
+    
+
+    useEffect(() => {
+      // กำหนดการเรียกใช้ handleClickFilter ในนี้
+      handleClickFilter();
+    }, [selected, selectedsize]);
     const handleClickFilter = () => {
-        // กรองข้อมูลที่มีขนาดตรงกับ size ที่ถูกคลิก
-        const filteredArray1 = filterProduct.filter(item => selected.includes(item.collection));
-        const filteredArray2 = filteredArray1.filter(item => selectedsize.includes(item.collection));
-        setProduct(filteredArray2);
+      const filteredProduct = product.filter(item => item.category === `${cat}`);
+      setProduct(filteredProduct);
+        if(selected[0] != undefined && selectedsize[0] ==undefined){
+          console.log('test11')
+          const filteredData = filterProduct.filter(item => selected.includes(item.collection));
+          setProduct(filteredData);
+        }else if(selected[0] == undefined && selectedsize[0] != undefined){
+          const filteredArray = filterProduct.filter(obj => {
+            if (Array.isArray(obj.detail.productsize)) {
+                for (let item of obj.detail.productsize) {
+                    if (selectedsize.includes(item.size)) {
+                        return true;
+                    }
+                }
+            } else {
+                if (array1.includes(obj.detail.productsize)) {
+                    return true;
+                }
+            }
+            return false;
+        });
+          setProduct(filteredArray);
+        }else if(selected[0] != undefined  && selectedsize[0] != undefined){
+          const filteredData = filterProduct.filter(item => selected.includes(item.collection));
+          const filteredArray = filteredData.filter(obj => {
+            if (Array.isArray(obj.detail.productsize)) {
+                for (let item of obj.detail.productsize) {
+                    if (selectedsize.includes(item.size)) {
+                        return true;
+                    }
+                }
+            } else {
+                if (array1.includes(obj.detail.productsize)) {
+                    return true;
+                }
+            }
+            return false;
+        });
+          setProduct(filteredArray);
+        }else{
+          const filteredProduct = product.filter(item => item.category === `${cat}`);
+          setProduct(filteredProduct);
+          console.log('test11no')
+        }
+        setModalFilter(false)
         };
+    
+    const [clear,setClear]=useState(false)
+    const handleClickClear = () => {
+      const filteredProduct = product.filter(item => item.category === `${cat}`);
+      setProduct(filteredProduct);
+      setClear(true)
+      setModalFilter(false)
+      setSelected([])
+      setSelectedsize([])
+      };
 
     //Pagination//////////////////////////////////////////////////////////////
     const itemsPerPage = 28;
@@ -67,6 +133,50 @@ export default function Product({data,product,collection,category}) {
                     <h1 className="text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#1C2532] font-[600] leading-[125%] uppercase">
                         {data?.header?.header}
                     </h1>
+                    <form className="hidden md:flex justify-end w-[292px] gap-y-[16px]">
+                      <Input className=" placeholder:text-[#ABB1C1]" type="text" variant='bordered' 
+                      placeholder="ค้นหาผลิตภัณฑ์..." 
+                      value={value}
+                      onValueChange={setValue}
+                      startContent={
+                          <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
+                      } />
+                    </form>
+                    <Button className="flex md:hidden" onPress={onOpen} color="none"> <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" /></Button>
+                    <Modal 
+                      isOpen={isOpen} 
+                      onOpenChange={onOpenChange}
+                      placement="center"
+                      classNames={{
+                            wrapper:"z-[120]"}}
+                        >
+                      <ModalContent>
+                        {(onClose) => (
+                          <>
+                            <ModalHeader className="flex flex-col gap-1 text-[16px] uppercase text-[#223B61] font-[500]">Search</ModalHeader>
+                            <ModalBody className="pb-[40px]">
+                            <Input className=" placeholder:text-[#ABB1C1]" type="text" variant='bordered' 
+                                placeholder="ค้นหาผลิตภัณฑ์..." 
+                                value={value}
+                                onValueChange={setValue}
+                                startContent={
+                                    <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
+                                } />
+                            <div className="flex justify-end w-full">
+                               <div className="flex w-[49%]">
+                                    <Button  size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                                        text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
+                                        Search
+                                    </Button>
+                                </div> 
+                            </div>    
+                            
+                            </ModalBody>
+                   
+                          </>
+                        )}
+                      </ModalContent>
+                    </Modal>
                 </div>
 
                 {/* Filter Category */}
@@ -113,7 +223,7 @@ export default function Product({data,product,collection,category}) {
                           onValueChange={setSelected}
                         >
                         {filterCollection?.map((item,index)=>(
-                              <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item?.title} key={index}>
+                              <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item?.title} key={item?.title}>
                                   {item?.title}
                               </Checkbox>
                           ))}
@@ -128,11 +238,28 @@ export default function Product({data,product,collection,category}) {
                           onValueChange={setSelectedsize}
                         >
                         {size?.map((item,index)=>(
-                              <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item} key={index}>
+                              <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item} key={item}>
                                   {item}
                               </Checkbox>
                           ))}
                         </CheckboxGroup>
+                        <div className="flex w-full gap-x-[2%] pt-[32px]">
+                          {/* Clear */}
+                          <div className="flex w-[49%]">
+                            <Button size="sm" onClick={handleClickClear} className="group data-hover:bg-[#223B61] flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#fcfcfc] hover:bg-[#223B61] transition-all duration-500
+                            text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#223B61] hover:text-[#fcfcfc] font-[500] border-[1px] border-solid border-[#223B61]">
+                            {data?.button?.button01}
+                          </Button>  
+                          </div>
+
+                          {/*Filter */}
+                          <div className="flex w-[49%]">
+                            <Button size="sm" onClick={handleClickFilter} className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                            text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
+                              {data?.button?.button02}
+                            </Button>
+                          </div>
+                        </div>
                     </div>
                     <div className="flex flex-wrap w-[73%] gap-x-[2%] gap-y-[24px] md:gap-y-[36px] h-full">
                         {filterProduct?.map((item,index)=>(

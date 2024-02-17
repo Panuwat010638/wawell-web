@@ -19,5 +19,16 @@ module.exports = {
   },
   },
   darkMode: "class",
-  plugins: [nextui(),]
+  plugins: [nextui({
+    themes: {
+      light: {
+        layout: {
+          hoverOpacity: 1, //  this value is applied as opacity-[value] when the component is hovered
+        },
+      },
+      dark: {
+        layout: {
+          hoverOpacity: 0.9, //  this value is applied as opacity-[value] when the component is hovered
+        },
+      }}})]
 };
