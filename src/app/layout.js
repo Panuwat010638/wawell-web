@@ -99,7 +99,7 @@ export default async function RootLayout({ children }) {
         </noscript>
         <Navbar data={navbar[0].menu}/>
         {children}
-        <Footer/>
+        <Footer data={footer[0]}/>
       </body>
     </html>
   );

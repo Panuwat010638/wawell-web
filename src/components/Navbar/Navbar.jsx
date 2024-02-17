@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import Image from "next/image"
+import {Accordion, AccordionItem,Dropdown, DropdownTrigger, DropdownMenu, DropdownItem,Button} from "@nextui-org/react";
 import { usePathname } from 'next/navigation'
 import { useRouter } from 'next/navigation'
 import { useState,useEffect } from "react"
@@ -35,7 +36,7 @@ export default function Navbar({data}) {
 
   // ปรับแต่งสี BG ตาม scrollPosition ตามที่คุณต้องการ
   const bgColor = scrollPosition > 80 ? 'bg-[#1C2532]' : 'bg-transparent';
-
+  const [isOpen, setIsOpen] = useState(false);
  
   return (
     <div className="z-[100] fixed top-0 w-screen">
@@ -52,10 +53,15 @@ export default function Navbar({data}) {
                         <ul className="flex items-center h-full gap-x-[24px] lg:gap-x-[42px]">
                           {data?.slice(0,data?.length).map((item,index)=>(
                             <li key={index} className={`justify-center items-center cursor-pointer ${item?.status== true ? "flex":"hidden"}`}>
+                            {item?.showsubmenu == true ? 
+                              ('')
+                              :
+                              (
                                 <Link href={`${item?.href}`} className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                   {item?.title}
                                 </Link>
-                            </li>
+                              )}
+                          </li>
                           ))}
                           
                         </ul>
@@ -99,9 +105,30 @@ export default function Navbar({data}) {
                         <ul className="flex flex-col h-full pt-[36px]">
                           {data?.slice(0,data?.length).map((item,index)=>(
                             <li key={index} onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${item?.status== true ? "flex":"hidden"} items-center py-[16px] border-b-[1.25px] border-solid border-[#ABB1C1]`}>
-                                <Link href={item?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
+                               {item?.showsubmenu == true ? 
+                               (
+                                <Accordion>
+                                  <AccordionItem key="1" aria-label={item?.title} title={
+                                    <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} href={item?.href} className={`px-[24px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
+                                      {item?.title}
+                                    </Link>
+                                    }>
+                                      <div className="flex flex-col w-full gap-y-[24px]">
+                                         {item?.submenu?.map((item,index)=>(
+                                         <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} key={index} href={item?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[400] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#545867]"}`}>
+                                           {item?.title}
+                                         </Link>
+                                        ))}
+                                      </div>
+                            
+                                  </AccordionItem>
+                                </Accordion>
+                               ):(
+                                <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} href={item?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                                   {item?.title}
                                 </Link>
+                               )}
+                                
                             </li>
                           ))}
                           <div className='flex justify-center items-center w-full gap-x-[8px] pt-[40px]'>
