@@ -52,19 +52,48 @@ export default function Navbar({data}) {
                         </Link>
                         <ul className="flex items-center h-full gap-x-[24px] lg:gap-x-[42px]">
                           {data?.slice(0,data?.length).map((item,index)=>(
-                            <li key={index} className={`justify-center items-center cursor-pointer ${item?.status== true ? "flex":"hidden"}`}>
+                            <div key={index} className={`justify-center items-center cursor-pointer ${item?.status== true ? "flex":"hidden"}`}>
                             {item?.showsubmenu == true ? 
-                              ('')
+                              (<div className="flex justify-center items-center">
+                                  <Link href={`${item?.href}`} 
+                                    onMouseEnter={() => {
+                                      setIsOpen(true);
+                                    }}
+                                    onMouseLeave={() => {
+                                      setIsOpen(false);
+                                    }} 
+                                    className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
+                                    {item?.title}
+                                  </Link>
+                                  <div className={`flex w-screen justify-center px-6 xl:px-0 py-[32px] bg-[#f1efe9] transition-all duration-500 fixed top-0 left-0 z-[15] ${isOpen ? " translate-y-[80px]":" translate-y-[-400px]"}`}>
+                                    <div className="flex w-full xl:w-[1152px] gap-x-[2%]">
+                                      {item?.submenu?.map((item,index)=>(
+                                        <div key={index} className="flex flex-col w-[49%] gap-y-[8px]">
+                                            <Link href={item?.href} className="text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#1C2532] font-[500] leading-[125%] uppercase">
+                                                {item?.title}
+                                            </Link>
+                                            <Link href={item?.href} className="flex justify-center items-center w-full overflow-hidden">
+                                                <Image className="object-scale-down object-center w-full scale-100 hover:scale-110 transition-all duration-500" src={urlFor(item?.image).url()} alt={item?.alt} 
+                                                quality={100} priority width={604} height={166}/>
+                                            </Link>
+                                        </div>
+                                      ))}
+                                        
+                                    </div>
+                                  </div>
+                                </div>
+                            )
                               :
                               (
                                 <Link href={`${item?.href}`} className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                   {item?.title}
                                 </Link>
                               )}
-                          </li>
+                          </div>
                           ))}
                           
                         </ul>
+                        
                     </div>
                 </div>
             </nav>
