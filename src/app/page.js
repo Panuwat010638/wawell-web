@@ -80,7 +80,7 @@ export default async function Home() {
       <HomeCollection data={data[0]?.HomeCollection}/>
       <HomeFloor data={data[0]?.HomeCollection}/>
       <HomeWall data={data[0]?.HomeCollection}/>
-      <HomeProject/>
+      <HomeProject project ={project} data={data[0].ourprojects}/>
       <HomeContact/>
       <HomeMap/>
     </main>

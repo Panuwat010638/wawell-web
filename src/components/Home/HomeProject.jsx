@@ -3,6 +3,13 @@ import Image from "next/image"
 import Link from "next/link"
 import { useState,useEffect } from "react"
 import img001 from "../../../public/assets/Images/Home/Project/img001.png"
+import client from "../../../client"
+import imageUrlBuilder from '@sanity/image-url'
+
+const builder = imageUrlBuilder(client)
+function urlFor(source) {
+  return builder.image(source)
+}
 
 const data = [
   {image:img001,alt:'SETTHASIRI, Taveewatana',title:'SETTHASIRI, Taveewatana',client:'SETTHASIRI, Taveewatana',category:'Residential',Year:'2023',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
@@ -12,7 +19,7 @@ const data = [
   {image:img001,alt:'SETTHASIRI, Taveewatana',title:'SETTHASIRI, Taveewatana',client:'SETTHASIRI, Taveewatana',category:'Residential',Year:'2023',detail:'Lorem Ipsum is simply dummy text of the printing and typesetting industry. '},
 ]
 
-export default function HomeProject() {
+export default function HomeProject({data,project}) {
   const [activeIndex, setActiveIndex] = useState(0);
 
     const updateActiveIndex = (newIndex) => {
@@ -42,11 +49,11 @@ export default function HomeProject() {
           {/* Header */}
           <div className="flex justify-between items-center w-full gap-x-[24px]">
             <h2 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
-              our projects
+              {data?.header}
             </h2>
-            <Link href={'#'} className="group flex items-center gap-x-[8px]">
+            <Link href={data?.button?.link} className="group flex items-center gap-x-[8px]">
               <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] tracking-[4px]'>
-                view all
+                {data?.button?.title}
               </p>
               <svg className="group-hover:translate-x-2 transition-all duration-500" xmlns="http://www.w3.org/2000/svg" width="24" height="2" viewBox="0 0 24 2" fill="none">
                 <path d="M0 1H24" stroke="#ABB1C1"/>
@@ -58,9 +65,9 @@ export default function HomeProject() {
           <div className="flex flex-col md:flex-row w-full h-full md:h-[400px] lg:h-[500px]">
             {/* Image */}
             <div className="flex flex-col w-full md:w-[70%] h-[200px] ss:h-[250px] sm:h-[300px] md:h-full relative">
-              {data?.slice(0,5).map((item,index)=>(
+              {project?.slice(0,5).map((item,index)=>(
                 <div key={index} className={`flex justify-center items-center w-full h-full absolute top-0 transition-all duration-500 ${activeIndex==index ? "opacity-100":"opacity-0"}`}>
-                  <Image className="object-cover object-center w-full h-full" src={item?.image} alt={item?.alt} quality={100} width={840} height={500}/>
+                  <Image className="object-cover object-center w-full h-full" src={urlFor(item?.mainImage?.image).url()} alt={item?.mainImage?.alt} quality={100} width={840} height={500}/>
                 </div>
               ))}
             </div>
@@ -69,7 +76,7 @@ export default function HomeProject() {
             <div className="flex flex-col justify-between bg-[#f1efe9] w-full md:w-[30%] h-[280px] ss:h-[260px] sm:h-[300px] md:h-full p-[16px] ss:p-[20px] sm:p-[24px] md:p-[32px] lg:p-[36px] xl:p-[40px] relative">
               {/* Text Content */}
               <div className="flex flex-col w-full h-full relative">
-                {data?.slice(0,5).map((item,index)=>(
+                {project?.slice(0,5).map((item,index)=>(
                   <div key={index} className={`flex flex-col w-full gap-y-[16px] absolute top-0 transition-all duration-500 ${activeIndex==index ? "opacity-100":"opacity-0"}`}>
                       <h3 className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#14142A] font-[500] leading-[125%]'>
                           {item?.title}
@@ -82,7 +89,7 @@ export default function HomeProject() {
                           {`Category: ${item?.category}`}
                         </p>
                         <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#545867] font-[400] leading-[125%]'>
-                          {`Year: ${item?.Year}`}
+                          {`Year: ${item?.content?.year}`}
                         </p>
                       </div>
                       <p className='text-[14px] lg:text-[16px] xl:text-[18px] text-[#545867] font-[400] leading-[125%]'>
@@ -94,7 +101,7 @@ export default function HomeProject() {
               </div>
               {/* Dot */}
               <div className="flex justify-center md:justify-between items-center gap-x-[1%] sm:gap-x-[8px] md:gap-x-[1%]">
-                {data?.slice(0,5).map((item,index)=>(
+                {project?.slice(0,5).map((item,index)=>(
                   <div key={index} className={`flex w-[19.2%] sm:w-[40px] md:w-[19.2%] h-[4px] rounded-[20px] ${activeIndex == index ? "bg-[#545867]":"bg-[#ABB1C1]"}`}/>
                 ))}
               </div>
