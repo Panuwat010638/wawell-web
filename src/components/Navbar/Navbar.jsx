@@ -16,9 +16,10 @@ function urlFor(source) {
 
 export default function Navbar({data}) {
     const pathname = usePathname();
-    const router=useRouter();
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const [scrollPosition, setScrollPosition] = useState(0);
+    const [showSubMenu, setShowSubMenu] = useState(false);
+    const [showSubMenuTimeout, setShowSubMenuTimeout] = useState(null);
 
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -36,7 +37,30 @@ export default function Navbar({data}) {
 
   // ปรับแต่งสี BG ตาม scrollPosition ตามที่คุณต้องการ
   const bgColor = scrollPosition > 80 ? 'bg-[#1C2532]' : 'bg-transparent';
-  const [isOpen, setIsOpen] = useState(false);
+  // Function เมื่อเอาเมาส์ไปชี้ที่หัวข้อ
+  const handleMouseEnter = () => {
+    setShowSubMenu(true);
+    clearTimeout(showSubMenuTimeout);
+  };
+
+  // Function เมื่อเอาเมาส์ออกจากทั้งหัวข้อหลักและ Submenu
+  const handleMouseLeave = () => {
+    setShowSubMenuTimeout(
+      setTimeout(() => {
+        setShowSubMenu(false);
+      }, 300) // หน่วงเวลา 2 วินาทีก่อนปิด Submenu
+    );
+  };
+
+  // Function เมื่อเอาเมาส์ไปชี้ที่ Submenu
+  const handleSubMenuMouseEnter = () => {
+    clearTimeout(showSubMenuTimeout);
+  };
+
+  // Function เมื่อเอาเมาส์ออกจาก Submenu
+  const handleSubMenuMouseLeave = () => {
+    handleMouseLeave(); // ใช้ function เดียวกับเมื่อเอาเมาส์ออกจากหัวข้อหลัก
+  };
  
   return (
     <div className="z-[100] fixed top-0 w-screen">
@@ -52,20 +76,19 @@ export default function Navbar({data}) {
                         </Link>
                         <ul className="flex items-center h-full gap-x-[24px] lg:gap-x-[42px]">
                           {data?.slice(0,data?.length).map((item,index)=>(
-                            <div key={index} className={`justify-center items-center cursor-pointer ${item?.status== true ? "flex":"hidden"}`}>
+                            <div key={index} className={`justify-center items-center cursor-pointer relative z-[100] ${item?.status== true ? "flex":"hidden"}`}>
                             {item?.showsubmenu == true ? 
                               (<div className="flex justify-center items-center">
                                   <Link href={`${item?.href}`} 
-                                    onMouseEnter={() => {
-                                      setIsOpen(true);
-                                    }}
-                                    onMouseLeave={() => {
-                                      setIsOpen(false);
-                                    }} 
+                                    onMouseEnter={handleMouseEnter}
+                                    onMouseLeave={handleMouseLeave}
                                     className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                     {item?.title}
                                   </Link>
-                                  <div className={`flex w-screen justify-center px-6 xl:px-0 py-[32px] bg-[#f1efe9] transition-all duration-500 fixed top-0 left-0 z-[15] ${isOpen ? " translate-y-[80px]":" translate-y-[-400px]"}`}>
+                                  <div 
+                                  onMouseEnter={handleSubMenuMouseEnter}
+                                  onMouseLeave={handleSubMenuMouseLeave} 
+                                  className={`w-screen justify-center px-6 xl:px-0 py-[32px] bg-[#f1efe9] transition-all duration-1000 fixed top-[80px] left-0 ${showSubMenu ? 'flex' : ' hidden opacity-0'}`}>
                                     <div className="flex w-full xl:w-[1152px] gap-x-[2%]">
                                       {item?.submenu?.map((item,index)=>(
                                         <div key={index} className="flex flex-col w-[49%] gap-y-[8px]">
