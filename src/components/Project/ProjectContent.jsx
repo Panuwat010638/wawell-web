@@ -100,7 +100,7 @@ export default function ProjectContent({category,project}) {
                     <Tab
                         title={
                           <div className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
-                            <span >ALL</span>
+                            <Link href={`/project`}>ALL</Link>
                           </div>
                         }
                       >
@@ -110,7 +110,7 @@ export default function ProjectContent({category,project}) {
                         key={index}
                         title={
                           <div className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
-                            <span >{item?.title}</span>
+                            <Link href={`/project?category=${item?.title}`} >{item?.title}</Link>
                           </div>
                         }
                       >
