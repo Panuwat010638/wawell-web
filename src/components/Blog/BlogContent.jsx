@@ -106,7 +106,7 @@ export default function BlogContent({blog}) {
                       {/* Dot */}
                       <div className="flex justify-center md:justify-start items-center gap-x-[4%] sm:gap-x-[8px] md:gap-x-[1%]">
                         {highlight?.slice(0,5).map((item,index)=>(
-                          <div key={index} onClick={()=>setActiveIndex(index)} className={`flex w-[19.2%] sm:w-[40px] md:w-[13%] h-[4px] rounded-[20px] cursor-pointer ${activeIndex == index ? "bg-[#545867]":"bg-[#ABB1C1]"}`}/>
+                          <div key={index} onClick={()=>setActiveIndex(index)} className={`flex w-[19.2%] sm:w-[40px] md:w-[13%] h-[4px] rounded-[20px] cursor-pointer transition-all duration-500 ${activeIndex == index ? "bg-[#545867]":"bg-[#ABB1C1]"}`}/>
                         ))}
                       </div>
                     </div>
@@ -142,7 +142,7 @@ export default function BlogContent({blog}) {
                       {/* Dot */}
                       <div className="flex justify-center md:justify-between items-center gap-x-[1%] sm:gap-x-[8px] md:gap-x-[1%]">
                         {highlight?.slice(0,5).map((item,index)=>(
-                          <div key={index} onClick={()=>setActiveIndex(index)} className={`flex w-[19.2%] sm:w-[40px] md:w-[19.2%] h-[4px] rounded-[20px] cursor-pointer ${activeIndex == index ? "bg-[#545867]":"bg-[#ABB1C1]"}`}/>
+                          <div key={index} onClick={()=>setActiveIndex(index)} className={`flex w-[19.2%] sm:w-[40px] md:w-[19.2%] h-[4px] rounded-[20px] cursor-pointer transition-all duration-500 ${activeIndex == index ? "bg-[#545867]":"bg-[#ABB1C1]"}`}/>
                         ))}
                       </div>
                     </div>

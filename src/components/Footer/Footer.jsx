@@ -1,13 +1,6 @@
 import Link from "next/link"
 
-const data =[
-  {title:'Home',href:'/',status:'on'},
-  {title:'Products',href:'#',status:'on'},
-  {title:'projects',href:'#',status:'on'},
-  {title:'About us',href:'#',status:'on'},
-  {title:'Blog',href:'#',status:'on'},
-  {title:'Contact',href:'#',status:'on'},
-]
+
 
 export default function Footer({data}) {
   return (
