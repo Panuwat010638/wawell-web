@@ -42,7 +42,7 @@ const ptComponents = {
         },},
         marks: {
           link: ({ value, children }) => <a className="text-lg text-[#0000ef] font-[400] tracking-[0.02em] whitespace-pre-line transition-all duration-500 hover:underline" href={value?.href} target="_blank" rel={'noreferrer'}>{children}</a>,
-          strong: ({ children }) => <strong className="  font-[700]">{children}</strong>,
+          strong: ({ children }) => <strong id={`${children}`} className="  font-[700]">{children}</strong>,
       },
         list: {
         bullet: ({ children }) =>
