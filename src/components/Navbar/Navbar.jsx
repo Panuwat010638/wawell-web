@@ -78,7 +78,7 @@ export default function Navbar({data}) {
                           {data?.slice(0,data?.length).map((item,index)=>(
                             <div key={index} className={`justify-center items-center cursor-pointer relative z-[100] ${item?.status== true ? "flex":"hidden"}`}>
                             {item?.showsubmenu == true ? 
-                              (<div className="hidden justify-center items-center">
+                              (<div className="flex justify-center items-center">
                                   <Link href={`${item?.href}`} 
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
@@ -156,12 +156,12 @@ export default function Navbar({data}) {
                       <div className={`flex flex-col w-full h-screen bg-[#e7e5df] px-6 pb-[42px] fixed top-[78px] z-[101] transition-all duration-500 transform ${mobileMenuOpen==true ? 'translate-x-0':'-translate-x-full'}`}>
                         <ul className="flex flex-col h-full pt-[36px]">
                           {data?.slice(0,data?.length).map((item,index)=>(
-                            <li key={index} onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${item?.status== true ? "flex":"hidden"} items-center py-[16px] `}>
+                            <li key={index} onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} className={`${item?.status== true ? "flex":"hidden"} items-center ${item?.showsubmenu == true ? "py-0":"py-[16px]"}  border-b-[1.25px] border-solid border-[#ABB1C1]`}>
                                {item?.showsubmenu == true ? 
                                (
-                                <Accordion className="hidden">
+                                <Accordion >
                                   <AccordionItem key="1" aria-label={item?.title} title={
-                                    <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} href={item?.href} className={`px-[24px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
+                                    <Link href={item?.href} className={`px-[24px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase py-0 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                                       {item?.title}
                                     </Link>
                                     }>

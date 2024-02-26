@@ -8,6 +8,8 @@ import { IoIosSearch } from "react-icons/io";
 import ProductFilterMobile from "./ProductFilterMobile";
   
 export default function Product({data,product,collection,category}) {
+    const router = useSearchParams();
+    const pathname = usePathname();
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const [value, setValue] = useState("");
     const [selected, setSelected] = useState([]);
@@ -120,8 +122,19 @@ export default function Product({data,product,collection,category}) {
     const lengthData = filterProduct?.length
     const result = parseInt(lengthData / itemsPerPage);
     const result2 = parseInt(lengthData % itemsPerPage);
-    ///////////////////////////////////////////////////////////////////////////
-
+    //Path Category/////////////////////////////////////////////////////////////////////
+    const qp = router.toString()||'/product'
+    const text=qp.replace("category=", "");
+    const text2=decodeURI(text)
+    const textQuery=text2.replace("+", " ");
+    useEffect(() => {
+       if(textQuery!='/product'){
+        setCat(textQuery)
+       }else {
+        setCat('porcelain TILES')
+       }
+      
+     }, [pathname,qp]);
     
   return (
     <div className="bg-[#fcfcfc]">
