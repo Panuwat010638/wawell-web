@@ -26,6 +26,8 @@ async function getPosts(params) {
         seo,
         content,
         images,
+        applicated,
+        "applicated":applicated[]->{title, slug},
         'category': category->title,
     }`
     const posts = await client.fetch(query, slug)

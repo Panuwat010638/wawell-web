@@ -9,7 +9,7 @@ function urlFor(source) {
 }
 
 export default function BlogSlugBanner({data}) {
-    console.log(data)
+
   return (
     <div className="bg-[#fcfcfc]">
         <div className="max-w-full mx-auto">

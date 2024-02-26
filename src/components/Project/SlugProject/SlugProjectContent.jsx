@@ -21,7 +21,7 @@ export default function SlugProjectContent({data}) {
                     {data?.title}
                   </h2>
                   <div className="flex items-center">
-                    <Link href={`/product?category=${data?.category}`} className="text-[14px] sm:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[500] leading-[125%] flex justify-center items-center bg-[#EFF1F7] hover:bg-[#6F7489]  transition-all duration-500 rounded-[50px] px-6 py-[6px]">
+                    <Link href={`/project?category=${data?.category}`} className="text-[14px] sm:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[500] leading-[125%] flex justify-center items-center bg-[#EFF1F7] hover:bg-[#6F7489]  transition-all duration-500 rounded-[50px] px-6 py-[6px]">
                       {data?.category}
                     </Link>
                   </div>
@@ -53,10 +53,10 @@ export default function SlugProjectContent({data}) {
                     {`Applicated Items: `}
                   </h3>
                   <div className="flex flex-wrap items-center gap-x-[8px] gap-y-[8px]">
-                      {data?.content?.applicated?.map((item,index)=>(
+                      {data?.applicated?.map((item,index)=>(
                         <div key={index} className="flex items-center">
-                          <Link href={`/product?category=${data?.category}`} className="text-[14px] sm:text-[16px] text-[#997F53] hover:text-[#F1EFE9] font-[500] leading-[125%] flex justify-center items-center bg-[#F1EFE9] hover:bg-[#997F53] transition-all duration-500 rounded-[50px] px-6 py-[6px]">
-                            {item}
+                          <Link href={`/product/${item?.slug?.slug?.current}`} className="text-[14px] sm:text-[16px] text-[#997F53] hover:text-[#F1EFE9] font-[500] leading-[125%] flex justify-center items-center bg-[#F1EFE9] hover:bg-[#997F53] transition-all duration-500 rounded-[50px] px-6 py-[6px]">
+                            {item?.title}
                           </Link>
                         </div>
                       ))}

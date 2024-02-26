@@ -10,7 +10,7 @@ function urlFor(source) {
 }
 
 export default function ContactBanner({data}) {
-    console.log(urlFor(data?.image).url())
+
   return (
     <div className="bg-[#ffffff]">
         <div className="max-w-full mx-auto pt-[80px]">

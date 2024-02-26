@@ -8,7 +8,8 @@ import {Tabs, Tab} from "@nextui-org/react";
 import CardProject from "../Card/CardProject"
 
 export default function ProjectContent({category,project}) {
-
+    const [cat,setCat]=useState('ALL')
+    
     const itemsPerPage = 18;
     const [currentPage, setCurrentPage] = useState(1);
     const [startIndex,setStartIndex]=useState(0)
@@ -67,19 +68,44 @@ export default function ProjectContent({category,project}) {
       const qp = router.toString()||'/project'
       const text=qp.replace("category=", "");
       const text2=decodeURI(text)
-      const textQuery=text2.replace("+", " ");
+      const textQuery1=text2.replace("+", " ");
+      const textQuery=textQuery1.replace("+", " ");
       const [projectfilter,setFilteredproject]=useState(project||[])
       useEffect(() => {
-          if (textQuery!='/project' ) {
-              const filtered = project.filter((item) => item.category==textQuery);
-              setFilteredproject(filtered);
-              console.log("yes")
+          setCat(textQuery)
+          if (textQuery !='/project' ) {       
+              setCat(textQuery);
           } else {
            
-              setFilteredproject(project);
-           
+              setCat('ALL');
+              
           }
-        }, [pathname, router.toString()]);
+        }, [pathname,qp,router]);
+
+        useEffect(() => {
+          if(cat!='ALL'){
+            
+            if(textQuery == "residential"){
+              
+          
+              const filteredProject = project.filter(item => item.category === `${cat}`);
+            setFilteredproject(filteredProject);
+            }else if(textQuery == "hotel and resort"){
+        
+              const filteredProject = project.filter(item => item.category === `${cat}`);
+            setFilteredproject(filteredProject);
+            }else if(textQuery == "Commercial"){
+        
+              const filteredProject = project.filter(item => item.category === `${cat}`);
+            setFilteredproject(filteredProject);
+            }
+ 
+          }else {
+            setFilteredproject(project);
+        
+          }
+                
+        }, [cat,router]);
   return (
     <div className="bg-[#fcfcfc]">
         <div className="max-w-full mx-auto pb-[56px] md:pb-[80px]">
@@ -87,6 +113,8 @@ export default function ProjectContent({category,project}) {
                 {/* Category */}
                 <div className="flex w-full sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1152px] flex-col px-6 xl:px-0">
                     <Tabs 
+                    defaultSelectedKey={textQuery=="residential" ? "1":textQuery=="hotel and resort"?"2":textQuery=="Commercial" ? "3":"0"}
+                   
                       aria-label="Options" 
                       color="primary" 
                       variant="underlined"
@@ -98,19 +126,22 @@ export default function ProjectContent({category,project}) {
                       }}
                     >
                     <Tab
+                    onClick={()=>setCat('ALL')}
+                    key={`0`}
                         title={
-                          <div className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
-                            <Link href={`/project`}>ALL</Link>
+                          <div onClick={()=>setCat('ALL')} className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
+                            <h2 onClick={()=>setCat('ALL')} className="w-full">ALL</h2>
                           </div>
                         }
                       >
                       </Tab>
                       {category?.map((item,index)=>(
                         <Tab
-                        key={index}
+                        key={index+1}
+                        onClick={()=>setCat(item?.title)}
                         title={
-                          <div className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
-                            <Link href={`/project?category=${item?.title}`} >{item?.title}</Link>
+                          <div onClick={()=>setCat(item?.title)} className="flex justify-center items-center space-x-2 min-w-[160px] md:w-auto">
+                            <h2 onClick={()=>setCat(item?.title)} className="w-full">{item?.title}</h2>
                           </div>
                         }
                       >

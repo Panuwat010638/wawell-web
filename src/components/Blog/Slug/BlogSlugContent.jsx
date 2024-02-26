@@ -79,7 +79,7 @@ export default function BlogSlugContent({data}) {
         window.removeEventListener('scroll', handleScroll);
       };
     }, []);
-    console.log(centeredH2)
+
   return (
     <div className="bg-[#fcfcfc]">
         <div className="max-w-6xl mx-auto px-6 xl:px-0 py-[36px] ss:py-[40px] sm:py-[40px]">

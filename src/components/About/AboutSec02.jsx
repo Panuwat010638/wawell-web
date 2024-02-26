@@ -9,7 +9,7 @@ function urlFor(source) {
 }
 
 export default function AboutSec02({data}) {
-  console.log(data)
+ 
   return (
     <div className='bg-[#fcfcfc]'>
       <div className='max-w-6xl mx-auto'>

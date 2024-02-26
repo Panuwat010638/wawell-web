@@ -9,7 +9,7 @@ function urlFor(source) {
 }
 
 export default function CardProject({item,index}) {
-  console.log(item?.category)
+
   return (
     <div key={index} className="group flex flex-col justify-center items-center w-full h-full sm:w-[50%] md:w-[33.33%] relative">
         <div className="flex justify-center items-center w-full h-full z-[5]">
