@@ -95,7 +95,7 @@ export default function BlogSlugContent({data}) {
                 </div>
 
                 {/* Select Head Content */}
-                <div className={`flex-col w-full lg:w-[30%] h-full gap-y-[32px] lg:sticky lg:top-[100px] pb-[24px] lg:pb-0 border-b-[2px] border-solid border-[#14142A] lg:border-b-0 ${data?.headings[0] != null ? "flex":"hidden opacity-0"}`}>
+                <div className={`flex-col w-full lg:w-[30%] h-full gap-y-[24px] lg:sticky lg:top-[100px] pb-[24px] lg:pb-0 border-b-[2px] border-solid border-[#14142A] lg:border-b-0 ${data?.headings[0] != null ? "flex":"hidden opacity-0"}`}>
                     <div className="flex items-center gap-x-[12px]">
 
                         <h2 className='w-full text-[18px] md:text-[24px] xl:text-[32px] text-[#223B61] font-[700] leading-[125%] pb-[16px] lg:pb-0 border-b-[2px] lg:border-b-[0px] border-solid border-[#E0E3EB]'>
