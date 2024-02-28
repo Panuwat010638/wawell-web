@@ -32,8 +32,8 @@ export default function ProductSlugHeader({data}) {
                         OUR products
                     </h2>
                     <div className="flex gap-x-[10px]">
-                        <Link href={`/`} className="text-[14px] md:text-[16px] text-[#ABB1C1] font-[500]">
-                            Home /
+                        <Link href={`/product`} className="text-[14px] md:text-[16px] text-[#ABB1C1] font-[500]">
+                            Product /
                         </Link>
                         <p className="text-[14px] md:text-[16px] text-[#14142A] font-[500]">
                             {data?.title}

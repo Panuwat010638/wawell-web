@@ -82,7 +82,7 @@ export default function Navbar({data}) {
                                   <Link href={`${item?.href}`} 
                                     onMouseEnter={handleMouseEnter}
                                     onMouseLeave={handleMouseLeave}
-                                    className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
+                                    className={`font-pop text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                     {item?.title}
                                   </Link>
                                   <div 
@@ -92,7 +92,7 @@ export default function Navbar({data}) {
                                     <div className="flex w-full xl:w-[1152px] gap-x-[2%]">
                                       {item?.submenu?.map((item,index)=>(
                                         <div key={index} className="flex flex-col w-[49%] gap-y-[8px]">
-                                            <Link href={item?.href} className="text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#1C2532] font-[500] leading-[125%] uppercase">
+                                            <Link href={item?.href} className="font-pop text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#1C2532] font-[500] leading-[125%] uppercase">
                                                 {item?.title}
                                             </Link>
                                             <Link href={item?.href} className="flex justify-center items-center w-full overflow-hidden">
@@ -108,7 +108,7 @@ export default function Navbar({data}) {
                             )
                               :
                               (
-                                <Link href={`${item?.href}`} className={`text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
+                                <Link href={`${item?.href}`} className={`font-pop text-[14px] lg:text-[16px] xl:text-[18px] cursor-pointer font-[400] leading-[125%] text-center transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53] border-b-[2px] border-solid border-[#997F53]":"text-[#FCFCFC]"}`}>
                                   {item?.title}
                                 </Link>
                               )}
@@ -160,14 +160,14 @@ export default function Navbar({data}) {
                                {item?.showsubmenu == true ? 
                                (
                                 <Accordion >
-                                  <AccordionItem key="1" aria-label={item?.title} title={
-                                    <Link href={item?.href} className={`px-[24px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase py-0 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
+                                  <AccordionItem key="1" aria-label={item?.title} classNames={{indicator:"rotate-90" }} title={
+                                    <Link href={item?.href} className={`font-pop px-[24px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase py-0 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                                       {item?.title}
                                     </Link>
                                     }>
                                       <div className="flex flex-col w-full gap-y-[24px]">
                                          {item?.submenu?.map((item,index)=>(
-                                         <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} key={index} href={item?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[400] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#545867]"}`}>
+                                         <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} key={index} href={item?.href} className={`font-pop px-[32px] text-[18px] sm:text-[22px] font-[400] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#545867]"}`}>
                                            {item?.title}
                                          </Link>
                                         ))}
@@ -176,7 +176,7 @@ export default function Navbar({data}) {
                                   </AccordionItem>
                                 </Accordion>
                                ):(
-                                <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} href={item?.href} className={`px-[32px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
+                                <Link onClick={()=>setMobileMenuOpen(!mobileMenuOpen)} href={item?.href} className={`font-pop px-[32px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase pb-1 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                                   {item?.title}
                                 </Link>
                                )}
@@ -184,7 +184,7 @@ export default function Navbar({data}) {
                             </li>
                           ))}
                           <div className='flex justify-center items-center w-full gap-x-[8px] pt-[40px]'>
-                            <p className='text-[14px] md:text-[16px] text-[#14142A] font-[400] leading-[125%]'>
+                            <p className='font-pop text-[14px] md:text-[16px] text-[#14142A] font-[400] leading-[125%]'>
                               {`Follow Us: `}
                             </p>
                             <a href={data?.social?.ig} target='_blank' className=' cursor-pointer'>

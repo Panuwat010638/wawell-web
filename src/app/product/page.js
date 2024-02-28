@@ -31,7 +31,7 @@ async function getPosts() {
         const dateB = new Date(b.date);
         return dateB - dateA;
       });
-      const queryCollection = groq`*[_type == "collectionproduct"] | order(_createdAt desc){
+      const queryCollection = groq`*[_type == "collectionproduct"] | order(_createdAt asc){
         _id,
         title,
         'category': category->title,

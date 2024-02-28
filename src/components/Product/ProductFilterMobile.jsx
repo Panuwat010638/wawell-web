@@ -27,7 +27,7 @@ export default function ProductFilterMobile({data,filterCollection,size,selected
                 <ModalHeader className="flex flex-col gap-1 text-[16px] uppercase text-[#223B61] font-[500]">Filter</ModalHeader>
                 <ModalBody className="pb-[40px]">
                 <Accordion selectionMode="multiple">
-                  <AccordionItem key="1" aria-label={data?.categorydetail?.collection} title={
+                  <AccordionItem key="1" aria-label={data?.categorydetail?.collection} classNames={{indicator:"rotate-90" }} title={
                     <h3 className="w-full text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px]">
                         {data?.categorydetail?.collection}
                       </h3>
@@ -45,7 +45,7 @@ export default function ProductFilterMobile({data,filterCollection,size,selected
                           ))}
                         </CheckboxGroup>
                   </AccordionItem>
-                  <AccordionItem key="2" aria-label={data?.categorydetail?.size} title={
+                  <AccordionItem key="2" classNames={{indicator:"rotate-90" }} aria-label={data?.categorydetail?.size} title={
                     <h3 className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px]">
                         {data?.categorydetail?.size}
                       </h3>

@@ -50,7 +50,7 @@ export default function Product({data,product,collection,category}) {
         return item;
       }
     });
-    const newData = newData1.map(item => {
+    const newData2 = newData1.map(item => {
       // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
       if (item.detail && item.detail.productsize) {
         return {
@@ -59,7 +59,7 @@ export default function Product({data,product,collection,category}) {
             ...item.detail,
             productsize: item.detail.productsize.map(sizeItem => ({
               ...sizeItem,
-              size: sizeItem.size.replace(/O/g, '0')
+              size: sizeItem.size.replace(/X/g, 'x')
             }))
           }
         };
@@ -68,7 +68,24 @@ export default function Product({data,product,collection,category}) {
         return item;
       }
     });
-
+    const newData = newData2.map(item => {
+      // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/O/g, '0').replace(/X/g, 'x')
+            }))
+          }
+        };
+      } else {
+        // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+        return item;
+      }
+    });
 
     const [size, setSize] = useState([...new Set(newData.flatMap(item => 
       item.detail.productsize ? 

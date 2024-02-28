@@ -16,6 +16,27 @@ function urlFor(source) {
 
 export default function ProductSlugContent({data}) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const handleImageLoad = async () => {
+    try {
+      const response = await fetch('https://cdn.sanity.io/images/5mjrzmch/production/7dc4c9ad34c3c1b2ba910f82c8702982648717a5-2362x1170.png');
+      const blob = await response.blob();
+
+      // สร้าง URL จาก Blob
+      const url = window.URL.createObjectURL(blob);
+
+      // สร้างลิงก์โหลด
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'image.png'; // กำหนดชื่อไฟล์ที่จะถูกดาวน์โหลด
+      link.click();
+
+      // ทำความสะอาด URL
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('เกิดข้อผิดพลาดในการดาวน์โหลดไฟล์:', error);
+    }
+  };
+
   return (
     <div className="bg-[#fcfcfc]">
       <div className="max-w-6xl mx-auto px-6 xl:px-0 pb-[56px] md:pb-[64px] lg:pb-[72px] xl:pb-[80px]">
@@ -57,7 +78,7 @@ export default function ProductSlugContent({data}) {
                       null
                   ):(
                     <div className="flex">
-                      <Button size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
+                      <Button onClick={handleImageLoad} size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
                       text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[600]">
                         Download
                       </Button>  
@@ -141,7 +162,8 @@ export default function ProductSlugContent({data}) {
                           </div>
                         </div>
                         {/* Right */}
-                        <div className="flex flex-col w-full md:w-[55%] gap-y-[4px]">
+                        {data?.detail?.productsize==undefined ? null:(
+                         <div className="flex flex-col w-full md:w-[55%] gap-y-[4px]">
                           <h2 className="text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#14142A] font-[700] leading-[125%]">
                             Size Available: 
                           </h2>
@@ -161,10 +183,13 @@ export default function ProductSlugContent({data}) {
                             </div>
                           )}
                           
-                        </div>
+                        </div> 
+                        )}
+                        
                     </div>
                     {/* Pattern */}
-                    <div className="flex flex-col w-full gap-y-[8px]">
+                    {data?.detail?.pattern == undefined ? null :(
+                     <div className="flex flex-col w-full gap-y-[8px]">
                         {/* Header Pattern */}
                         <div className="flex justify-start w-full">
                           <h2 className="text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#14142A] font-[700] leading-[125%]">
@@ -183,7 +208,9 @@ export default function ProductSlugContent({data}) {
                           )}
                           
                         </div>
-                    </div>
+                    </div> 
+                    )}
+                    
                             
                             
                 </div>

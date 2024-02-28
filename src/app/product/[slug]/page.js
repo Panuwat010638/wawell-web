@@ -61,9 +61,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const query = groq`*[_type == "product" && slug.slug.current == '${slug}'][0]`
 
   const post = await client.fetch(query, slug)
-  const title = post?.seo?.titletag||""
-  const description =post?.seo?.description||""
-  const keywords =post?.seo?.keywords||""
+  const title = post?.seo?.titletag||""||post.title
+  const description =post?.seo?.description||""||post.title
+  const keywords =post?.seo?.keywords||""||post.title
  if(post?.seo==undefined){
   return {
     title: post.title,
