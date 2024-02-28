@@ -64,12 +64,20 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const title = post?.seo?.titletag||""
   const description =post?.seo?.description||""
   const keywords =post?.seo?.keywords||""
- 
+ if(post?.seo==undefined){
+  return {
+    title: post.title,
+    description: post.title,
+    keywords:post.title 
+  }
+ }else {
   return {
     title: title,
     description: description,
     keywords:keywords 
   }
+ }
+  
 }
 
 

@@ -18,17 +18,17 @@ export default function AboutSec03({data}) {
             <div className='flex flex-col justify-center items-center md:items-start w-full md:w-[40%] lg:w-[42%] h-full gap-y-[24px] md:gap-y-[28px] lg:gap-y-[32px] xl:gap-y-[40px]'>
               {/* Header */}
               <div className='flex flex-col md:w-[300px] items-center md:items-start gap-y-[8px]'>
-                <h2 className='text-[24px] md:text-[24px] lg:text-[32px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
+                <h2 className='font-pop text-[20px] md:text-[24px] lg:text-[32px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
                   {data?.header}
                 </h2>
               </div>
 
-              <p className='w-full sm:w-[80%] md:w-full text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#7D7D7D] font-[400] leading-[160%] text-center md:text-start whitespace-pre-line'>
+              <p className='w-full sm:w-[80%] md:w-full text-[16px] lg:text-[18px] text-[#7D7D7D] font-[400] leading-[160%] text-center md:text-start whitespace-pre-line'>
                 {data?.detail}
               </p>
               <div className='flex items-center w-full sm:w-[60%] md:w-auto'>
                 <Link href={data?.button?.link} className="flex justify-center items-center w-full md:w-auto bg-[#223B61] hover:bg-[#1C2532] transition-all duration-500 px-[32px] py-[12px] rounded-[4px]">
-                  <h4 className='text-[16px] md:text-[16px] lg:text-[18px] text-[#FCFCFC] font-[400] leading-[125%]'>
+                  <h4 className='text-[16px] md:text-[16px] lg:text-[18px] text-[#FCFCFC] font-[500] leading-[125%]'>
                     {data?.button?.title}
                   </h4>
                 </Link>

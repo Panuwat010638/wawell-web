@@ -17,7 +17,7 @@ export default function HomeWall({data}) {
         <div className='flex flex-col justify-center items-center w-full h-full gap-y-[24px]'>
             {/* Header */}
             <div className='flex justify-center items-center w-full'>
-              <h3 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase text-center'>
+              <h3 className='font-pop text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[500] md:font-[600] leading-[125%] uppercase '>
                 TEXTURE tiles
               </h3>
             </div>
@@ -33,7 +33,7 @@ export default function HomeWall({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[0]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.wall[0]?.title}
                     </p>
                   </div>
@@ -41,7 +41,7 @@ export default function HomeWall({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[0]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.wall[0]?.title}
                     </p>
                     <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -58,7 +58,7 @@ export default function HomeWall({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[1]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase'>
                       {data?.wall[1]?.title}
                     </p>
                   </div>
@@ -66,7 +66,7 @@ export default function HomeWall({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[1]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase'>
                       {data?.wall[1]?.title}
                     </p>
                     <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -87,7 +87,7 @@ export default function HomeWall({data}) {
                       <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[2]?.number}
                       </h4>
-                      <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                      <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase'>
                       {data?.wall[2]?.title}
                       </p>
                     </div>
@@ -95,7 +95,7 @@ export default function HomeWall({data}) {
                       <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[2]?.number}
                       </h4>
-                      <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                      <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.wall[2]?.title}
                       </p>
                       <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase whitespace-normal xl:whitespace-pre-line'>
@@ -114,7 +114,7 @@ export default function HomeWall({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[3]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.wall[3]?.title}
                         </p>
                       </div>
@@ -122,7 +122,7 @@ export default function HomeWall({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[3]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                           {data?.wall[3]?.title}
                         </p>
                         <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -139,7 +139,7 @@ export default function HomeWall({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[4]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.wall[4]?.title}
                         </p>
                       </div>
@@ -147,7 +147,7 @@ export default function HomeWall({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[4]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                           {data?.wall[4]?.title}
                         </p>
                         <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -171,7 +171,7 @@ export default function HomeWall({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[0]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.wall[0]?.title}
                     </p>
                   </div>
@@ -185,7 +185,7 @@ export default function HomeWall({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[1]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.wall[1]?.title}
                     </p>
                   </div>
@@ -203,7 +203,7 @@ export default function HomeWall({data}) {
                       <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[2]?.number}
                       </h4>
-                      <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                      <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.wall[2]?.title}
                       </p>
                     </div>
@@ -219,7 +219,7 @@ export default function HomeWall({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[3]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.wall[3]?.title}
                         </p>
                       </div>
@@ -233,7 +233,7 @@ export default function HomeWall({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.wall[4]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.wall[4]?.title}
                         </p>
                       </div>
@@ -247,7 +247,7 @@ export default function HomeWall({data}) {
             {/* Button */}
             <div className='flex items-center w-full md:w-auto mt-[36px]'>
               <Link href={`${data?.button?.link}`} className="flex justify-center items-center w-full md:w-auto bg-[#223B61] hover:bg-[#1C2532] transition-all duration-500 px-[32px] py-[12px] rounded-[4px]">
-                <h4 className='text-[16px] md:text-[16px] lg:text-[18px] text-[#FCFCFC] font-[400] leading-[125%]'>
+                <h4 className='text-[16px] md:text-[16px] lg:text-[18px] text-[#FCFCFC] font-[500] leading-[125%]'>
                   {data?.button?.title}
                 </h4>
               </Link>

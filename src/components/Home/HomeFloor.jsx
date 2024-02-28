@@ -17,7 +17,7 @@ export default function ({data}) {
         <div className='flex flex-col justify-center items-center w-full h-full gap-y-[24px]'>
             {/* Header */}
             <div className='flex justify-center items-center w-full'>
-              <h3 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase text-center'>
+              <h3 className='font-pop text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[500] md:font-[600] leading-[125%] uppercase '>
                 PORCELAIN tiles
               </h3>
             </div>
@@ -32,7 +32,7 @@ export default function ({data}) {
                       <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[0]?.number}
                       </h4>
-                      <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                      <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.floor[0]?.title}
                       </p>
                     </div>
@@ -40,7 +40,7 @@ export default function ({data}) {
                       <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.floor[0]?.number}
                       </h4>
-                      <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                      <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.floor[0]?.title}
                       </p>
                       <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase whitespace-normal xl:whitespace-pre-line text-end'>
@@ -59,7 +59,7 @@ export default function ({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[1]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.floor[1]?.title}
                         </p>
                       </div>
@@ -67,7 +67,7 @@ export default function ({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[1]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.floor[1]?.title}
                         </p>
                         <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -84,7 +84,7 @@ export default function ({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[2]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.floor[2]?.title}
                         </p>
                       </div>
@@ -92,7 +92,7 @@ export default function ({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[2]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.floor[2]?.title}
                         </p>
                         <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -114,7 +114,7 @@ export default function ({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[3]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                     {data?.floor[3]?.title}
                     </p>
                   </div>
@@ -122,7 +122,7 @@ export default function ({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[3]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                     {data?.floor[3]?.title}
                     </p>
                     <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -139,7 +139,7 @@ export default function ({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[4]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                     {data?.floor[4]?.title}
                     </p>
                   </div>
@@ -147,7 +147,7 @@ export default function ({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[4]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                     {data?.floor[4]?.title}
                     </p>
                     <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[400] leading-[125%] uppercase'>
@@ -168,7 +168,7 @@ export default function ({data}) {
                       <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.floor[0]?.number}
                       </h4>
-                      <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                      <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.floor[0]?.title}
                       </p>
                     </div>
@@ -184,7 +184,7 @@ export default function ({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[1]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.floor[1]?.title}
                         </p>
                       </div>
@@ -198,7 +198,7 @@ export default function ({data}) {
                         <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[2]?.number}
                         </h4>
-                        <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                        <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                         {data?.floor[2]?.title}
                         </p>
                       </div>
@@ -217,7 +217,7 @@ export default function ({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[3]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                     {data?.floor[3]?.title}
                     </p>
                   </div>
@@ -231,7 +231,7 @@ export default function ({data}) {
                     <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[4]?.number}
                     </h4>
-                    <p className='text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase text-center'>
+                    <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                     {data?.floor[4]?.title}
                     </p>
                   </div>

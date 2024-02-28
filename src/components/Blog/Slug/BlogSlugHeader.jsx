@@ -18,7 +18,7 @@ export default function BlogSlugHeader({data}) {
                         </p>
 
                         <p className="text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#1C2532] font-[400] leading-[125%]">
-                            {data?.title}
+                            เนื้อหา
                         </p>
                     </div>
                     <div className="flex justify-end md:items-center w-[28%] sm:w-[24%] md:w-[18%]">

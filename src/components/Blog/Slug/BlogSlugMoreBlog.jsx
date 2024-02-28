@@ -7,7 +7,7 @@ export default function BlogSlugMoreBlog({blog}) {
             <div className='flex flex-col w-full h-full gap-y-[24px] sm:gap-y-[36px] md:gap-y-[40px] lg:gap-y-[48px]'>
                 {/* Header */}
                 <div className='flex justify-center items-center w-full'>
-                    <h2 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase  pb-[16px] sm:pb-[20px] md:pb-[24px] lg:pb-[32px] border-b-[2px] border-solid border-[#d3d6de]'>
+                    <h2 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase  pb-[16px] sm:pb-[20px] md:pb-[24px] lg:pb-[32px] border-b-[2px] border-solid border-[#d3d6de]'>
                         related blogs
                     </h2>
                 </div>

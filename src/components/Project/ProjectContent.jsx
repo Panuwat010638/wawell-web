@@ -80,7 +80,20 @@ export default function ProjectContent({category,project}) {
               setCat('ALL');
               
           }
-        }, [pathname,qp,router]);
+        }, [pathname,qp,router,pathname]);
+        useEffect(() => {
+          if(cat!='ALL'){
+         
+            const filteredProject = project.filter(item => item.category == `${cat}`);
+            setFilteredproject(filteredProject);
+            
+ 
+          }else {
+            setFilteredproject(project);
+        
+          }
+                
+        }, [cat]);
 
         useEffect(() => {
           if(cat!='ALL'){
@@ -88,15 +101,15 @@ export default function ProjectContent({category,project}) {
             if(textQuery == "residential"){
               
           
-              const filteredProject = project.filter(item => item.category === `${cat}`);
+              const filteredProject = project.filter(item => item.category == `${cat}`);
             setFilteredproject(filteredProject);
             }else if(textQuery == "hotel and resort"){
         
-              const filteredProject = project.filter(item => item.category === `${cat}`);
+              const filteredProject = project.filter(item => item.category == `${cat}`);
             setFilteredproject(filteredProject);
             }else if(textQuery == "Commercial"){
         
-              const filteredProject = project.filter(item => item.category === `${cat}`);
+              const filteredProject = project.filter(item => item.category == `${cat}`);
             setFilteredproject(filteredProject);
             }
  
@@ -112,6 +125,7 @@ export default function ProjectContent({category,project}) {
             <div className="flex flex-col items-center w-full h-full gap-y-[40px]">
                 {/* Category */}
                 <div className="flex w-full sm:w-[640px] md:w-[768px] lg:w-[1024px] xl:w-[1152px] flex-col px-6 xl:px-0">
+                
                     <Tabs 
                     defaultSelectedKey={textQuery=="residential" ? "1":textQuery=="hotel and resort"?"2":textQuery=="Commercial" ? "3":"0"}
                    
@@ -121,8 +135,8 @@ export default function ProjectContent({category,project}) {
                       classNames={{
                         tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider",
                         cursor: "w-full bg-[#1C2532]",
-                        tab: "max-w-fit md:max-w-full px-0 h-12",
-                        tabContent: "text-[16px] md:text-[18px] text-[#ABB1C1] font-[400] uppercase leading-[125%] group-data-[selected=true]:text-[#1A1A1A]"
+                        tab: "max-w-full md:max-w-full px-0 h-12",
+                        tabContent: "font-pop text-[16px] min-w-full md:text-[18px] text-[#ABB1C1] font-[500] uppercase leading-[125%] group-data-[selected=true]:text-[#1A1A1A]"
                       }}
                     >
                     <Tab

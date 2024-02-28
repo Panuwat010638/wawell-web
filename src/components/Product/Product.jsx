@@ -32,67 +32,83 @@ export default function Product({data,product,collection,category}) {
     }, [cat, collection, product]);
     //////////////////////////////////////////////////////////////////////////
     //Filter Size/////////////////////////////////////////////////////////////
-    const [size,setSize]=useState([...new Set(product.flatMap(item => item.detail.productsize.map(sizeObj => sizeObj.size)))])
+    const newData1 = product.map(item => {
+      // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/\s/g, '')
+            }))
+          }
+        };
+      } else {
+        // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+        return item;
+      }
+    });
+    const newData = newData1.map(item => {
+      // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/O/g, '0')
+            }))
+          }
+        };
+      } else {
+        // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+        return item;
+      }
+    });
+
+
+    const [size, setSize] = useState([...new Set(newData.flatMap(item => 
+      item.detail.productsize ? 
+        item.detail.productsize.map(sizeObj => sizeObj.size) : 
+        []
+    ))]);
     useEffect(() => {
     
-        const uniqueSizes = [...new Set(product.flatMap(item => item.detail.productsize.map(sizeObj => sizeObj.size)))];
+        const uniqueSizes =[...new Set(newData.flatMap(item => 
+          item.detail.productsize ? 
+            item.detail.productsize.map(sizeObj => sizeObj.size) : 
+            []
+        ))];
         setSize(uniqueSizes)
 
       }, []);  
     //Sellect Collection/////////////////////////////////////////////////////
     
 
-    useEffect(() => {
-      // กำหนดการเรียกใช้ handleClickFilter ในนี้
-      handleClickFilter();
-    }, [selected, selectedsize]);
-    const handleClickFilter = () => {
-      const filteredProduct = product.filter(item => item.category === `${cat}`);
-      setProduct(filteredProduct);
-        if(selected[0] != undefined && selectedsize[0] ==undefined){
-          console.log('test11')
-          const filteredData = filterProduct.filter(item => selected.includes(item.collection));
-          setProduct(filteredData);
-        }else if(selected[0] == undefined && selectedsize[0] != undefined){
-          const filteredArray = filterProduct.filter(obj => {
-            if (Array.isArray(obj.detail.productsize)) {
-                for (let item of obj.detail.productsize) {
-                    if (selectedsize.includes(item.size)) {
-                        return true;
-                    }
-                }
-            } else {
-                if (array1.includes(obj.detail.productsize)) {
-                    return true;
-                }
-            }
-            return false;
-        });
-          setProduct(filteredArray);
-        }else if(selected[0] != undefined  && selectedsize[0] != undefined){
-          const filteredData = filterProduct.filter(item => selected.includes(item.collection));
-          const filteredArray = filteredData.filter(obj => {
-            if (Array.isArray(obj.detail.productsize)) {
-                for (let item of obj.detail.productsize) {
-                    if (selectedsize.includes(item.size)) {
-                        return true;
-                    }
-                }
-            } else {
-                if (array1.includes(obj.detail.productsize)) {
-                    return true;
-                }
-            }
-            return false;
-        });
-          setProduct(filteredArray);
-        }else{
+    
+
+    const handleClickFilter = () => { 
+      if(selected.length==1){
           const filteredProduct = product.filter(item => item.category === `${cat}`);
-          setProduct(filteredProduct);
-          console.log('test11no')
-        }
+          const filteredData1 = filteredProduct.filter(item => selected.includes(item.collection));
+          setProduct(filteredData1);
+          setModalFilter(false)
+      }else if(selected.length==2){
+        const filteredProduct = product.filter(item => item.category === `${cat}`);
+        const filteredData1 = filteredProduct.filter(item => item.collection == selected[0]);
+        const filteredData2 = filteredProduct.filter(item => item.collection == selected[1]);
+        const combinedData = [...filteredData1, ...filteredData2];
+        setProduct( combinedData);
+        console.log(filterProduct)
         setModalFilter(false)
-        };
+    }else {
+      setProduct(filteredProduct);
+    }
+    }
+   
     
     const [clear,setClear]=useState(false)
     const handleClickClear = () => {
@@ -267,7 +283,7 @@ export default function Product({data,product,collection,category}) {
 
                           {/*Filter */}
                           <div className="flex w-[49%]">
-                            <Button size="sm" onClick={handleClickFilter} className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                            <Button size="sm" onPress={handleClickFilter} className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                             text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
                               {data?.button?.button02}
                             </Button>

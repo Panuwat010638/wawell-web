@@ -108,7 +108,7 @@ export default function BlogSlugContent({data}) {
                             data.headings.map((item, index) => (
                                 <li className="flex " key={index} onClick={()=>setCenteredH2(item.children[0].text)}>
                                     <a aria-label='Link to content topic' scroll={{ top:80 }} href={'#' + item.children[0].text} 
-                                    className={`lg:text-[16px] xl:text-[18px] hover:text-[#223B61] font-[500]
+                                    className={`lg:text-[16px] xl:text-[18px] hover:text-[#223B61] font-[500] font-pop
                                     leading-[125%] transition-all duration-500 ${centeredH2 == item.children[0].text ? "text-[#223B61]":"text-[#545867] "}`}>
                                         {item.children[0].text}
                                     </a>

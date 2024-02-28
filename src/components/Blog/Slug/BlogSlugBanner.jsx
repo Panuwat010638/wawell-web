@@ -11,7 +11,7 @@ function urlFor(source) {
 export default function BlogSlugBanner({data}) {
 
   return (
-    <div className="bg-[#fcfcfc]">
+    <div className="bg-[#1C2532]">
         <div className="max-w-full mx-auto">
             <div className="flex justify-center items-center w-full h-full">
                 <div className="flex justify-center items-center w-full">

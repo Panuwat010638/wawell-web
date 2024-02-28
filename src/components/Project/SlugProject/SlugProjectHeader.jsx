@@ -9,7 +9,7 @@ function urlFor(source) {
 
 export default function SlugProjectHeader({data}) {
   return (
-    <div className='bg-[#fcfcfc]'>
+    <div className='bg-[#1C2532]'>
         <div className='max-w-full'>
             <div className='flex flex-col justify-center items-center w-full h-full relative'>
               {/* Image */}

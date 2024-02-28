@@ -11,16 +11,16 @@ function urlFor(source) {
 export default function CardProject({item,index}) {
 
   return (
-    <div key={index} className="group flex flex-col justify-center items-center w-full h-full sm:w-[50%] md:w-[33.33%] relative">
+    <div key={index} className="group flex flex-col justify-center items-center w-full h-full sm:w-[50%] md:w-[33.33%] relative bg-[#1C2532]">
         <div className="flex justify-center items-center w-full h-full z-[5]">
-            <Image className="object-cover object-center min-w-full h-full sm:h-[235px] md:h-[188px] lg:h-[250px] xl:h-[328px]" src={urlFor(item?.mainImage?.image).format("webp").url()} alt={item?.mainImage?.alt} radius="none" width={960} height={656}/>
+            <Image className="object-cover object-center min-w-full h-[265px] sm:h-[235px] md:h-[188px] lg:h-[250px] xl:h-[328px]" src={urlFor(item?.mainImage?.image).format("webp").url()} alt={item?.mainImage?.alt} radius="none" width={960} height={656}/>
         </div>
-        <div className="flex justify-center items-end w-full h-full p-6 bg-gradient-to-t from-[#1d1d1d65] to-transparent opacity-100 group-hover:opacity-0 absolute top-0 z-[6]">
+        <div className="flex justify-center items-end w-full h-full p-6 bg-gradient-to-t from-[#1d1d1d65] to-transparent opacity-100 lg:group-hover:opacity-0 absolute top-0 z-[6]">
             <h3 className="text-[16px] md:text-[16px] xl:text-[20px] text-[#fcfcfc] font-[600] leading-[125%] text-center uppercase">
               {item?.title}
             </h3>
         </div>
-        <div className="flex flex-col justify-center items-start w-full h-full gap-y-[24px] lg:px-[80px] py-6 bg-[#fcfcfce3] absolute top-0 z-[7] opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+        <div className="flex flex-col justify-center items-start w-full h-full gap-y-[24px] lg:px-[80px] py-6 bg-[#fcfcfce3] absolute top-0 z-[7] opacity-0 lg:group-hover:opacity-100 transition-all duration-500 ease-in-out">
             <h4 className="text-[16px] md:text-[16px] xl:text-[20px] text-[#223B61] font-[600] leading-[125%]">
               {item?.title}
             </h4>

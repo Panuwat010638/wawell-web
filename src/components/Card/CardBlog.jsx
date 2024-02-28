@@ -14,11 +14,11 @@ export default function CardBlog({item,index}) {
       <div className="flex justify-center items-center min-w-full h-full overflow-hidden">
         <Image className="object-cover object-center min-w-full h-[250px] ss:h-[140px] sm:h-[180px] md:h-[170px] lg:h-[230px] xl:h-[292px] transition-all duration-500 group-hover:scale-110" radius='none' isZoomed src={urlFor(item?.mainImage?.image).url()} alt={item?.mainImage?.alt} quality={100} width={796} height={584}/>
       </div>
-      <div className="flex flex-col gap-y-[4px]">
-        <h3 className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] line-clamp-1'>
+      <div className="flex flex-col gap-y-[8px]">
+        <h3 className='text-[14px] md:text-[16px] lg:text-[18px] text-[#070709] font-[500] leading-[125%] line-clamp-1'>
           {item?.title}
         </h3>
-        <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#545867] font-[400] leading-[125%] line-clamp-2'>
+        <p className='text-[14px] md:text-[16px] lg:text-[18px] text-[#545867] font-[400] leading-[125%] line-clamp-2'>
           {item?.detail}
         </p>
       </div>

@@ -13,11 +13,11 @@ export default function HomeBlog({blog,data}) {
         <div className='flex flex-col justify-center w-full h-full gap-y-[32px] md:gap-y-[36px] xl:gap-y-[42px]'>
           {/* Header */}
           <div className="flex justify-center sm:justify-between items-center w-full gap-x-[24px]">
-            <h2 className='text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
+            <h2 className='font-pop text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
               {data?.header}
             </h2>
-            <Link href={`${data?.button?.link}`} className="group hidden sm:flex items-center gap-x-[8px]">
-              <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] tracking-[4px]'>
+            <Link href={`${data?.button?.link}`} className="group hidden sm:flex items-center gap-x-[8px] uppercase">
+              <p className='font-pop text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] tracking-[4px]'>
                 {data?.button?.title}
               </p>
               <svg className="group-hover:translate-x-2 transition-all duration-500" xmlns="http://www.w3.org/2000/svg" width="24" height="2" viewBox="0 0 24 2" fill="none">
@@ -34,7 +34,7 @@ export default function HomeBlog({blog,data}) {
           </div>
 
           <Link href={`${data?.button?.link}`} className="group flex sm:hidden justify-center items-center gap-x-[8px]">
-              <p className='text-[20px] sm:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] tracking-[4px]'>
+              <p className='text-[20px] sm:text-[16px] lg:text-[18px] xl:text-[20px] text-[#070709] font-[500] leading-[125%] tracking-[4px] uppercase'>
                 {data?.button?.title}
               </p>
               <svg className="group-hover:translate-x-2 transition-all duration-500" xmlns="http://www.w3.org/2000/svg" width="24" height="2" viewBox="0 0 24 2" fill="none">

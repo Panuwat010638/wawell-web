@@ -29,12 +29,12 @@ export default function AboutSec01({data}) {
                 <h3 className='text-[16px] md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#223B61] font-[400] leading-[125%] uppercase text-center md:text-start'>
                   {data?.subheader}
                 </h3>
-                <h2 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
+                <h2 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#223B61] font-[600] leading-[125%] uppercase'>
                   {data?.header}
                 </h2>
               </div>
 
-              <p className='w-full sm:w-[80%] md:w-full text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#7D7D7D] font-[400] leading-[160%] text-center md:text-start'>
+              <p className='w-full sm:w-[80%] md:w-full text-[16px] lg:text-[18px] text-[#7D7D7D] font-[400] leading-[160%] text-center md:text-start'>
                 {data?.detail}
               </p>
 

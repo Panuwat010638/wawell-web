@@ -30,14 +30,14 @@ export default function SlugProjectContent({data}) {
                 {/* Content Mid */}
                 <div className="flex flex-col md:flex-row md:items-center w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[2%] gap-y-[12px]">
                   <div className="flex flex-col w-full md:w-[40%] gap-y-[12px]">
-                    <p className="text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
-                      {`Client: ${data?.content?.client}`}
+                    <p className="gap-x-[8px] text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
+                      {`Client:  ${data?.content?.client}`}
                     </p>
-                    <p className="text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
-                      {`Location: ${data?.content?.location}`}
+                    <p className="gap-x-[8px]vtext-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
+                      {`Location:  ${data?.content?.location}`}
                     </p>
-                    <p className="text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
-                      {`Year: ${data?.content?.year}`}
+                    <p className="gap-x-[8px] text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
+                      {`Year:  ${data?.content?.year}`}
                     </p>
                   </div>
                   <div className="flex flex-col w-full md:w-[58%]">
@@ -49,7 +49,7 @@ export default function SlugProjectContent({data}) {
 
                 {/* Content Bottom */}
                 <div className="flex flex-col md:flex-row items-start md:items-center w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[12px] gap-y-[12px]">
-                  <h3 className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#14142A] font-[400] leading-[125%]">
+                  <h3 className="text-[14px] md:text-[16px] lg:text-[18px] text-[#14142A] font-[400] leading-[125%]">
                     {`Applicated Items: `}
                   </h3>
                   <div className="flex flex-wrap items-center gap-x-[8px] gap-y-[8px]">
