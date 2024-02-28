@@ -58,7 +58,7 @@ export default function ProductSlugContent({data}) {
                   ):(
                     <div className="flex">
                       <Button size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
-                      text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[700]">
+                      text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[600]">
                         Download
                       </Button>  
                     </div>
@@ -73,7 +73,7 @@ export default function ProductSlugContent({data}) {
                     {/* Detail */}
                     <div className="flex flex-col md:flex-row w-full gap-x-[2%] gap-y-[16px]">
                         {/* Left */}
-                        <div className="flex flex-col w-full md:w-[53%] gap-y-[4px] md:gap-y-[6px]">
+                        <div className="flex flex-col w-full md:w-[53%] gap-y-[8px]">
                           {/* SE */}
                           <div className="flex gap-x-[8px] md:gap-x-[1%] w-full">
                             <div className="flex md:w-[49%]">

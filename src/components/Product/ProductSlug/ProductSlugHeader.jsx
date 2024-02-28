@@ -28,7 +28,7 @@ export default function ProductSlugHeader({data}) {
             <div className="flex justify-between w-full h-full gap-x-[2%]">
                 {/* Header & Search */}
                 <div className="flex flex-col w-[60%] gap-y-[16px]">
-                    <h2 className="text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#1C2532] font-[600] leading-[125%] uppercase">
+                    <h2 className="font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#1C2532] font-[600] leading-[125%] uppercase">
                         OUR products
                     </h2>
                     <div className="flex gap-x-[10px]">

@@ -159,7 +159,7 @@ export default function Product({data,product,collection,category}) {
 
                 {/* Header & Search */}
                 <div className="flex justify-between items-center w-full gap-x-[5%]">
-                    <h1 className="text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#1C2532] font-[600] leading-[125%] uppercase">
+                    <h1 className="font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#1C2532] font-[600] leading-[125%] uppercase">
                         {data?.header?.header}
                     </h1>
                     <form className="hidden md:flex justify-end w-[292px] gap-y-[16px]">
@@ -220,7 +220,7 @@ export default function Product({data,product,collection,category}) {
                         tabList: "gap-6 w-full relative rounded-none p-0 border-b border-divider",
                         cursor: "w-full bg-[#1C2532]",
                         tab: "max-w-full px-0 h-12",
-                        tabContent: "text-[16px] md:text-[18px] text-[#ABB1C1] font-[400] uppercase leading-[125%] group-data-[selected=true]:text-[#1A1A1A]"
+                        tabContent: "font-pop text-[16px] md:text-[18px] text-[#ABB1C1] font-[500] uppercase leading-[125%] group-data-[selected=true]:text-[#1A1A1A]"
                       }}
                     >
                       {category?.map((item,index)=>(
@@ -242,7 +242,7 @@ export default function Product({data,product,collection,category}) {
                 {/* Filter $ Card Product */}
                 <div className="flex flex-col md:flex-row justify-between items-center md:items-start w-full gap-x-[2%]">
                     <div className="hidden md:flex flex-col bg-[#F1EFE9] w-[30%] lg:w-[25%] p-[24px] gap-y-[16px]">
-                        <h3 className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px] border-b-[1px] border-solid border-[#223B61]">
+                        <h3 className="font-pop text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px] border-b-[1px] border-solid border-[#223B61]">
                             {data?.categorydetail?.collection}
                         </h3>
                         <CheckboxGroup
@@ -250,6 +250,7 @@ export default function Product({data,product,collection,category}) {
                           color="#223B61"
                           value={selected}
                           onValueChange={setSelected}
+                          className="gap-y-[12px]"
                         >
                         {filterCollection?.map((item,index)=>(
                               <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item?.title} key={item?.title}>
@@ -257,7 +258,7 @@ export default function Product({data,product,collection,category}) {
                               </Checkbox>
                           ))}
                         </CheckboxGroup>
-                        <h3 className="text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px] border-b-[1px] border-solid border-[#223B61]">
+                        <h3 className="font-pop text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#223B61] font-[500] leading-[125%] pb-[12px] border-b-[1px] border-solid border-[#223B61]">
                             {data?.categorydetail?.size}
                         </h3>
                         <CheckboxGroup
@@ -265,6 +266,8 @@ export default function Product({data,product,collection,category}) {
                           color="#223B61"
                           value={selectedsize}
                           onValueChange={setSelectedsize}
+                          className="gap-y-[12px]"
+                          classNames={{base:"gap-y-[0.75rem] flex justify-center w-full",label:"flex justify-center items-center w-full"}}
                         >
                         {size?.map((item,index)=>(
                               <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item} key={item}>
