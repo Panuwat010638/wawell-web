@@ -1,13 +1,13 @@
 'use client'
 import { useState,useEffect } from "react"
-import { Button } from "@nextui-org/react"
+import { Button,Link } from "@nextui-org/react"
 import Image from "next/image"
-import Link from "next/link"
 import client from "../../../../client"
 import imageUrlBuilder from '@sanity/image-url'
 import ly1 from "../../../../public/assets/Images/SlugProduct/ly1.png"
 import ly2 from "../../../../public/assets/Images/SlugProduct/ly2.png"
 import callback from "../../../../public/assets/Images/SlugProduct/callback.png"
+
 
 const builder = imageUrlBuilder(client)
 function urlFor(source) {
@@ -16,26 +16,6 @@ function urlFor(source) {
 
 export default function ProductSlugContent({data}) {
   const [activeIndex, setActiveIndex] = useState(0);
-  const handleImageLoad = async () => {
-    try {
-      const response = await fetch('https://cdn.sanity.io/images/5mjrzmch/production/7dc4c9ad34c3c1b2ba910f82c8702982648717a5-2362x1170.png');
-      const blob = await response.blob();
-
-      // สร้าง URL จาก Blob
-      const url = window.URL.createObjectURL(blob);
-
-      // สร้างลิงก์โหลด
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'image.png'; // กำหนดชื่อไฟล์ที่จะถูกดาวน์โหลด
-      link.click();
-
-      // ทำความสะอาด URL
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      console.error('เกิดข้อผิดพลาดในการดาวน์โหลดไฟล์:', error);
-    }
-  };
 
   return (
     <div className="bg-[#fcfcfc]">
@@ -75,10 +55,15 @@ export default function ProductSlugContent({data}) {
                     {data?.title}
                   </h1>
                   {data?.detail?.pattern == undefined ? (
-                      null
+                      <div className="flex">
+                        <Button as={Link} href={`${urlFor(data.mainImage?.image).url()}?dl=${data?.title}.jpg`} target="_blank" size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
+                        text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[600]">
+                          Download
+                        </Button>  
+                      </div>
                   ):(
                     <div className="flex">
-                      <Button onClick={handleImageLoad} size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
+                      <Button as={Link} href={`${urlFor(data?.detail?.pattern[activeIndex].image).url()}?dl=${data?.title}.jpg`} target="_blank" size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
                       text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[600]">
                         Download
                       </Button>  

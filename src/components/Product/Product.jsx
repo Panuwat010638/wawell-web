@@ -107,23 +107,56 @@ export default function Product({data,product,collection,category}) {
 
     
 
-    const handleClickFilter = () => { 
-      if(selected.length==1){
+        const handleClickFilter = () => { 
+          if(selected.length==1){
+              const filteredProduct = product.filter(item => item.category === `${cat}`);
+              const filteredData1 = filteredProduct.filter(item => selected.includes(item.collection));
+              setProduct(filteredData1);
+              setModalFilter(false)
+          }else if(selected.length==2){
+            const filteredProduct = product.filter(item => item.category === `${cat}`);
+            const filteredData1 = filteredProduct.filter(item => item.collection == selected[0]);
+            const filteredData2 = filteredProduct.filter(item => item.collection == selected[1]);
+            const combinedData = [...filteredData1, ...filteredData2];
+            setProduct( combinedData);
+            console.log(filterProduct)
+            setModalFilter(false)
+        }else if(selected.length==3){
           const filteredProduct = product.filter(item => item.category === `${cat}`);
-          const filteredData1 = filteredProduct.filter(item => selected.includes(item.collection));
-          setProduct(filteredData1);
+          const filteredData1 = filteredProduct.filter(item => item.collection == selected[0]);
+          const filteredData2 = filteredProduct.filter(item => item.collection == selected[1]);
+          const filteredData3 = filteredProduct.filter(item => item.collection == selected[2]);
+          const combinedData = [...filteredData1, ...filteredData2, ...filteredData3];
+          setProduct( combinedData);
+          console.log(filterProduct)
           setModalFilter(false)
-      }else if(selected.length==2){
+      }else if(selected.length==4){
         const filteredProduct = product.filter(item => item.category === `${cat}`);
         const filteredData1 = filteredProduct.filter(item => item.collection == selected[0]);
         const filteredData2 = filteredProduct.filter(item => item.collection == selected[1]);
-        const combinedData = [...filteredData1, ...filteredData2];
+        const filteredData3 = filteredProduct.filter(item => item.collection == selected[2]);
+        const filteredData4 = filteredProduct.filter(item => item.collection == selected[3]);
+        const combinedData = [...filteredData1, ...filteredData2, ...filteredData3,...filteredData4];
         setProduct( combinedData);
         console.log(filterProduct)
         setModalFilter(false)
+    }else if(selected.length==5){
+      const filteredProduct = product.filter(item => item.category === `${cat}`);
+      const filteredData1 = filteredProduct.filter(item => item.collection == selected[0]);
+      const filteredData2 = filteredProduct.filter(item => item.collection == selected[1]);
+      const filteredData3 = filteredProduct.filter(item => item.collection == selected[2]);
+      const filteredData4 = filteredProduct.filter(item => item.collection == selected[3]);
+      const filteredData5 = filteredProduct.filter(item => item.collection == selected[4]);
+      const combinedData = [...filteredData1, ...filteredData2, ...filteredData3,...filteredData4,...filteredData5];
+      setProduct( combinedData);
+      console.log(filterProduct)
+      setModalFilter(false)
     }else {
+      const filteredProduct = product.filter(item => item.category === `${cat}`);
       setProduct(filteredProduct);
-    }
+      }
+
+
     }
    
     
@@ -263,11 +296,12 @@ export default function Product({data,product,collection,category}) {
                             {data?.categorydetail?.collection}
                         </h3>
                         <CheckboxGroup
-                          
+                          isDisabled={selected.length==5 ? true : false}
                           color="#223B61"
                           value={selected}
                           onValueChange={setSelected}
                           className="gap-y-[12px]"
+                          
                         >
                         {filterCollection?.map((item,index)=>(
                               <Checkbox color="#223B61" className="text-[14px] md:text-[16px] text-[#1C2532] font-[400] leading-[125%]" value={item?.title} key={item?.title}>

@@ -24,7 +24,7 @@ export default function ContactBanner({data}) {
                 {/* Text Tiltle */}
                 <div className="flex justify-center items-center w-full h-full sm:items-start py-0 sm:py-[48px] md:py-[64px] lg:py-[72px] xl:py-[80px] 
                                 px-6 xl:px-0 absolute top-0 z-[5]">
-                    <h1 className="text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#fcfcfc] font-[600] leading-[125%]">
+                    <h1 className="font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#fcfcfc] font-[600] leading-[125%] uppercase">
                         {data?.title}
                     </h1>
                 </div>

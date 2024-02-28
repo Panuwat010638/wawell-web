@@ -7,7 +7,7 @@ export default function ContactContent({data}) {
         <div className='flex flex-col justify-center items-center w-full h-full gap-y-[36px] sm:gap-y-[40px] md:gap-y-[46px] lg:gap-y-[50px] xl:gap-y-[54px]'>
             {/* Header */}
             <div className='flex flex-col justify-center items-center w-full gap-y-[24px]'>
-              <h2 className='text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[] font-[600] leading-[125%]'>
+              <h2 className='font-pop text-[18px] sm:text-[20px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#223B61] font-[600] leading-[125%]'>
                   {data?.header}
               </h2>
               <svg width="82" height="2" viewBox="0 0 82 2" fill="none" xmlns="http://www.w3.org/2000/svg">
