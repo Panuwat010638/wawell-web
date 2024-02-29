@@ -1,10 +1,11 @@
 'use client'
 import { useState,useEffect,useRef } from "react"
+import Image from "next/image"
 import { useSearchParams,usePathname } from "next/navigation"
 import CardProduct from "../Card/CardProduct"
 import {Pagination,CheckboxGroup, Checkbox,Tabs,Link, Tab,Button,Input,Modal, ModalContent, ModalHeader, ModalBody, useDisclosure,} from "@nextui-org/react";
 import { IoIosSearch } from "react-icons/io";
-
+import Search from "../../../public/assets/Images/Card/Search.png"
 import ProductFilterMobile from "./ProductFilterMobile";
   
 export default function Product({data,product,collection,category}) {
@@ -514,16 +515,33 @@ export default function Product({data,product,collection,category}) {
                         </div>
                     </div>
                     <ProductFilterMobile data={data} filterCollection={filterCollection} size={size} selected={selected} selectedsize={selectedsize} setSelectedsize={setSelectedsize} setSelected={setSelected} handleClickClear={handleClickClear} handleClickFilter={handleClickFilter}/>
-                    <div className="hidden md:flex flex-wrap w-[68%] lg:w-[73%] gap-x-[2%] md:gap-y-[36px] h-full">
+                    {filterProduct[0]==undefined ? (
+                    <div className="hidden md:flex justify-center items-center w-full h-[400px]">
+                      <Image className=" object-scale-down  object-center w-full h-full" 
+                      alt="Search" width={196} height={142} quality={100}
+                      src={Search}/>
+                    </div>
+                ):(
+                      <div className="hidden md:flex flex-wrap w-[68%] lg:w-[73%] gap-x-[2%] md:gap-y-[36px] h-full">
                         {filterProduct?.slice(startIndex, endIndex).map((item,index)=>(
                             <CardProduct key={index} item={item} index={index}/>
                         ))}
                     </div>
+                    )}
+                    {filterProduct[0]==undefined ? (
+                      <div className="flex md:hidden justify-center items-center w-full h-[400px]">
+                        <Image className=" object-scale-down  object-center w-full h-full" 
+                        alt="Search" width={196} height={142} quality={100}
+                        src={Search}/>
+                      </div>
+                    ):(
                     <div className="flex md:hidden flex-wrap w-full ss:w-[80%] gap-x-[2%] gap-y-[16px] ss:gap-y-[24px] h-full">
-                        {filterProduct?.slice(startIndex, endIndex).map((item,index)=>(
-                            <CardProduct key={index} item={item} index={index}/>
-                        ))}
+                      {filterProduct?.slice(startIndex, endIndex).map((item,index)=>(
+                          <CardProduct key={index} item={item} index={index}/>
+                      ))}
                     </div>
+                    )}
+                    
                 </div>
 
                 {/* Pagination */}
