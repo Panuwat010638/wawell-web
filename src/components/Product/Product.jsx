@@ -297,7 +297,7 @@ setProduct(filteredData)
 }
 setCurrentPage(1);
 }
-const handleClickFilterAndFilter2 = () => {
+const handleClickFilterAndFilter21 = () => {
   if (selectedsize.length !== 0) {
     // Filter by selected sizes
     const newData1 = product.map(item => {
@@ -350,8 +350,8 @@ const handleClickFilterAndFilter2 = () => {
         return item;
       }
     });
-
-    const filteredData = newData.filter(item =>
+    const filteredProduct = newData.filter(item => item.category === `${cat}`);
+    const filteredData = filteredProduct.filter(item =>
       item.detail.productsize.some(sizeObj => selectedsize.includes(sizeObj.size))
     );
 
@@ -367,6 +367,88 @@ const handleClickFilterAndFilter2 = () => {
       filteredProduct.filter(item => item.collection === selection)
     ).flat();
     setProduct(filteredData);
+  }
+
+  setCurrentPage(1);
+  setModalFilter(false);
+};
+const handleClickFilterAndFilter2 = () => {
+  // Check if either selectedsize or selected is not empty
+  if (selectedsize.length !== 0 || selected.length !== 0) {
+    // Filter by selected sizes
+    const newData1 = product.map(item => {
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/\s/g, '')
+            }))
+          }
+        };
+      } else {
+        return item;
+      }
+    });
+
+    const newData2 = newData1.map(item => {
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/X/g, 'x')
+            }))
+          }
+        };
+      } else {
+        return item;
+      }
+    });
+
+    const newData = newData2.map(item => {
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/O/g, '0')
+            }))
+          }
+        };
+      } else {
+        return item;
+      }
+    });
+
+    // Filter by category if specified
+    let filteredData = newData;
+    if (cat) {
+      filteredData = filteredData.filter(item => item.category === cat);
+    }
+
+    // Filter by selected collection if any
+    if (selected.length !== 0) {
+      filteredData = filteredData.filter(item => selected.includes(item.collection));
+    }
+
+    // Filter by selected sizes if any
+    if (selectedsize.length !== 0) {
+      filteredData = filteredData.filter(item =>
+        item.detail.productsize.some(sizeObj => selectedsize.includes(sizeObj.size))
+      );
+    }
+
+    setProduct(filteredData);
+  } else {
+    // If neither selectedsize nor selected is selected, set product to original product list
+    setProduct(filterProduct);
   }
 
   setCurrentPage(1);
