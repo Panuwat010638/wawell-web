@@ -14,7 +14,7 @@ export default function CardMoreProduct({item,index}) {
       {/* Image */}
       {item?.mainImage?.image != undefined ? (
       <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className={`flex w-full 
-      ${item?.mainImage?.border == true ? "border-[1px] border-solid border-[#1C2532]":"border-[1px] border-solid border-transparent"}`}>
+      ${item?.mainImage?.border == true ? "border-[1px] border-solid border-[#e7e7e7]":"border-[1px] border-solid border-transparent"}`}>
         <Image className="object-cover object-center h-[163px] sm:h-[183px] md:h-[213px]" src={urlFor(item?.mainImage?.image).url()} alt={item?.mainImage?.alt}
           width={290} height={290} radius="none"/>
       </Link>):(

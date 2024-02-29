@@ -28,15 +28,15 @@ export default function SlugProjectContent({data}) {
                 </div>
 
                 {/* Content Mid */}
-                <div className="flex flex-col md:flex-row md:items-center w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[2%] gap-y-[12px]">
+                <div className="flex flex-col md:flex-row w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[2%] gap-y-[12px]">
                   <div className="flex flex-col w-full md:w-[40%] gap-y-[12px]">
-                    <p className="gap-x-[8px] text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
+                    <p className="gap-x-[8px] text-[14px] md:text-[16px] lg:text-[18px] text-[#223B61] font-[400] leading-[125%]">
                       {`Client:  ${data?.content?.client}`}
                     </p>
-                    <p className="gap-x-[8px]vtext-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
+                    <p className="gap-x-[8px]vtext-[14px] md:text-[16px] lg:text-[18px] text-[#223B61] font-[400] leading-[125%]">
                       {`Location:  ${data?.content?.location}`}
                     </p>
-                    <p className="gap-x-[8px] text-[14px] md:text-[16px] text-[#223B61] font-[400] leading-[125%]">
+                    <p className="gap-x-[8px] text-[14px] md:text-[16px] lg:text-[18px] text-[#223B61] font-[400] leading-[125%]">
                       {`Year:  ${data?.content?.year}`}
                     </p>
                   </div>
@@ -48,6 +48,7 @@ export default function SlugProjectContent({data}) {
                 </div>
 
                 {/* Content Bottom */}
+                {data?.applicated == undefined ? null:(
                 <div className="flex flex-col md:flex-row items-start md:items-center w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[12px] gap-y-[12px]">
                   <h3 className="text-[14px] md:text-[16px] lg:text-[18px] text-[#14142A] font-[400] leading-[125%]">
                     {`Applicated Items: `}
@@ -62,6 +63,8 @@ export default function SlugProjectContent({data}) {
                       ))}
                     </div>
                 </div>
+                )}
+                
               </div>
 
               {/* Image */}

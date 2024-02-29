@@ -91,7 +91,7 @@ export default function ProductSlugHeader({data}) {
                                 startContent={
                                     <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
                                 } />
-                            <div className="flex justify-end w-full">
+                            <div className="flex justify-end w-full sr-only">
                                <div className="flex w-[49%]">
                                     <Link type='submit' ref={confirmButtonRef} onPress={onClose} href={`/search?search=${value}`} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                                         text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">

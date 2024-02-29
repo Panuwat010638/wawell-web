@@ -42,7 +42,7 @@ export default function SearchContent({data,product}) {
                     src={Search}/>
                 </div>
                 ):(
-                <div className="hidden md:flex flex-wrap sm:w-[] md:w-[68%] lg:w-full gap-x-[2%] md:gap-y-[36px] h-full">
+                <div className="flex flex-wrap w-full sm:w-[80%] md:w-[75%] lg:w-full gap-x-[2%] md:gap-y-[36px] h-full">
                     {filterProduct?.map((item,index)=>(
                         <CardProduct key={index} item={item} index={index}/>
                     ))}
