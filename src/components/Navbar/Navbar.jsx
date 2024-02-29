@@ -160,7 +160,7 @@ export default function Navbar({data}) {
                                {item?.showsubmenu == true ? 
                                (
                                 <Accordion >
-                                  <AccordionItem key="1" aria-label={item?.title} classNames={{indicator:"rotate-90" }} title={
+                                  <AccordionItem key="1" aria-label={item?.title} classNames={{indicator:"rotate-[270deg] data-[open=true]:rotate-90" }} title={
                                     <Link href={item?.href} className={`font-pop px-[24px] text-[18px] sm:text-[22px] font-[500] leading-[125%] transition-colors duration-500 hover:text-[#997F53] uppercase py-0 ${pathname== `${item?.href}` ? "text-[#997F53]":"text-[#1C2532]"}`}>
                                       {item?.title}
                                     </Link>

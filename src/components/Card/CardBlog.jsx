@@ -18,7 +18,7 @@ export default function CardBlog({item,index}) {
         <h3 className='text-[14px] md:text-[16px] lg:text-[18px] text-[#070709] font-[500] leading-[125%] line-clamp-1'>
           {item?.title}
         </h3>
-        <p className='text-[14px] md:text-[16px] lg:text-[18px] text-[#545867] font-[400] leading-[125%] line-clamp-2'>
+        <p className='h-[40px] md:h-[45px] lg:h-[52px] text-[14px] md:text-[16px] lg:text-[18px] text-[#545867] font-[400] leading-[150%] line-clamp-2'>
           {item?.detail}
         </p>
       </div>

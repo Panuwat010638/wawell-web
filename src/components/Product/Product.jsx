@@ -115,7 +115,7 @@ export default function Product({data,product,collection,category}) {
 
     
 
-        const handleClickFilter = () => { 
+        const handleClickFilter11 = () => { 
           if(selected.length==1){
               const filteredProduct = product.filter(item => item.category === `${cat}`);
               const filteredData1 = filteredProduct.filter(item => selected.includes(item.collection));
@@ -163,143 +163,215 @@ export default function Product({data,product,collection,category}) {
       const filteredProduct = product.filter(item => item.category === `${cat}`);
       setProduct(filteredProduct);
       }
-    /// Set Subset//////////////////////////////////////////////////////////////////////////
 
-    /// Filter Size////////////////////////////////////////////////////////////////////////
-    if(selected.length==0){
-      const newData1 = product.map(item => {
-        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
-        if (item.detail && item.detail.productsize) {
-          return {
-            ...item,
-            detail: {
-              ...item.detail,
-              productsize: item.detail.productsize.map(sizeItem => ({
-                ...sizeItem,
-                size: sizeItem.size.replace(/\s/g, '')
-              }))
-            }
-          };
-        } else {
-          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
-          return item;
-        }
-      });
-      const newData2 = newData1.map(item => {
-        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
-        if (item.detail && item.detail.productsize) {
-          return {
-            ...item,
-            detail: {
-              ...item.detail,
-              productsize: item.detail.productsize.map(sizeItem => ({
-                ...sizeItem,
-                size: sizeItem.size.replace(/X/g, 'x')
-              }))
-            }
-          };
-        } else {
-          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
-          return item;
-        }
-      });
-      const newData = newData2.map(item => {
-        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
-        if (item.detail && item.detail.productsize) {
-          return {
-            ...item,
-            detail: {
-              ...item.detail,
-              productsize: item.detail.productsize.map(sizeItem => ({
-                ...sizeItem,
-                size: sizeItem.size.replace(/O/g, '0')
-              }))
-            }
-          };
-        } else {
-          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
-          return item;
-        }
-      });
-
-      if(selectedsize.length==1){
-        console.log(newData)
-        const filteredData1 = newData.filter(item => {
-          return item.detail.productsize.some(size => size.size == selectedsize[0]);   
-      });
-      setProduct(filteredData1)
-      }else {
-
-      }
-    }
-    else {
-      const newData1 = filterProduct.map(item => {
-        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
-        if (item.detail && item.detail.productsize) {
-          return {
-            ...item,
-            detail: {
-              ...item.detail,
-              productsize: item.detail.productsize.map(sizeItem => ({
-                ...sizeItem,
-                size: sizeItem.size.replace(/\s/g, '')
-              }))
-            }
-          };
-        } else {
-          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
-          return item;
-        }
-      });
-      const newData2 = newData1.map(item => {
-        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
-        if (item.detail && item.detail.productsize) {
-          return {
-            ...item,
-            detail: {
-              ...item.detail,
-              productsize: item.detail.productsize.map(sizeItem => ({
-                ...sizeItem,
-                size: sizeItem.size.replace(/X/g, 'x')
-              }))
-            }
-          };
-        } else {
-          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
-          return item;
-        }
-      });
-      const newData = newData2.map(item => {
-        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
-        if (item.detail && item.detail.productsize) {
-          return {
-            ...item,
-            detail: {
-              ...item.detail,
-              productsize: item.detail.productsize.map(sizeItem => ({
-                ...sizeItem,
-                size: sizeItem.size.replace(/O/g, '0')
-              }))
-            }
-          };
-        } else {
-          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
-          return item;
-        }
-      });
-      if(selectedsize.length==1){
-        const filteredData1 = newData.filter(item => {
-          return item.detail.productsize.some(size => size.size === selectedsize[0]);   
-      });
-      setProduct(filteredData1)
-      }else {
-        
-      }
-
-    }
     setCurrentPage(1);
     }
-   
+
+    const handleClickFilter22 = () => {      
+    if(selected.length==0 && selectedsize.length !=0){
+  const newData1 = product.map(item => {
+    // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+    if (item.detail && item.detail.productsize) {
+      return {
+        ...item,
+        detail: {
+          ...item.detail,
+          productsize: item.detail.productsize.map(sizeItem => ({
+            ...sizeItem,
+            size: sizeItem.size.replace(/\s/g, '')
+          }))
+        }
+      };
+    } else {
+      // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+      return item;
+    }
+  });
+  const newData2 = newData1.map(item => {
+    // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+    if (item.detail && item.detail.productsize) {
+      return {
+        ...item,
+        detail: {
+          ...item.detail,
+          productsize: item.detail.productsize.map(sizeItem => ({
+            ...sizeItem,
+            size: sizeItem.size.replace(/X/g, 'x')
+          }))
+        }
+      };
+    } else {
+      // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+      return item;
+    }
+  });
+  const newData = newData2.map(item => {
+    // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+    if (item.detail && item.detail.productsize) {
+      return {
+        ...item,
+        detail: {
+          ...item.detail,
+          productsize: item.detail.productsize.map(sizeItem => ({
+            ...sizeItem,
+            size: sizeItem.size.replace(/O/g, '0')
+          }))
+        }
+      };
+    } else {
+      // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+      return item;
+    }
+  });
+  console.log(`เข้า0 ${filterProduct}`)
+  const filteredData = newData.filter(item => {
+    // กรองข้อมูลที่มี productsize ตรงกับขนาดที่ต้องการหรือไม่
+    return item.detail.productsize.some(sizeObj => selectedsize.includes(sizeObj.size));
+});
+setProduct(filteredData)
+}
+else if(selected.length!=0 && selectedsize.length !=0) {
+  const newData1 = filterProduct.map(item => {
+    // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+    if (item.detail && item.detail.productsize) {
+      return {
+        ...item,
+        detail: {
+          ...item.detail,
+          productsize: item.detail.productsize.map(sizeItem => ({
+            ...sizeItem,
+            size: sizeItem.size.replace(/\s/g, '')
+          }))
+        }
+      };
+    } else {
+      // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+      return item;
+    }
+  });
+  const newData2 = newData1.map(item => {
+    // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+    if (item.detail && item.detail.productsize) {
+      return {
+        ...item,
+        detail: {
+          ...item.detail,
+          productsize: item.detail.productsize.map(sizeItem => ({
+            ...sizeItem,
+            size: sizeItem.size.replace(/X/g, 'x')
+          }))
+        }
+      };
+    } else {
+      // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+      return item;
+    }
+  });
+  const newData = newData2.map(item => {
+    // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+    if (item.detail && item.detail.productsize) {
+      return {
+        ...item,
+        detail: {
+          ...item.detail,
+          productsize: item.detail.productsize.map(sizeItem => ({
+            ...sizeItem,
+            size: sizeItem.size.replace(/O/g, '0')
+          }))
+        }
+      };
+    } else {
+      // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+      return item;
+    }
+  });
+  console.log(`เข้า1 ${filterProduct}`)
+  const filteredData = newData.filter(item => {
+    // กรองข้อมูลที่มี productsize ตรงกับขนาดที่ต้องการหรือไม่
+    return item.detail.productsize.some(sizeObj => selectedsize.includes(sizeObj.size));
+});
+setProduct(filteredData)
+
+}else {
+  setProduct(filterProduct)
+}
+setCurrentPage(1);
+}
+const handleClickFilterAndFilter2 = () => {
+  if (selectedsize.length !== 0) {
+    // Filter by selected sizes
+    const newData1 = product.map(item => {
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/\s/g, '')
+            }))
+          }
+        };
+      } else {
+        return item;
+      }
+    });
+
+    const newData2 = newData1.map(item => {
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/X/g, 'x')
+            }))
+          }
+        };
+      } else {
+        return item;
+      }
+    });
+
+    const newData = newData2.map(item => {
+      if (item.detail && item.detail.productsize) {
+        return {
+          ...item,
+          detail: {
+            ...item.detail,
+            productsize: item.detail.productsize.map(sizeItem => ({
+              ...sizeItem,
+              size: sizeItem.size.replace(/O/g, '0')
+            }))
+          }
+        };
+      } else {
+        return item;
+      }
+    });
+
+    const filteredData = newData.filter(item =>
+      item.detail.productsize.some(sizeObj => selectedsize.includes(sizeObj.size))
+    );
+
+    setProduct(filteredData);
+  } else {
+    // If no size is selected, set product to original product list
+    setProduct(filterProduct);
+  }
+
+  if (selected.length === 1 || selected.length === 2 || selected.length === 3 || selected.length === 4 || selected.length === 5) {
+    const filteredProduct = product.filter(item => item.category === `${cat}`);
+    const filteredData = selected.map(selection =>
+      filteredProduct.filter(item => item.collection === selection)
+    ).flat();
+    setProduct(filteredData);
+  }
+
+  setCurrentPage(1);
+  setModalFilter(false);
+};
     
     const [clear,setClear]=useState(false)
     const handleClickClear = () => {
@@ -507,14 +579,17 @@ export default function Product({data,product,collection,category}) {
 
                           {/*Filter */}
                           <div className="flex w-[49%]">
-                            <Button size="sm" onPress={handleClickFilter} className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                            <Button size="sm" 
+                            onClick={
+                              handleClickFilterAndFilter2} 
+                            className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                             text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
                               {data?.button?.button02}
                             </Button>
                           </div>
                         </div>
                     </div>
-                    <ProductFilterMobile data={data} filterCollection={filterCollection} size={size} selected={selected} selectedsize={selectedsize} setSelectedsize={setSelectedsize} setSelected={setSelected} handleClickClear={handleClickClear} handleClickFilter={handleClickFilter}/>
+                    <ProductFilterMobile data={data} filterCollection={filterCollection} size={size} selected={selected} selectedsize={selectedsize} setSelectedsize={setSelectedsize} setSelected={setSelected} handleClickClear={handleClickClear} handleClickFilter={handleClickFilterAndFilter2}/>
                     {filterProduct[0]==undefined ? (
                     <div className="hidden md:flex justify-center items-center w-full h-[400px]">
                       <Image className=" object-scale-down  object-center w-full h-full" 
