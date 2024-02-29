@@ -118,10 +118,10 @@ export default function BlogContent({blog}) {
 
                   <div className="flex md:hidden flex-col w-full  ss:w-[340px] sm:w-[480px]">
                     {/* Image */}
-                    <div className="flex flex-col w-full h-[200px] ss:h-[240px] sm:h-[300px] relative">
+                    <div className="flex flex-col w-full h-[250px] relative">
                       {highlight?.slice(0,5).map((item,index)=>(
                         <div key={index} className={`flex justify-center items-center w-full h-full absolute top-0 transition-all duration-500 ${activeIndex==index ? "opacity-100":"opacity-0"}`}>
-                          <Image className=" object-scale-down ss:object-cover object-center h-full ss:w-[340px] ss:h-[240px] sm:w-[480px] sm:h-[300px]" radius="none" src={urlFor(item?.mainImage.image).url()} alt={item?.alt} quality={100} width={840} height={500}/>
+                          <Image className="object-cover object-center h-[250px]" radius="none" src={urlFor(item?.mainImage.image).url()} alt={item?.alt} quality={100} width={840} height={500}/>
                         </div>
                       ))}
                     </div>
