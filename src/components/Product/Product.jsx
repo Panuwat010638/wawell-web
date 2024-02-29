@@ -8,6 +8,7 @@ import { IoIosSearch } from "react-icons/io";
 import ProductFilterMobile from "./ProductFilterMobile";
   
 export default function Product({data,product,collection,category}) {
+    //////////////////////////////////////////
     const router = useSearchParams();
     const pathname = usePathname();
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -17,6 +18,11 @@ export default function Product({data,product,collection,category}) {
     /////////////////////////////////////////////////
     const [modalFilter,setModalFilter]=useState(false)
     const [filterActive,setFilterActive]=useState(false)
+    ///Pagination ////////////////////////////////////////////////////////////
+    const itemsPerPage = 28;
+    const [currentPage, setCurrentPage] = useState(1);
+    const [startIndex,setStartIndex]=useState(0)
+    const [endIndex,setEndIndex]=useState(0)
     //Sellect Category////////////////////////////////////////////////////////
     const [cat,setCat]=useState('porcelain TILES')
     const [filterCollection,setCollection]=useState()
@@ -29,6 +35,7 @@ export default function Product({data,product,collection,category}) {
         setProduct(filteredProduct);
         setSelected([])
         setSelectedsize([])
+        setCurrentPage(1);
     }, [cat, collection, product]);
     //////////////////////////////////////////////////////////////////////////
     //Filter Size/////////////////////////////////////////////////////////////
@@ -289,7 +296,7 @@ export default function Product({data,product,collection,category}) {
       }
 
     }
-
+    setCurrentPage(1);
     }
    
     
@@ -301,13 +308,10 @@ export default function Product({data,product,collection,category}) {
       setModalFilter(false)
       setSelected([])
       setSelectedsize([])
+      setCurrentPage(1);
       };
 
     //Pagination//////////////////////////////////////////////////////////////
-    const itemsPerPage = 28;
-    const [currentPage, setCurrentPage] = useState(1);
-    const [startIndex,setStartIndex]=useState(0)
-    const [endIndex,setEndIndex]=useState(0)
 
     useEffect(() => {
         const cur = Number(currentPage-1);
@@ -511,12 +515,12 @@ export default function Product({data,product,collection,category}) {
                     </div>
                     <ProductFilterMobile data={data} filterCollection={filterCollection} size={size} selected={selected} selectedsize={selectedsize} setSelectedsize={setSelectedsize} setSelected={setSelected} handleClickClear={handleClickClear} handleClickFilter={handleClickFilter}/>
                     <div className="hidden md:flex flex-wrap w-[68%] lg:w-[73%] gap-x-[2%] md:gap-y-[36px] h-full">
-                        {filterProduct?.map((item,index)=>(
+                        {filterProduct?.slice(startIndex, endIndex).map((item,index)=>(
                             <CardProduct key={index} item={item} index={index}/>
                         ))}
                     </div>
                     <div className="flex md:hidden flex-wrap w-full ss:w-[80%] gap-x-[2%] gap-y-[16px] ss:gap-y-[24px] h-full">
-                        {filterProduct?.map((item,index)=>(
+                        {filterProduct?.slice(startIndex, endIndex).map((item,index)=>(
                             <CardProduct key={index} item={item} index={index}/>
                         ))}
                     </div>
