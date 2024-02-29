@@ -8,18 +8,35 @@ import { redirect, useRouter } from "next/navigation";
 export default function ProductSlugHeader({data}) {
     const [value, setValue] = useState("");
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
-    const confirmButtonRef = useRef(null);
     const router = useRouter();
  
-
-    const handleKeyDown = (event) => {
+    const confirmButtonRef = useRef(null);
  
+    const handleKeyUp = (event) => {
       if (event.keyCode === 13 || event.keyCode === "Enter") { // Enter key
-     
-        redirect('/product')
-        
+        confirmButtonRef.current.click();
+        event.target.blur();
+        event.preventDefault();
+  
       }
     };
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 13 || event.keyCode === "Enter") { // Enter key
+        confirmButtonRef.current.click();
+        event.target.blur();
+        event.preventDefault();
+   
+      }
+    };
+  
+    useEffect(() => {
+      document.addEventListener('keyup', handleKeyUp);
+      document.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.removeEventListener('keyup', handleKeyUp);
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, []);
 
 
   return (
@@ -47,7 +64,7 @@ export default function ProductSlugHeader({data}) {
                     onValueChange={setValue}
           
                     startContent={
-                        <Link href={`/product?product=${value}`}>
+                        <Link type='submit' ref={confirmButtonRef} href={`/search?search=${value}`}>
                             <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
                         </Link>
                         
@@ -76,7 +93,7 @@ export default function ProductSlugHeader({data}) {
                                 } />
                             <div className="flex justify-end w-full">
                                <div className="flex w-[49%]">
-                                    <Link onPress={onClose} href={`/product?product=${value}`} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                                    <Link type='submit' ref={confirmButtonRef} onPress={onClose} href={`/search?search=${value}`} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                                         text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
                                         Search
                                     </Link>

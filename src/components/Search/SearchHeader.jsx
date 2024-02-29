@@ -10,6 +10,32 @@ export default function SearchHeader({data}) {
     const {isOpen, onOpen, onOpenChange} = useDisclosure();
     const confirmButtonRef = useRef(null);
     const router = useRouter();
+
+    const handleKeyUp = (event) => {
+      if (event.keyCode === 13 || event.keyCode === "Enter") { // Enter key
+        confirmButtonRef.current.click();
+        event.target.blur();
+        event.preventDefault();
+  
+      }
+    };
+    const handleKeyDown = (event) => {
+      if (event.keyCode === 13 || event.keyCode === "Enter") { // Enter key
+        confirmButtonRef.current.click();
+        event.target.blur();
+        event.preventDefault();
+   
+      }
+    };
+  
+    useEffect(() => {
+      document.addEventListener('keyup', handleKeyUp);
+      document.addEventListener('keydown', handleKeyDown);
+      return () => {
+        document.removeEventListener('keyup', handleKeyUp);
+        document.removeEventListener('keydown', handleKeyDown);
+      };
+    }, []);
   return (
     <section className="bg-[#fcfcfc]">
         <div className="max-w-6xl mx-auto px-6 xl:px-0 pt-[40px] sm:pt-[48px] md:pt-[56px] lg:pt-[64px] xl:pt-[72px] pb-[50px]">
@@ -19,14 +45,7 @@ export default function SearchHeader({data}) {
                     <h2 className="font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#1C2532] font-[600] leading-[125%] uppercase">
                         OUR products
                     </h2>
-                    <div className="flex gap-x-[10px]">
-                        <Link href={`/product`} className="text-[14px] md:text-[16px] text-[#ABB1C1] font-[500]">
-                            Product /
-                        </Link>
-                        <p className="text-[14px] md:text-[16px] text-[#14142A] font-[500]">
-                            {data?.title}
-                        </p>
-                    </div>
+                
                 </div>
                 <form className="hidden md:flex justify-end w-[292px] gap-y-[16px]">
                     <Input className=" placeholder:text-[#ABB1C1]" type="text" variant='bordered' 
@@ -35,7 +54,7 @@ export default function SearchHeader({data}) {
                     onValueChange={setValue}
           
                     startContent={
-                        <Link href={`/product?product=${value}`}>
+                        <Link type='submit' href={`/search?search=${value}`} ref={confirmButtonRef}>
                             <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
                         </Link>
                         

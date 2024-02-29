@@ -1,8 +1,8 @@
 'use client'
-import { useState,useEffect } from "react"
+import { useState,useEffect,useRef } from "react"
 import { useSearchParams,usePathname } from "next/navigation"
 import CardProduct from "../Card/CardProduct"
-import {Pagination,CheckboxGroup, Checkbox,Tabs, Tab,Button,Input,Modal, ModalContent, ModalHeader, ModalBody, useDisclosure,} from "@nextui-org/react";
+import {Pagination,CheckboxGroup, Checkbox,Tabs,Link, Tab,Button,Input,Modal, ModalContent, ModalHeader, ModalBody, useDisclosure,} from "@nextui-org/react";
 import { IoIosSearch } from "react-icons/io";
 
 import ProductFilterMobile from "./ProductFilterMobile";
@@ -77,7 +77,7 @@ export default function Product({data,product,collection,category}) {
             ...item.detail,
             productsize: item.detail.productsize.map(sizeItem => ({
               ...sizeItem,
-              size: sizeItem.size.replace(/O/g, '0').replace(/X/g, 'x')
+              size: sizeItem.size.replace(/O/g, '0')
             }))
           }
         };
@@ -155,7 +155,140 @@ export default function Product({data,product,collection,category}) {
       const filteredProduct = product.filter(item => item.category === `${cat}`);
       setProduct(filteredProduct);
       }
+    /// Set Subset//////////////////////////////////////////////////////////////////////////
 
+    /// Filter Size////////////////////////////////////////////////////////////////////////
+    if(selected.length==0){
+      const newData1 = product.map(item => {
+        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+        if (item.detail && item.detail.productsize) {
+          return {
+            ...item,
+            detail: {
+              ...item.detail,
+              productsize: item.detail.productsize.map(sizeItem => ({
+                ...sizeItem,
+                size: sizeItem.size.replace(/\s/g, '')
+              }))
+            }
+          };
+        } else {
+          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+          return item;
+        }
+      });
+      const newData2 = newData1.map(item => {
+        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+        if (item.detail && item.detail.productsize) {
+          return {
+            ...item,
+            detail: {
+              ...item.detail,
+              productsize: item.detail.productsize.map(sizeItem => ({
+                ...sizeItem,
+                size: sizeItem.size.replace(/X/g, 'x')
+              }))
+            }
+          };
+        } else {
+          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+          return item;
+        }
+      });
+      const newData = newData2.map(item => {
+        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+        if (item.detail && item.detail.productsize) {
+          return {
+            ...item,
+            detail: {
+              ...item.detail,
+              productsize: item.detail.productsize.map(sizeItem => ({
+                ...sizeItem,
+                size: sizeItem.size.replace(/O/g, '0')
+              }))
+            }
+          };
+        } else {
+          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+          return item;
+        }
+      });
+
+      if(selectedsize.length==1){
+        console.log(newData)
+        const filteredData1 = newData.filter(item => {
+          return item.detail.productsize.some(size => size.size == selectedsize[0]);   
+      });
+      setProduct(filteredData1)
+      }else {
+
+      }
+    }
+    else {
+      const newData1 = filterProduct.map(item => {
+        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+        if (item.detail && item.detail.productsize) {
+          return {
+            ...item,
+            detail: {
+              ...item.detail,
+              productsize: item.detail.productsize.map(sizeItem => ({
+                ...sizeItem,
+                size: sizeItem.size.replace(/\s/g, '')
+              }))
+            }
+          };
+        } else {
+          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+          return item;
+        }
+      });
+      const newData2 = newData1.map(item => {
+        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+        if (item.detail && item.detail.productsize) {
+          return {
+            ...item,
+            detail: {
+              ...item.detail,
+              productsize: item.detail.productsize.map(sizeItem => ({
+                ...sizeItem,
+                size: sizeItem.size.replace(/X/g, 'x')
+              }))
+            }
+          };
+        } else {
+          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+          return item;
+        }
+      });
+      const newData = newData2.map(item => {
+        // เช็คว่ามี property 'detail' และ 'productsize' ในแต่ละรายการหรือไม่
+        if (item.detail && item.detail.productsize) {
+          return {
+            ...item,
+            detail: {
+              ...item.detail,
+              productsize: item.detail.productsize.map(sizeItem => ({
+                ...sizeItem,
+                size: sizeItem.size.replace(/O/g, '0')
+              }))
+            }
+          };
+        } else {
+          // ถ้าไม่มี 'productsize' ให้ส่งค่าเดิมกลับไป
+          return item;
+        }
+      });
+      if(selectedsize.length==1){
+        const filteredData1 = newData.filter(item => {
+          return item.detail.productsize.some(size => size.size === selectedsize[0]);   
+      });
+      setProduct(filteredData1)
+      }else {
+        
+      }
+
+    }
 
     }
    
@@ -201,6 +334,34 @@ export default function Product({data,product,collection,category}) {
        }
       
      }, [pathname,qp]);
+
+     const confirmButtonRef = useRef(null);
+ 
+  const handleKeyUp = (event) => {
+    if (event.keyCode === 13 || event.keyCode === "Enter") { // Enter key
+      confirmButtonRef.current.click();
+      event.target.blur();
+      event.preventDefault();
+  
+    }
+  };
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13 || event.keyCode === "Enter") { // Enter key
+      confirmButtonRef.current.click();
+      event.target.blur();
+      event.preventDefault();
+
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keyup', handleKeyUp);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keyup', handleKeyUp);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
     
   return (
     <div className="bg-[#fcfcfc]">
@@ -218,7 +379,10 @@ export default function Product({data,product,collection,category}) {
                       value={value}
                       onValueChange={setValue}
                       startContent={
-                          <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
+                        <Link type='submit' ref={confirmButtonRef} href={`/search?search=${value}`}>
+                            <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" />
+                        </Link>
+                          
                       } />
                     </form>
                     <Button className="flex md:hidden" onPress={onOpen} color="none"> <IoIosSearch className="text-2xl pointer-events-none flex-shrink-0 text-[#ABB1C1]" /></Button>
@@ -243,7 +407,7 @@ export default function Product({data,product,collection,category}) {
                                 } />
                             <div className="flex justify-end w-full">
                                <div className="flex w-[49%]">
-                                    <Button onPress={onClose} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
+                                    <Button type='submit' ref={confirmButtonRef} as={Link} href={`/search?search=${value}`} onPress={onClose} size="sm" className="flex justify-center items-center w-full h-[48px] rounded-[4px] bg-[#223B61] hover:bg-[#fcfcfc] transition-all duration-500
                                         text-[16px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#fcfcfc] hover:text-[#223B61] font-[500] border-[1px] border-solid border-[#fcfcfc] hover:border-[#223B61]">
                                         Search
                                     </Button>
@@ -326,6 +490,7 @@ export default function Product({data,product,collection,category}) {
                               </Checkbox>
                           ))}
                         </CheckboxGroup>
+                        
                         <div className="flex w-full gap-x-[2%] pt-[32px]">
                           {/* Clear */}
                           <div className="flex w-[49%]">

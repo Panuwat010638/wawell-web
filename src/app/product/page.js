@@ -37,7 +37,7 @@ async function getPosts() {
         'category': category->title,
       }`
       const collection = await client.fetch(queryCollection)
-      const queryCategory = groq`*[_type == "categoryproduct"] `
+      const queryCategory = groq`*[_type == "categoryproduct"] | order(_createdAt desc) `
       const category = await client.fetch(queryCategory)
     return {
         props: { posts, product,collection,category},revalidate:10
