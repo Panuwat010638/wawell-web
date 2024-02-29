@@ -132,7 +132,7 @@ export default function BlogContent({blog}) {
                               pb-[16px] border-b-[2px] border-solid border-[#ABB1C1] line-clamp-2'>
                                   {item?.title}
                               </Link>
-                              <Link href={`/blog/${item?.slug?.slug?.current}`} className='text-[14px] lg:text-[16px] xl:text-[18px] text-[#545867] font-[400] leading-[125%] line-clamp-2 ss:line-clamp-3 sm:line-clamp-none'>
+                              <Link href={`/blog/${item?.slug?.slug?.current}`} className='text-[14px] lg:text-[16px] xl:text-[18px] text-[#545867] font-[400] leading-[150%] line-clamp-2 ss:line-clamp-3 sm:line-clamp-none'>
                                   {item?.detail}
                               </Link>
 

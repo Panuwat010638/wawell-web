@@ -15,7 +15,7 @@ export default function BlogSlugBanner({data}) {
         <div className="max-w-full mx-auto">
             <div className="flex justify-center items-center w-full h-full">
                 <div className="flex justify-center items-center w-full">
-                    <Image className="object-scale-down object-center w-full h-full" src={urlFor(data?.mainImage?.image).format('png').url()}
+                    <Image className=" object-cover sm:object-scale-down object-center w-full h-[180px] sm:h-full" src={urlFor(data?.mainImage?.image).format('png').url()}
                         alt={data?.mainImage?.alt} quality={100}
                         width={1440} height={400}/>
                 </div>

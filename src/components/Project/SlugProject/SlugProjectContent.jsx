@@ -28,7 +28,7 @@ export default function SlugProjectContent({data}) {
                 </div>
 
                 {/* Content Mid */}
-                <div className="flex flex-col md:flex-row w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[2%] gap-y-[12px]">
+                <div className="flex flex-col md:flex-row w-full ss:w-[90%] sm:w-[80%] md:w-full gap-x-[2%] gap-y-[12px] pb-[24px] border-b-[1px] border-solid border-[#E0E3EB]">
                   <div className="flex flex-col w-full md:w-[40%] gap-y-[12px]">
                     <p className="gap-x-[8px] text-[14px] md:text-[16px] lg:text-[18px] text-[#223B61] font-[400] leading-[125%]">
                       {`Client:  ${data?.content?.client}`}

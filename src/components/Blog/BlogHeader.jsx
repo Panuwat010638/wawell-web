@@ -7,10 +7,10 @@ export default function BlogHeader({data}) {
             <div className='flex flex-col justify-center items-center w-full h-full gap-y-[24px]'>
                 {/* Header */}
                 <div className='flex flex-col justify-center items-center w-full gap-y-[24px]'>
-                    <h1 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#14142A] font-[500] leading-[125%] uppercase'>
+                    <h1 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[30px] xl:text-[36px] text-[#14142A] font-[600] leading-[125%] uppercase'>
                         {data?.header}
                     </h1>
-                    <p className='text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] text-[#545867] font-[400] leading-[125%] text-center whitespace-normal sm:whitespace-pre-line'>
+                    <p className='text-[14px] md:text-[16px] lg:text-[18px] text-[#545867] font-[400] leading-[125%] text-center whitespace-normal sm:whitespace-pre-line'>
                         {data?.detail}
                     </p>
                 </div>
