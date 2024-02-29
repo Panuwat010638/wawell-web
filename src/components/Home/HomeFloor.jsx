@@ -29,7 +29,7 @@ export default function ({data}) {
                 <div className='group flex justify-center items-center w-full h-[50%] relative'>
                     <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[0]?.image).format('png').url()} alt={data?.floor[0]?.alt} quality={100} width={608} height={303}/>
                     <div className="flex flex-col justify-end items-end w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
-                      <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                      <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[0]?.number}
                       </h4>
                       <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -37,7 +37,7 @@ export default function ({data}) {
                       </p>
                     </div>
                     <div className="flex flex-col justify-end items-end w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[10] absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                      <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                      <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.floor[0]?.number}
                       </h4>
                       <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -56,7 +56,7 @@ export default function ({data}) {
                     <div className='group flex justify-center items-center w-[50%] h-full relative'>
                       <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[1]?.image).format('png').url()} alt={data?.floor[1]?.alt} quality={100} width={304} height={303}/>
                       <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
-                        <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                        <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[1]?.number}
                         </h4>
                         <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -64,7 +64,7 @@ export default function ({data}) {
                         </p>
                       </div>
                       <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[10] absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                        <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[1]?.number}
                         </h4>
                         <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -81,7 +81,7 @@ export default function ({data}) {
                     <div className='group flex justify-center items-center w-[50%] h-full relative'>
                       <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[2]?.image).format('png').url()} alt={data?.floor[2]?.alt} quality={100} width={304} height={303}/>
                       <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
-                        <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                        <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[2]?.number}
                         </h4>
                         <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -89,7 +89,7 @@ export default function ({data}) {
                         </p>
                       </div>
                       <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[10] absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                        <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                        <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[2]?.number}
                         </h4>
                         <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -111,7 +111,7 @@ export default function ({data}) {
                 <div className='group flex justify-center items-center w-[50%] md:w-full h-full relative'>
                   <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[3]?.image).format('png').url()} alt={data?.floor[3]?.alt} quality={100} width={304} height={606}/>
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
-                    <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                    <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[3]?.number}
                     </h4>
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -119,7 +119,7 @@ export default function ({data}) {
                     </p>
                   </div>
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[10] absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                    <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[3]?.number}
                     </h4>
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -136,7 +136,7 @@ export default function ({data}) {
                 <div className='group flex justify-center items-center w-[50%] md:w-full h-full relative'>
                   <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[4]?.image).format('png').url()} alt={data?.floor[4]?.alt} quality={100} width={304} height={606}/>
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
-                    <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                    <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[4]?.number}
                     </h4>
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -144,7 +144,7 @@ export default function ({data}) {
                     </p>
                   </div>
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[10] absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
-                    <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                    <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[4]?.number}
                     </h4>
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -165,7 +165,7 @@ export default function ({data}) {
                 <div className='group flex justify-center items-center w-full h-[50%] relative'>
                     <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[0]?.image).format('png').url()} alt={data?.floor[0]?.alt} quality={100} width={608} height={303}/>
                     <div className="flex flex-col justify-end items-end w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0">
-                      <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                      <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.floor[0]?.number}
                       </h4>
                       <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -181,7 +181,7 @@ export default function ({data}) {
                     <div className='group flex justify-center items-center w-[50%] h-full relative'>
                       <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[1]?.image).format('png').url()} alt={data?.floor[1]?.alt} quality={100} width={304} height={303}/>
                       <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0">
-                        <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                        <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[1]?.number}
                         </h4>
                         <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -195,7 +195,7 @@ export default function ({data}) {
                     <div className='group flex justify-center items-center w-[50%] h-full relative'>
                       <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.floor[2]?.image).format('png').url()} alt={data?.floor[2]?.alt} quality={100} width={304} height={303}/>
                       <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0">
-                        <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                        <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                         {data?.floor[2]?.number}
                         </h4>
                         <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -214,7 +214,7 @@ export default function ({data}) {
                 <div className='flex justify-center items-center w-[50%] h-full relative'>
                   <Image className="object-cover object-center w-full h-full" src={urlFor(data?.floor[3]?.imageM).format('png').url()} alt={data?.floor[3]?.alt} quality={100} width={304} height={606}/>
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0">
-                    <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                    <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[3]?.number}
                     </h4>
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
@@ -228,7 +228,7 @@ export default function ({data}) {
                 <div className='flex justify-center items-center w-[50%] h-full relative'>
                   <Image className="object-cover object-center w-full h-full" src={urlFor(data?.floor[4]?.imageM).format('png').url()} alt={data?.floor[4]?.alt} quality={100} width={304} height={606}/>
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0">
-                    <h4 className='text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
+                    <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                     {data?.floor[4]?.number}
                     </h4>
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>

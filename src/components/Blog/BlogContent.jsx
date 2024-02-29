@@ -71,6 +71,10 @@ export default function BlogContent({blog}) {
           clearInterval(interval);
         };
       });
+      useEffect(() => {
+        // เมื่อ currentPage เปลี่ยนแปลง ให้เลื่อนหน้าเว็บไปที่ด้านบน
+        window.scrollTo({ top: 0});
+      }, [currentPage]);
     
   return (
     <div className="bg-[#fcfcfc]">

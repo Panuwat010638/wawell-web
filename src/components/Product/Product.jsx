@@ -394,7 +394,10 @@ const handleClickFilterAndFilter2 = () => {
         setEndIndex(endIndex)
         // ทำอย่างอื่นที่คุณต้องการที่นี่ เช่น เรียก API หรืออัพเดตสถานะอื่น ๆ
       }, [currentPage,startIndex,endIndex]);
-
+      useEffect(() => {
+        // เมื่อ currentPage เปลี่ยนแปลง ให้เลื่อนหน้าเว็บไปที่ด้านบน
+        window.scrollTo({ top: 0});
+      }, [currentPage]);
     const lengthData = filterProduct?.length
     const result = parseInt(lengthData / itemsPerPage);
     const result2 = parseInt(lengthData % itemsPerPage);
