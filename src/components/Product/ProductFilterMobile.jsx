@@ -18,8 +18,10 @@ export default function ProductFilterMobile({data,filterCollection,size,selected
           onOpenChange={onOpenChange}
           placement="center"
           scrollBehavior={"inside"}
+          
           classNames={{
-                wrapper:"z-[120] flex md:hidden"}}
+            backdrop:"z-[120]",
+                wrapper:"z-[130] flex md:hidden"}}
             >
           <ModalContent>
             {(onClose) => (

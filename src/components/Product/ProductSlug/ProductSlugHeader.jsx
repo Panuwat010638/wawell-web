@@ -77,7 +77,8 @@ export default function ProductSlugHeader({data}) {
                       onOpenChange={onOpenChange}
                       placement="center"
                       classNames={{
-                            wrapper:"z-[120]"}}
+                        backdrop:"z-[120]",
+                        wrapper:"z-[130]"}}
                         >
                       <ModalContent>
                         {(onClose) => (

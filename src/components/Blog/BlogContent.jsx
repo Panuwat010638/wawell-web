@@ -38,17 +38,10 @@ export default function BlogContent({blog}) {
     const result = parseInt(lengthData / itemsPerPage);
     const result2 = parseInt(lengthData % itemsPerPage);
 
-    const myElementRef = useRef(null);
 
-    const scrollToElement = () => {
-      if (myElementRef.current) {
-        myElementRef.current.scrollIntoView({ behavior: "smooth" });
-      }
-    };
-    useEffect(() => {
-      // เรียกใช้ scroll เมื่อ currentPag เปลี่ยน
-      scrollToElement();
-    }, [currentPage]);
+
+   
+
 /////////////// Slide ///////////////////
     const [activeIndex, setActiveIndex] = useState(0);
 
