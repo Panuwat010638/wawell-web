@@ -14,7 +14,7 @@ export default function ProjectContent({category,project}) {
     const [currentPage, setCurrentPage] = useState(1);
     const [startIndex,setStartIndex]=useState(0)
     const [endIndex,setEndIndex]=useState(0)
-
+    const [projectfilter,setFilteredproject]=useState(project||[])
     useEffect(() => {
         const cur = Number(currentPage-1);
         const startIndex = cur * itemsPerPage;
@@ -24,7 +24,7 @@ export default function ProjectContent({category,project}) {
         // ทำอย่างอื่นที่คุณต้องการที่นี่ เช่น เรียก API หรืออัพเดตสถานะอื่น ๆ
       }, [currentPage,startIndex,endIndex]);
 
-    const lengthData = project?.length
+    const lengthData = projectfilter?.length
     const result = parseInt(lengthData / itemsPerPage);
     const result2 = parseInt(lengthData % itemsPerPage);
 
@@ -70,15 +70,15 @@ export default function ProjectContent({category,project}) {
       const text2=decodeURI(text)
       const textQuery1=text2.replace("+", " ");
       const textQuery=textQuery1.replace("+", " ");
-      const [projectfilter,setFilteredproject]=useState(project||[])
       useEffect(() => {
           setCat(textQuery)
           if (textQuery !='/project' ) {       
               setCat(textQuery);
+              setCurrentPage(1);
           } else {
            
               setCat('ALL');
-              
+              setCurrentPage(1);
           }
         }, [pathname,qp,router,pathname]);
         useEffect(() => {
@@ -86,11 +86,11 @@ export default function ProjectContent({category,project}) {
          
             const filteredProject = project.filter(item => item.category == `${cat}`);
             setFilteredproject(filteredProject);
-            
+            setCurrentPage(1);
  
           }else {
             setFilteredproject(project);
-        
+            setCurrentPage(1);
           }
                 
         }, [cat]);
@@ -117,7 +117,7 @@ export default function ProjectContent({category,project}) {
             setFilteredproject(project);
         
           }
-                
+          setCurrentPage(1);        
         }, [cat,router]);
   return (
     <div className="bg-[#fcfcfc]">
@@ -169,7 +169,7 @@ export default function ProjectContent({category,project}) {
 
                 {/* Card */}
                 <div className="flex flex-wrap w-full">
-                    {projectfilter?.map((item,index)=>(
+                    {projectfilter?.slice(startIndex, endIndex).map((item,index)=>(
                         <CardProject key={index} item={item} index={index}/>
                     ))}
                 </div>
