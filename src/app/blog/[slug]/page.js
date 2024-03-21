@@ -79,10 +79,10 @@ export default async function blogSlugpage({params}) {
   return (
     <main>
       <div className="flex w-full h-[80px]"/>
-        <BlogSlugBanner data={data}/>
-        <BlogSlugHeader data={data}/>
-        <BlogSlugContent data={data}/>
-        <BlogSlugMoreBlog blog={blog}/>
+      <BlogSlugBanner data={data}/>
+      <BlogSlugHeader data={data}/>
+      <BlogSlugContent data={data}/>
+      <BlogSlugMoreBlog blog={blog}/>
     </main>
   )
 }

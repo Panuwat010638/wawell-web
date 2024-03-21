@@ -10,6 +10,9 @@ import HomeBlog from "@/components/Home/HomeBlog";
 import HomeContact from "@/components/Home/HomeContact";
 import HomeMap from "@/components/Home/HomeMap";
 
+import HomePo from "@/components/Home/HomePo";
+import HomeOther from "@/components/Home/HomeOther";
+
 import client from "../../client";
 import groq from "groq";
 
@@ -78,10 +81,12 @@ export default async function Home() {
       <HomeWedo data={data[0]?.HomeProduct}/>
       <HomeProduct data={data[0]?.HomeProduct}/>
       <HomeCollection data={data[0]?.HomeCollection}/>
-      <HomeFloor data={data[0]?.HomeCollection}/>
-      <HomeWall data={data[0]?.HomeCollection}/>
+      {/* <HomeFloor data={data[0]?.HomeCollection}/> */}
+      {/* <HomeWall data={data[0]?.HomeCollection}/> */}
+      <HomePo data={data[0]?.HomeCollection}/>
+      <HomeOther data={data[0]?.HomeCollection}/>
       <HomeProject project ={project} data={data[0].ourprojects}/>
-      <HomeBlog data={data[0]?.HomeBlog} blog={blog}/>
+      {/* <HomeBlog data={data[0]?.HomeBlog} blog={blog}/> */}
       <HomeContact data={data[0]?.HomeContact}/>
       <HomeMap />
     </main>
