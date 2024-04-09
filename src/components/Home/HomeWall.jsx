@@ -36,7 +36,7 @@ export default function HomeWall({data}) {
                     <p className='font-pop text-[14px] md:text-[16px] text-[#FCFCFC] font-[500] leading-[125%] uppercase '>
                       {data?.wall[0]?.title}
                     </p>
-                  </div>
+                  </div> 
                   <div className="flex flex-col justify-end items-start w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[10] absolute top-0 opacity-0 group-hover:opacity-100 transition-all duration-500">
                     <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
                       {data?.wall[0]?.number}

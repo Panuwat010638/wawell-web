@@ -24,7 +24,7 @@ export default function HomeOther({data}) {
 
             <div className="grid grid-cols-1 md:grid-cols-2 place-content-center place-items-center w-full gap-[8px]">
                 {/* Left */}
-                <div className='group flex justify-center items-center w-full h-full relative'>
+                <div className='group flex justify-center items-center w-full h-[335px] ss:h-[420px] sm:h-[575px] md:h-[350px] lg:h-[470px] xl:h-[557px] relative'>
                   <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.other[0]?.image).format('png').url()} alt={data?.other[0]?.alt} quality={100} width={616} height={600}/>
                   <div className="flex flex-col justify-end items-end w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
                     <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
@@ -52,7 +52,7 @@ export default function HomeOther({data}) {
                   </Link>
                 </div>
                 {/* Right */}
-                <div className='group flex justify-center items-center w-full h-full relative'>
+                <div className='group flex justify-center items-center w-full h-[335px] ss:h-[420px] sm:h-[575px] md:h-[350px] lg:h-[470px] xl:h-[557px] relative'>
                   <Image className="object-cover object-center w-full h-full transition-all duration-500 group-hover:brightness-50" src={urlFor(data?.other[1]?.image).format('png').url()} alt={data?.other[1]?.alt} quality={100} width={616} height={600}/>
                   <div className="flex flex-col justify-end items-end w-full h-full md:gap-y-[8px] p-[16px] md:p-[24px] z-[9] absolute top-0 opacity-100 group-hover:opacity-0 transition-all duration-500">
                     <h4 className='font-pop text-[20px] sm:text-[24px] md:text-[24px] lg:text-[28px] xl:text-[32px] text-[#FCFCFC] font-[600] leading-[125%] uppercase'>
