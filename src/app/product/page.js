@@ -14,13 +14,23 @@ async function getPosts() {
         return dateB - dateA;
       });
   
-    const queryProject = groq`*[_type == "product" && title != "Bianco - WBDA206 Test 01"] | order(_createdAt desc){
+    const queryProject = groq`*[_type == "product" && title == "Bianco - WBDA206 Test 01"] | order(_createdAt desc){
       _id,
       title,
-      detail,
+      detail{
+        productsize[] {
+            "size":size->size,
+            "size2":size->size2,
+            "pattern":pattern
+        },
+        material,
+        finish,
+        thinness,
+        application,
+      },
       slug,
       mainImage,
-      size,
+
       date,
       'category': category->title,
       'collection': collection->title,
@@ -62,7 +72,6 @@ export default async function productpage() {
     const product = posts.props.product;
     const collection = posts.props.collection;
     const category = posts.props.category;
-  
   return (
     <main>
       <div className="flex w-full h-[80px]"/>

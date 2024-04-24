@@ -16,15 +16,16 @@ function urlFor(source) {
 
 export default function ProductSlugContent({data}) {
   const [activeIndex, setActiveIndex] = useState(0);
-
+  const [activePattern,setActivePattern]=useState(0)
+  console.log(data?.detail?.productsize[0].pattern)
   return (
     <div className="bg-[#fcfcfc]">
       <div className="max-w-6xl mx-auto px-6 xl:px-0 pb-[56px] md:pb-[64px] lg:pb-[72px] xl:pb-[80px]">
-        <div className="flex flex-col md:flex-row justify-start md:justify-between items-center md:items-start w-full h-full gap-x-[5%] gap-y-[16px]">
+        <div className="flex flex-col lg:flex-row justify-start lg:justify-between items-center lg:items-start w-full h-full gap-x-[5%] gap-y-[16px]">
 
           {/* Image */}
-          <div className="flex w-full ss:w-[90%] sm:w-[80%] md:w-[45%] h-auto md:h-full">
-            {data?.detail?.pattern == undefined ? (
+          <div className="flex items-center w-full ss:w-[90%] sm:w-[80%] md:w-[80%] h-auto md:h-full">
+            {data?.detail?.productsize[activePattern].pattern == undefined ? (
               <div className="flex flex-col w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]">
                 {data?.mainImage?.image!=undefined ? (
                 <div className={`flex justify-center items-center w-full h-full`}>
@@ -37,10 +38,10 @@ export default function ProductSlugContent({data}) {
                   
               </div>
             ):(
-              <div className="flex flex-col w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]  relative">
-                {data?.detail?.pattern.map((item,index)=>(
+              <div className="flex flex-col w-full items-center h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]  relative">
+                {data?.detail?.productsize[activePattern]?.pattern.map((item,index)=>(
                   <div key={index} className={`flex justify-center items-center w-full h-full transition-all duration-700 ease-linear absolute top-0 ${activeIndex==index ? "opacity-100 z-[10]":"opacity-0 z-[1]"}`}>
-                    <Image className=" object-cover object-center w-full h-full" src={urlFor(item?.image).url()} alt={item?.alt} width={1048} height={1048}/>
+                    <Image className=" object-contain object-center w-full h-full" src={urlFor(item?.image).url()} alt={item?.alt} width={1048} height={1048}/>
                   </div>
                 ))}
               </div>
@@ -48,13 +49,13 @@ export default function ProductSlugContent({data}) {
           </div>
 
           {/* Content */}
-          <div className="flex flex-col w-full ss:w-[90%] sm:w-[80%] md:w-[50%] h-auto md:h-full gap-y-[16px] md:gap-y-[24px]">
+          <div className="flex flex-col w-full ss:w-[90%] sm:w-[80%] md:w-[80%] h-auto md:h-full gap-y-[16px] md:gap-y-[24px]">
               {/* Name Product */}
               <div className="flex flex-col md:flex-row justify-normal md:justify-between items-center w-full gap-y-[8px] sm:gap-y-[16px] gap-x-[16px] pb-[16px] md:pb-[24px] border-b-[2px] border-solid border-[#E0E3EB]">
                   <h1 className="text-[18px] md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#14142A] font-[700] leading-[125%]">
                     {data?.title}
                   </h1>
-                  {data?.detail?.pattern == undefined ? (
+                  {data?.detail?.productsize[activePattern].pattern == undefined ? (
                       <div className="flex">
                         <Button as={Link} href={`${urlFor(data.mainImage?.image).url()}?dl=${data?.title}.jpg`} target="_blank" size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
                         text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[600]">
@@ -63,7 +64,7 @@ export default function ProductSlugContent({data}) {
                       </div>
                   ):(
                     <div className="flex">
-                      <Button as={Link} href={`${urlFor(data?.detail?.pattern[activeIndex].image).url()}?dl=${data?.title}.jpg`} target="_blank" size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
+                      <Button as={Link} href={`${urlFor(data?.detail?.productsize[activePattern]?.pattern[activeIndex].image).url()}?dl=${data?.title}.jpg`} target="_blank" size="sm" radius="full" className="group data-hover:bg-[#6F7489] flex justify-center items-center px-[24px] h-[38px] rounded-[50px] bg-[#EFF1F7] hover:bg-[#6F7489] transition-all duration-700
                       text-[16px] md:text-[14px] lg:text-[16px] text-[#6F7489] hover:text-[#EFF1F7] font-[600]">
                         Download
                       </Button>  
@@ -93,7 +94,7 @@ export default function ProductSlugContent({data}) {
                               </p>
                             </div>
                           </div>
-                          {/* Material:  */}
+                          {/* Material: 
                           <div className="flex gap-x-[8px] md:gap-x-[1%] w-full">
                             <div className="flex md:w-[49%]">
                               <h2 className="text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#14142A] font-[700] leading-[125%]">
@@ -105,7 +106,8 @@ export default function ProductSlugContent({data}) {
                                 {`${data?.detail?.material ? (data?.detail?.material):"-"}`}
                               </p>
                             </div>
-                          </div>
+                          </div> */}
+                          
                           {/* Finish: */}
                           <div className="flex gap-x-[8px] md:gap-x-[1%] w-full">
                             <div className="flex md:w-[49%]">
@@ -173,20 +175,29 @@ export default function ProductSlugContent({data}) {
                         
                     </div>
                     {/* Pattern */}
-                    {data?.detail?.pattern == undefined ? null :(
-                     <div className="flex flex-col w-full gap-y-[8px]">
+                    {data?.detail?.productsize[activePattern].pattern == undefined ? null :(
+                     <div className="flex flex-col w-full gap-y-[24px]">
                         {/* Header Pattern */}
-                        <div className="flex justify-start w-full">
+                        <div className="flex flex-col xl:flex-row justify-start xl:items-center w-full gap-x-[32px] gap-y-[16px] xl:gap-y-[32px]">
                           <h2 className="text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#14142A] font-[700] leading-[125%]">
                             Pattern: 
                           </h2>
+                          <div className="grid grid-cols-3 xl:flex flex-wrap items-center gap-[8px] sm:gap-[16px]">
+                            {data?.detail?.productsize.map((item,index)=>(
+                                <button onClick={()=>setActivePattern(index)} key={index} className="flex justify-center items-center w-full xl:w-auto bg-[#F1EFE9] transition-all duration-500 hover:bg-[#d2d2cf] rounded-lg px-4 sm:px-6 py-[4px] sm:py-[6px]">
+                                  <p className="text-[16px] text-[#997F53] font-[400] leading-[125%]">
+                                    {item?.size?.replace( "mm", "")}
+                                  </p>
+                                </button>
+                              ))}
+                          </div>
                         </div>
                         <div className="flex justify-center md:justify-start items-center gap-x-[2%]">
-                          {data?.detail?.pattern == undefined ? null :(
-                            <div className="flex w-full gap-x-[2%]">
-                            {data?.detail?.pattern.map((item,index)=>(
-                                <div key={index} className={`flex justify-center items-center cursor-pointer w-[23.5%] md:w-[18.4%] h-full transition-all duration-700`}>
-                                  <Image onClick={()=>setActiveIndex(index)} className="object-scale-down object-center w-full h-full" src={urlFor(item?.image).url()} alt={item?.alt} width={98} height={98}/>
+                          {data?.detail?.productsize[activePattern].pattern == undefined ? null :(
+                            <div className="grid grid-cols-4 md:grid-cols-6 w-full gap-[8px]">
+                            {data?.detail?.productsize[activePattern].pattern.map((item,index)=>(
+                                <div key={index} className={`flex justify-center items-center cursor-pointer w-full h-full transition-all duration-700`}>
+                                  <Image onClick={()=>setActiveIndex(index)} className="object-cover object-center w-full h-[80px] ss:h-[90px]  sm:h-[112px] md:h-[84px] lg:h-[75px] xl:h-[90px]" src={urlFor(item?.image).url()} alt={item?.alt} width={98} height={98}/>
                                 </div>
                               ))}
                           </div>

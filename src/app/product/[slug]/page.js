@@ -20,10 +20,19 @@ async function getPosts(params) {
     const query = groq`*[_type == "product" && slug.slug.current == '${slug}'][0]{
         _id,
         title,
-        detail,
+        detail{
+          productsize[] {
+              "size":size->size,
+              "size2":size->size2,
+              "pattern":pattern
+          },
+          material,
+          finish,
+          thinness,
+          application,
+        },
         slug,
         mainImage,
-        size,
         date,
         'category': category->title,
         'collection': collection->title,
@@ -33,10 +42,19 @@ async function getPosts(params) {
     const queryBlog = groq`*[_type == "product" && slug.slug.current != '${slug}'] | order(_createdAt desc){
         _id,
         title,
-        detail,
+        detail{
+          productsize[] {
+              "size":size->size,
+              "size2":size->size2,
+              "pattern":pattern
+          },
+          material,
+          finish,
+          thinness,
+          application,
+        },
         slug,
         mainImage,
-        size,
         date,
         'category': category->title,
         'collection': collection->title,
