@@ -14,7 +14,7 @@ async function getPosts() {
         return dateB - dateA;
       });
   
-    const queryProject = groq`*[_type == "product"] | order(_createdAt desc){
+    const queryProject = groq`*[_type == "product" && title != "Bianco - WBDA206 Test 01"] | order(_createdAt desc){
       _id,
       title,
       detail,
