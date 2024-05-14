@@ -26,7 +26,7 @@ export default function CardMoreProduct({item,index}) {
       {/* Content */}
       <div className="flex flex-col items-center w-full gap-y-[8px]">
           <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[600] leading-[125%] text-center uppercase">
-            {item?.collection}
+            {item?.series}
           </Link>
           <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[400] leading-[125%] text-center">
             {item?.title}

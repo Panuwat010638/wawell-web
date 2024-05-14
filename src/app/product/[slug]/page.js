@@ -35,6 +35,7 @@ async function getPosts(params) {
         mainImage,
         date,
         'category': category->title,
+        'series': series->title,
         'collection': collection->title,
       }`
     const posts = await client.fetch(query, slug)
@@ -58,6 +59,7 @@ async function getPosts(params) {
         date,
         'category': category->title,
         'collection': collection->title,
+        'series': series->title,
       }`
     const postsBlog = await client.fetch(queryBlog)
     const product = postsBlog.sort((a, b) => {

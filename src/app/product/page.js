@@ -23,7 +23,6 @@ async function getPosts() {
             "size2":size->size2,
             "pattern":pattern
         },
-        material,
         finish,
         thinness,
         application
@@ -33,6 +32,7 @@ async function getPosts() {
 
       date,
       'category': category->title,
+      'series': series->title,
       'collection': collection->title,
     }`
     const ProjectData = await client.fetch(queryProject)

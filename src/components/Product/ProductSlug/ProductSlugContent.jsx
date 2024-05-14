@@ -90,7 +90,7 @@ export default function ProductSlugContent({data}) {
                             </div>
                             <div className="flex md:w-[50%]">
                               <p className="text-[18px] md:text-[14px] lg:text-[16px] xl:text-[18px] text-[#14142A] font-[400] leading-[125%]">
-                                {data?.collection}
+                                {data?.series}
                               </p>
                             </div>
                           </div>
