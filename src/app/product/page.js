@@ -37,10 +37,13 @@ async function getPosts() {
     }`
     const ProjectData = await client.fetch(queryProject)
     const product = ProjectData.sort((a, b) => {
-        const dateA = new Date(a.date);
-        const dateB = new Date(b.date);
-        return dateB - dateA;
-      });
+      const seriesA = a.series.toLowerCase(); // Convert to lowercase for case-insensitive sorting
+      const seriesB = b.series.toLowerCase();
+    
+      if (seriesA < seriesB) return -1; // a should come before b
+      if (seriesA > seriesB) return 1; // a should come after b
+      return 0; // a and b are equal
+    });
       const queryCollection = groq`*[_type == "collectionproducts"] | order(_createdAt asc){
         _id,
         title,
