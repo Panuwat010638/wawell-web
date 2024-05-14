@@ -50,17 +50,42 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const title = post?.seo?.titletag||""||post.title
   const description =post?.seo?.description||""||post.title
   const keywords =post?.seo?.keywords||""||post.title
+  const ogImageUrl = post?.seo?.openGraphImage != undefined ? urlFor(post?.seo?.openGraphImage).width(1200).height(630).fit('scale').auto('format').format('webp').url():null;
  if(post?.seo==undefined){
   return {
     title: post.title,
     description: post.title,
-    keywords:post.title 
+    keywords:post.title,
+    alternates: {
+      canonical: `/project/${post.slug.slug.current}`,
+      languages: {
+        'th': '/th',
+      },},
+      openGraph: {
+        title: post.seo?.titletag,
+        description: post.seo?.description,
+        images: ogImageUrl ? [ ogImageUrl ] : ['/og.png' ],
+        type: 'website',
+        authors: ['Wawell Decor Co.,Ltd.']
+      }
   }
  }else {
   return {
     title: title,
     description: description,
-    keywords:keywords 
+    keywords:keywords,
+    alternates: {
+      canonical: `/project/${post.slug.slug.current}`,
+      languages: {
+        'th': '/th',
+      },},
+      openGraph: {
+        title: post.seo?.titletag,
+        description: post.seo?.description,
+        images: ogImageUrl ? [ ogImageUrl ] : ['/og.png' ],
+        type: 'website',
+        authors: ['Wawell Decor Co.,Ltd.']
+      }
   }
  }
   

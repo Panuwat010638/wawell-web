@@ -45,10 +45,10 @@ export async function generateMetadata({ params, searchParams }, parent) {
   
 
   return {
-    title: 'Wawell Co.,Ltd' ,
-    description: 'Wawell Co.,Ltd',
-    keywords:'Wawell',
-    metadataBase: new URL('http://wawell.com/'),
+    title: 'Wawell Decor Co.,Ltd' ,
+    description: 'Wawell Decor Co.,Ltd',
+    keywords:'Wawell Decor',
+    metadataBase: new URL('https://www.wawelldecor.com/'),
     robots: {
       index: true,
       follow: true,
@@ -62,9 +62,9 @@ export async function generateMetadata({ params, searchParams }, parent) {
         'max-snippet': -1,
       },
     },
-    authors: [{ name: 'Wawell Co.,Ltd', url: 'http://wawell.com/' }],
-    creator: 'Wawell Co.,Ltd',
-    publisher: 'Wawell Co.,Ltd',
+    authors: [{ name: 'Wawell Decor Co.,Ltd', url: 'https://www.wawelldecor.com/' }],
+    creator: 'Wawell Decor Co.,Ltd',
+    publisher: 'Wawell Decor Co.,Ltd',
 
     verification: {
       google: gsc?.title,

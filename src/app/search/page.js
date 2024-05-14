@@ -14,7 +14,7 @@ async function getPosts() {
         return dateB - dateA;
       });
   
-    const queryProject = groq`*[_type == "product"] | order(_createdAt desc){
+    const queryProject = groq`*[_type == "products"] | order(_createdAt desc){
       _id,
       title,
       detail,
@@ -41,11 +41,23 @@ async function getPosts() {
   
     const query = groq`*[_type == 'ProductPage' ][0]`
     const post = await client.fetch(query)
-    
+    const ogImageUrl = post?.seo?.openGraphImage != undefined ? urlFor(post?.seo?.openGraphImage).width(1200).height(630).fit('scale').auto('format').format('webp').url():null;
     return {
       title: post.seo?.titletag ,
       description: post.seo?.description,
       keywords: post.seo?.keywords,
+      alternates: {
+        canonical: `/search`,
+        languages: {
+          'th': '/th',
+        },},
+        openGraph: {
+          title: post.seo?.titletag,
+          description: post.seo?.description,
+          images: ogImageUrl ? [ ogImageUrl ] : ['/og.png' ],
+          type: 'website',
+          authors: ['Wawell Decor Co.,Ltd.']
+        }
     }
   }
 

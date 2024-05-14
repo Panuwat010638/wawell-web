@@ -14,7 +14,7 @@ async function getPosts() {
         return dateB - dateA;
       });
   
-    const queryProject = groq`*[_type == "product" ] | order(_createdAt desc){
+    const queryProject = groq`*[_type == "products"] | order(_createdAt desc){
       _id,
       title,
       detail{
@@ -26,7 +26,7 @@ async function getPosts() {
         material,
         finish,
         thinness,
-        application,
+        application
       },
       slug,
       mainImage,
@@ -41,7 +41,7 @@ async function getPosts() {
         const dateB = new Date(b.date);
         return dateB - dateA;
       });
-      const queryCollection = groq`*[_type == "collectionproduct"] | order(_createdAt asc){
+      const queryCollection = groq`*[_type == "collectionproducts"] | order(_createdAt asc){
         _id,
         title,
         'category': category->title,
@@ -58,11 +58,23 @@ async function getPosts() {
   
     const query = groq`*[_type == 'ProductPage' ][0]`
     const post = await client.fetch(query)
-    
+    const ogImageUrl = post?.seo?.openGraphImage != undefined ? urlFor(post?.seo?.openGraphImage).width(1200).height(630).fit('scale').auto('format').format('webp').url():null;
     return {
       title: post.seo?.titletag ,
       description: post.seo?.description,
       keywords: post.seo?.keywords,
+      alternates: {
+        canonical: `/product`,
+        languages: {
+          'th': '/th',
+        },},
+        openGraph: {
+          title: post.seo?.titletag,
+          description: post.seo?.description,
+          images: ogImageUrl ? [ ogImageUrl ] : ['/og.png' ],
+          type: 'website',
+          authors: ['Wawell Decor Co.,Ltd.']
+        }
     }
   }
 
