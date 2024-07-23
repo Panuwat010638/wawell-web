@@ -35,7 +35,6 @@ export default function ProductFilterMobile({data,filterCollection,size,selected
                       </h3>
                     }>
                      <CheckboxGroup
-                          
                           color="#223B61"
                           value={selected}
                           onValueChange={setSelected}
