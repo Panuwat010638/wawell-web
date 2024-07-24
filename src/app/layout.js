@@ -6,6 +6,7 @@ import groq from 'groq'
 import client from "../../client"
 import Head from 'next/head'
 import GA from './ga'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 const iBM_Plex_Sans_Thai =  IBM_Plex_Sans_Thai(
   { 
@@ -100,6 +101,7 @@ export default async function RootLayout({ children }) {
         <Navbar data={navbar[0].menu}/>
         {children}
         <Footer data={footer[0]}/>
+        <GoogleTagManager gtmId="GTM-NVW7M84S" />
       </body>
     </html>
   );
