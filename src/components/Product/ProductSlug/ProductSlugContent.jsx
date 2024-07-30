@@ -1,6 +1,6 @@
 'use client'
-import { useState,useEffect } from "react"
-import { Button,Link } from "@nextui-org/react"
+import { useState,Suspense } from "react"
+import { Button,Link,Skeleton } from "@nextui-org/react"
 import Image from "next/image"
 import client from "../../../../client"
 import imageUrlBuilder from '@sanity/image-url'
@@ -28,12 +28,22 @@ export default function ProductSlugContent({data}) {
             {data?.detail?.productsize[activePattern].pattern == undefined ? (
               <div className="flex flex-col w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]">
                 {data?.mainImage?.image!=undefined ? (
-                <div className={`flex justify-center items-center w-full h-full`}>
-                    <Image className=" object-contain object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={1048} height={1048}/>
-                  </div>):(
-                    <div  className={`flex justify-center items-center w-full h-full`}>
-                      <Image className=" object-contain object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={1048} height={1048}/>
-                    </div>
+                  <Suspense fallback={<Skeleton className="flex h-full w-full">
+                    <div className="h-full w-full rounded-lg bg-default-300"></div>
+                  </Skeleton>}>
+                      <div className={`flex justify-center items-center w-full h-full`}>
+                      <Image className=" object-contain object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={1048} height={1048}/>
+                      </div>
+                    </Suspense>
+                  ):(
+                    <Suspense fallback={<Skeleton>
+                      <div className="h-full w-full rounded-lg bg-default-300"></div>
+                    </Skeleton>}>
+                      <div  className={`flex justify-center items-center w-full h-full`}>
+                        <Image className=" object-contain object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={1048} height={1048}/>
+                      </div>
+                    </Suspense>
+                    
                   )}
                   
               </div>
@@ -175,7 +185,7 @@ export default function ProductSlugContent({data}) {
                         
                     </div>
                     {/* Pattern */}
-                    {data?.detail?.productsize[activePattern].pattern == undefined ? null :(
+                    {data?.detail?.productsize[activePattern].size == undefined ? null :(
                      <div className="flex flex-col w-full gap-y-[24px]">
                         {/* Header Pattern */}
                         <div className="flex flex-col xl:flex-row justify-start xl:items-center w-full gap-x-[32px] gap-y-[16px] xl:gap-y-[32px]">
@@ -184,8 +194,8 @@ export default function ProductSlugContent({data}) {
                           </h2>
                           <div className="grid grid-cols-3 xl:flex flex-wrap items-center gap-[8px] sm:gap-[16px]">
                             {data?.detail?.productsize.map((item,index)=>(
-                                <button onClick={()=>setActivePattern(index)} key={index} className="flex justify-center items-center w-full xl:w-auto bg-[#F1EFE9] transition-all duration-500 hover:bg-[#d2d2cf] rounded-lg px-4 sm:px-6 py-[4px] sm:py-[6px]">
-                                  <p className="text-[16px] text-[#997F53] font-[400] leading-[125%]">
+                                <button onClick={()=>setActivePattern(index)} key={index} className={`group ${activePattern==index ? "bg-[#c4b293]":"bg-[#F1EFE9] hover:bg-[#c4b293]"} flex justify-center items-center w-full xl:w-auto transition-all duration-500 rounded-lg px-4 sm:px-6 py-[4px] sm:py-[6px]`}>
+                                  <p className={`text-[16px] font-[400] leading-[125%] transition-all duration-500 ${activePattern == index ? "text-[#F1EFE9]":"text-[#997F53] group-hover:text-[#F1EFE9]"}`}>
                                     {item?.size?.replace( "mm", "")}
                                   </p>
                                 </button>
@@ -196,9 +206,16 @@ export default function ProductSlugContent({data}) {
                           {data?.detail?.productsize[activePattern].pattern == undefined ? null :(
                             <div className="grid grid-cols-4 md:grid-cols-6 w-full gap-[8px]">
                             {data?.detail?.productsize[activePattern].pattern.map((item,index)=>(
-                                <div key={index} className={`flex justify-center items-center cursor-pointer w-full h-full transition-all duration-700`}>
-                                  <Image onClick={()=>setActiveIndex(index)} className="object-cover object-center w-full h-[80px] ss:h-[90px]  sm:h-[112px] md:h-[84px] lg:h-[75px] xl:h-[90px]" src={urlFor(item?.image).url()} alt={item?.alt} width={98} height={98}/>
+                              <Suspense key={index} fallback={
+                                <Skeleton className="flex w-full bg-default-300 h-[80px] ss:h-[90px] sm:h-[112px] md:h-[84px] lg:h-[75px] xl:h-[90px]">
+                                <div className="h-full w-full bg-default-300"></div>
+                              </Skeleton>
+                              }>
+                                <div className={`flex justify-center items-center cursor-pointer w-full h-full transition-all duration-700`}>
+                                  <Image onClick={()=>setActiveIndex(index)} className="object-cover object-center w-full h-[80px] ss:h-[90px]  sm:h-[112px] md:h-[84px] lg:h-[75px] xl:h-[90px]" src={urlFor(item?.image).url()} alt={item?.alt ? item?.alt:`${data?.title} Size: ${item?.size}, Pattern: ${index+1}`} width={98} height={98}/>
                                 </div>
+                              </Suspense>
+                                
                               ))}
                           </div>
                           )}
