@@ -85,9 +85,7 @@ export default async function RootLayout({ children }) {
   const footer = posts.props.footer;
   return (
     <html className={iBM_Plex_Sans_Thai.className}>
-      <Head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-      </Head>
+     
       <body className="block">
       <GA data={gtag?.title}/>
         <noscript>
