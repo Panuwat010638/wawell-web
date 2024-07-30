@@ -52,7 +52,7 @@ export default function ProductSlugHeader({data}) {
                         <Link href={`/product`} className="text-[14px] md:text-[16px] text-[#ABB1C1] font-[500]">
                             Product /
                         </Link>
-                        <p className="text-[14px] md:text-[16px] text-[#14142A] font-[500]">
+                        <p className="text-[14px] md:text-[16px] text-[#14142A] font-[500] uppercase">
                             {data?.title}
                         </p>
                     </div>

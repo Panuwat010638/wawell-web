@@ -29,7 +29,7 @@ export default function CardProduct({item,index}) {
           <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[600] leading-[125%] text-center uppercase">
             {item?.series}
           </Link>
-          <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[400] leading-[125%] text-center">
+          <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[400] leading-[125%] text-center uppercase">
             {item?.title}
           </Link>
       </div>

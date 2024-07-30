@@ -29,10 +29,10 @@ export default function ProductSlugContent({data}) {
               <div className="flex flex-col w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]">
                 {data?.mainImage?.image!=undefined ? (
                 <div className={`flex justify-center items-center w-full h-full`}>
-                    <Image className=" object-cover object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={1048} height={1048}/>
+                    <Image className=" object-contain object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={1048} height={1048}/>
                   </div>):(
                     <div  className={`flex justify-center items-center w-full h-full`}>
-                      <Image className=" object-cover object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={1048} height={1048}/>
+                      <Image className=" object-contain object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={1048} height={1048}/>
                     </div>
                   )}
                   
@@ -52,7 +52,7 @@ export default function ProductSlugContent({data}) {
           <div className="flex flex-col w-full ss:w-[90%] sm:w-[80%] md:w-[80%] h-auto md:h-full gap-y-[16px] md:gap-y-[24px]">
               {/* Name Product */}
               <div className="flex flex-col md:flex-row justify-normal md:justify-between items-center w-full gap-y-[8px] sm:gap-y-[16px] gap-x-[16px] pb-[16px] md:pb-[24px] border-b-[2px] border-solid border-[#E0E3EB]">
-                  <h1 className="text-[18px] md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#14142A] font-[700] leading-[125%]">
+                  <h1 className="text-[18px] md:text-[16px] lg:text-[20px] xl:text-[24px] text-[#14142A] font-[700] leading-[125%] uppercase">
                     {data?.title}
                   </h1>
                   {data?.detail?.productsize[activePattern].pattern == undefined ? (
