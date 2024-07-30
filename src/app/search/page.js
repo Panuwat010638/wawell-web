@@ -17,12 +17,22 @@ async function getPosts() {
     const queryProject = groq`*[_type == "products"] | order(_createdAt desc){
       _id,
       title,
-      detail,
+      detail{
+        productsize[] {
+            "size":size->size,
+            "size2":size->size2,
+            "pattern":pattern
+        },
+        finish,
+        thinness,
+        application
+      },
       slug,
       mainImage,
-      size,
+
       date,
       'category': category->title,
+      'series': series->title,
       'collection': collection->title,
     }`
     const ProjectData = await client.fetch(queryProject)

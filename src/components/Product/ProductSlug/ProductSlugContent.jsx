@@ -17,7 +17,7 @@ function urlFor(source) {
 export default function ProductSlugContent({data}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activePattern,setActivePattern]=useState(0)
-  console.log(data?.detail?.productsize[0].pattern)
+ 
   return (
     <div className="bg-[#fcfcfc]">
       <div className="max-w-6xl mx-auto px-6 xl:px-0 pb-[56px] md:pb-[64px] lg:pb-[72px] xl:pb-[80px]">
