@@ -40,7 +40,7 @@ export default function ProductSlugContent({data}) {
                       <div className="h-full w-full rounded-lg bg-default-300"></div>
                     </Skeleton>}>
                       <div  className={`flex justify-center items-center w-full h-full`}>
-                        <Image radius="none" className=" object-contain object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={'100%'} height={'100%'}/>
+                        <Image radius="none" className=" object-contain object-center w-full h-full" src={callback.src} alt={`Wawell Callback Image`} width={'100%'} height={'100%'}/>
                       </div>
                     </Suspense>
                     
@@ -237,10 +237,10 @@ export default function ProductSlugContent({data}) {
                   </Link>
                   <div className="flex justify-start w-full md:w-auto gap-x-[10px]">
                       <div className="flex justify-center items-center">
-                        <Image radius="none" className=" object-scale-down object-center w-full h-[80px]" src={ly1} alt="มอก.2508-2555" quality={100} width={'100%'} height={'100%'}/>
+                        <Image radius="none" className=" object-scale-down object-center w-full h-[80px]" src={ly1.src} alt="มอก.2508-2555" quality={100} width={'100%'} height={'100%'}/>
                       </div>  
                       <div className="flex justify-center items-center">
-                        <Image radius="none" className=" object-scale-down object-center w-full h-[80px]" src={ly2} alt="QR code มอก.2508-2555" quality={100} width={'100%'} height={'100%'}/>
+                        <Image radius="none" className=" object-scale-down object-center w-full h-[80px]" src={ly2.src} alt="QR code มอก.2508-2555" quality={100} width={'100%'} height={'100%'}/>
                       </div>
                   </div>
                 </div>
