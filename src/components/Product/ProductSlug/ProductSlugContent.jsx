@@ -28,21 +28,16 @@ export default function ProductSlugContent({data}) {
             {data?.detail?.productsize[activePattern].pattern == undefined ? (
               <div className="flex flex-col w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]">
                 {data?.mainImage?.image!=undefined ? (
-                  <Suspense fallback={<Skeleton className="flex h-full w-full">
-                    <div className="h-full w-full rounded-lg bg-default-300"></div>
-                  </Skeleton>}>
-                      <div className={`flex justify-center items-center w-full h-full`}>
-                      <Image radius="none" className=" object-contain object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={'100%'} height={'100%'}/>
-                      </div>
-                    </Suspense>
+                 
+                  <div className={`flex justify-center items-center w-full h-full`}>
+                    <Image radius="none" className=" object-contain object-center w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={'100%'} height={'100%'}/>
+                  </div>
+                   
                   ):(
-                    <Suspense fallback={<Skeleton>
-                      <div className="h-full w-full rounded-lg bg-default-300"></div>
-                    </Skeleton>}>
-                      <div  className={`flex justify-center items-center w-full h-full`}>
-                        <Image radius="none" className=" object-contain object-center w-full h-full" src={callback.src} alt={`Wawell Callback Image`} width={'100%'} height={'100%'}/>
-                      </div>
-                    </Suspense>
+                   
+                  <div  className={`flex justify-center items-center w-full h-full`}>
+                    <Image radius="none" className=" object-contain object-center w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]" src={callback.src} alt={`Wawell Callback Image`} width={'100%'} height={'100%'}/>
+                  </div>
                     
                   )}
                   
@@ -51,7 +46,7 @@ export default function ProductSlugContent({data}) {
               <div className="flex flex-col w-full items-center h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]  relative">
                 {data?.detail?.productsize[activePattern]?.pattern.map((item,index)=>(
                   <div key={index} className={`flex justify-center items-center w-full h-full transition-all duration-700 ease-linear absolute top-0 ${activeIndex==index ? "opacity-100 z-[10]":"opacity-0 z-[1]"}`}>
-                    <Image radius="none" className=" object-contain object-center w-full h-full" src={urlFor(item?.image).url()} alt={item?.alt} width={'100%'} height={'100%'}/>
+                    <Image radius="none" className=" object-contain object-center w-full h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]" src={urlFor(item?.image).url()} alt={item?.alt} width={'100%'} height={'100%'}/>
                   </div>
                 ))}
               </div>
