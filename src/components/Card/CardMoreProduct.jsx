@@ -13,7 +13,7 @@ export default function CardMoreProduct({item,index}) {
     <div className="flex flex-col w-[49%] ss:w-[49%] md:w-[23.5%] gap-y-[16px]">
       {/* Image */}
       {item?.mainImage?.image != undefined ? (
-      <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className={`flex w-full 
+      <Link rel="canonical" href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className={`flex w-full 
       ${item?.mainImage?.border == true ? "border-[1px] border-solid border-[#e7e7e7]":"border-[1px] border-solid border-transparent"}`}>
         <Image className="object-cover object-center h-[163px] sm:h-[183px] md:h-[213px]" src={urlFor(item?.mainImage?.image).url()} alt={item?.mainImage?.alt}
           width={290} height={290} radius="none"/>
@@ -25,10 +25,10 @@ export default function CardMoreProduct({item,index}) {
       )}
       {/* Content */}
       <div className="flex flex-col items-center w-full gap-y-[8px]">
-          <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[600] leading-[125%] text-center uppercase">
+          <Link rel="canonical" href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[600] leading-[125%] text-center uppercase">
             {item?.series}
           </Link>
-          <Link href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[400] leading-[125%] text-center uppercase">
+          <Link rel="canonical" href={`/product/${encodeURIComponent(item?.slug?.slug?.current)}`} className="text-[14px] md:text-[16px] text-[#070709] font-[400] leading-[125%] text-center uppercase">
             {item?.title}
           </Link>
       </div>

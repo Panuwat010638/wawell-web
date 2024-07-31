@@ -1,7 +1,7 @@
 'use client'
 import { useState,Suspense } from "react"
 import { Button,Link,Skeleton } from "@nextui-org/react"
-import Image from "next/image"
+import { Image } from "@nextui-org/react"
 import client from "../../../../client"
 import imageUrlBuilder from '@sanity/image-url'
 import ly1 from "../../../../public/assets/Images/SlugProduct/ly1.png"
@@ -32,7 +32,7 @@ export default function ProductSlugContent({data}) {
                     <div className="h-full w-full rounded-lg bg-default-300"></div>
                   </Skeleton>}>
                       <div className={`flex justify-center items-center w-full h-full`}>
-                      <Image className=" object-contain object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={1048} height={1048}/>
+                      <Image radius="none" className=" object-contain object-center w-full h-full" src={urlFor(data.mainImage?.image).url()} alt={data.mainImage?.alt} width={'100%'} height={'100%'}/>
                       </div>
                     </Suspense>
                   ):(
@@ -40,7 +40,7 @@ export default function ProductSlugContent({data}) {
                       <div className="h-full w-full rounded-lg bg-default-300"></div>
                     </Skeleton>}>
                       <div  className={`flex justify-center items-center w-full h-full`}>
-                        <Image className=" object-contain object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={1048} height={1048}/>
+                        <Image radius="none" className=" object-contain object-center w-full h-full" src={callback} alt={`Wawell Callback Image`} width={'100%'} height={'100%'}/>
                       </div>
                     </Suspense>
                     
@@ -51,7 +51,7 @@ export default function ProductSlugContent({data}) {
               <div className="flex flex-col w-full items-center h-[327.2px] ss:h-[388.8px] sm:h-[473.6px] md:h-[288px] lg:h-[390.4px] xl:h-[524px]  relative">
                 {data?.detail?.productsize[activePattern]?.pattern.map((item,index)=>(
                   <div key={index} className={`flex justify-center items-center w-full h-full transition-all duration-700 ease-linear absolute top-0 ${activeIndex==index ? "opacity-100 z-[10]":"opacity-0 z-[1]"}`}>
-                    <Image className=" object-contain object-center w-full h-full" src={urlFor(item?.image).url()} alt={item?.alt} width={1048} height={1048}/>
+                    <Image radius="none" className=" object-contain object-center w-full h-full" src={urlFor(item?.image).url()} alt={item?.alt} width={'100%'} height={'100%'}/>
                   </div>
                 ))}
               </div>
@@ -212,7 +212,7 @@ export default function ProductSlugContent({data}) {
                               </Skeleton>
                               }>
                                 <div className={`flex justify-center items-center cursor-pointer w-full h-full transition-all duration-700`}>
-                                  <Image onClick={()=>setActiveIndex(index)} className="object-cover object-center w-full h-[80px] ss:h-[90px]  sm:h-[112px] md:h-[84px] lg:h-[75px] xl:h-[90px]" src={urlFor(item?.image).url()} alt={item?.alt ? item?.alt:`${data?.title} Size: ${item?.size}, Pattern: ${index+1}`} width={98} height={98}/>
+                                  <Image radius="none" onClick={()=>setActiveIndex(index)} className="object-cover object-center w-full h-[80px] ss:h-[90px]  sm:h-[112px] md:h-[84px] lg:h-[75px] xl:h-[90px]" src={urlFor(item?.image).url()} alt={item?.alt ? item?.alt:`${data?.title} Size: ${item?.size}, Pattern: ${index+1}`} width={'100%'} height={'100%'}/>
                                 </div>
                               </Suspense>
                                 
@@ -237,10 +237,10 @@ export default function ProductSlugContent({data}) {
                   </Link>
                   <div className="flex justify-start w-full md:w-auto gap-x-[10px]">
                       <div className="flex justify-center items-center">
-                        <Image className=" object-scale-down object-center w-full h-[80px]" src={ly1} alt="มอก.2508-2555" quality={100} width={ly1.width} height={ly2.h1}/>
+                        <Image radius="none" className=" object-scale-down object-center w-full h-[80px]" src={ly1} alt="มอก.2508-2555" quality={100} width={'100%'} height={'100%'}/>
                       </div>  
                       <div className="flex justify-center items-center">
-                        <Image className=" object-scale-down object-center w-full h-[80px]" src={ly2} alt="QR code มอก.2508-2555" quality={100} width={ly2.width} height={ly2.h1}/>
+                        <Image radius="none" className=" object-scale-down object-center w-full h-[80px]" src={ly2} alt="QR code มอก.2508-2555" quality={100} width={'100%'} height={'100%'}/>
                       </div>
                   </div>
                 </div>
