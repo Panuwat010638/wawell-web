@@ -88,7 +88,8 @@ export default async function RootLayout({ children }) {
      
       <body className="block">
       <GA data={gtag?.title}/>
-        <noscript>
+        {facebook?.title == undefined ? null:(
+          <noscript>
           <img
             height="1"
             width="1"
@@ -96,6 +97,8 @@ export default async function RootLayout({ children }) {
             src={`https://www.facebook.com/tr?id=${facebook?.title}&ev=PageView&noscript=1`}
           />
         </noscript>
+        )}
+        
         <Navbar data={navbar[0].menu}/>
         {children}
         <Footer data={footer[0]}/>

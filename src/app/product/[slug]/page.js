@@ -38,7 +38,7 @@ async function getPosts(params) {
         'series': series->title,
         'collection': collection->title,
       }`
-    const posts = await client.fetch(query, slug)
+    const posts = await client.fetch(query)
 
     const queryBlog = groq`*[_type == "products" && slug.slug.current != '${slug}'] | order(_createdAt desc){
         _id,
@@ -80,7 +80,7 @@ export async function generateMetadata({ params, searchParams }, parent) {
   const slug  = decodeURIComponent(params.slug)
   const query = groq`*[_type == "products" && slug.slug.current == '${slug}'][0]`
 
-  const post = await client.fetch(query, slug)
+  const post = await client.fetch(query)
   const ogImageUrl = post?.seo?.openGraphImage != undefined ? urlFor(post?.seo?.openGraphImage).width(1200).height(630).fit('scale').auto('format').format('webp').url():null;
   return {
     title: post?.seo?.titletag ? post?.seo?.titletag : post?.title,
