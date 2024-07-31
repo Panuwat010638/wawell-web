@@ -10,26 +10,23 @@ export default function SearchContent({data,product}) {
     const pathname = usePathname();
     const [filterProduct,setProduct]=useState([])
     const [value,setValue] = useState('')
-    const qp = router.toString()||'/search'
-    const text=qp.replace("search=", "");
-    const text2=decodeURIComponent(text)
-    const textQuery=text2.replace("+", " ");
+    const params = decodeURIComponent(router.get('search') || '/search');
     useEffect(() => {
-       if(textQuery!='/search'){
-        setValue(textQuery)
+       if(params!='/search'){
+        setValue(params)
        }else {
         setValue('')
        }
       
-     }, [pathname,qp]);
+     }, [params,pathname]);
 
      useEffect(() => {
         // ทำการกรองข้อมูล blogs โดยใช้ textQuery
-        const filteredProduct = product.filter(item => item?.title.includes(textQuery));
+        const filteredProduct = product.filter(item => item?.title.toLowerCase().includes(value.toLowerCase()));
     
         // ตั้งค่า filteredBlogs เมื่อข้อมูลถูกกรอง
         setProduct(filteredProduct);
-    }, [value, textQuery]);
+    }, [value, params]);
     
   return (
     <section className="bg-[#fcfcfc]">
