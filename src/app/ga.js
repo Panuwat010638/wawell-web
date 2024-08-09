@@ -16,7 +16,7 @@ export default function GA({data}) {
                     gtag('config', '${data}');
 
                     gtag('consent', 'default', {
-                        'analytics_storage': 'denied'
+                        'analytics_storage': 'granted'
                     });
                     
                     gtag('config', '${data}', {
